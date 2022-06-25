@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="63fe34e5-7f6d-4dd7-9259-f0e41ee7b7bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjectFinal.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DbConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Location.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/OrderDetail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/OrderTour.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Staff.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/StatusTour.java" afterDir="false" />
-    </list>
+    <list default="true" id="63fe34e5-7f6d-4dd7-9259-f0e41ee7b7bf" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,7 +15,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -46,7 +30,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "E:/Java/Network/demo",
+    "last_opened_file_path": "E:/NetWork/sqljdbc_10.2.1.0_enu/sqljdbc_10.2/enu/auth/x64",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
@@ -54,10 +38,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\CSDLNC\Tourism-Management\ProjectFinal\ProjectFinal\src\Model" />
       <recent name="E:\CSDLNC\ProjectFinal\ProjectFinal\src" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="DbConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DbConnection" />
       <module name="ProjectFinal" />
@@ -65,8 +50,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="ProjectFinal" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.DbConnection" />
       </list>
     </recent_temporary>

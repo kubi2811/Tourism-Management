@@ -7,21 +7,21 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../NetWork/sqljdbc_10.2.1.0_enu/sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre17.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../../NetWork/sqljdbc_10.2.1.0_enu/sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre17.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="module-library">
       <library>
         <CLASSES />
         <JAVADOC />
         <NATIVE>
-          <root url="file://$MODULE_DIR$/../../../NetWork/sqljdbc_10.2.1.0_enu/sqljdbc_10.2/enu/auth/x64" />
+          <root url="file://$MODULE_DIR$/../../../../NetWork/sqljdbc_10.2.1.0_enu/sqljdbc_10.2/enu/auth/x64" />
         </NATIVE>
         <SOURCES />
       </library>
