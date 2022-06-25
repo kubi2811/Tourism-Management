@@ -3,8 +3,8 @@ khách hàng
 staff
 	đăng nhập, xem tất cả thông tin khách hàng và tour, thêm xóa sửa tour, thống kê
 admin
-	đăng ký, đăng nhập, phân quyền cho staff, xem tất cả thông tin khách hàng và tour, t
-hống kê
+	đăng ký, đăng nhập, phân quyền cho staff, xem tất cả thông tin khách hàng và tour, 
+thống kê
 
 
 User
