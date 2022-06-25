@@ -1,0 +1,1 @@
+- Khi login không cần chọn role mà khi nhập tài khoản và mật khẩu sẽ tự động vào đúng role của ng đó
