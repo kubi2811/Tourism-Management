@@ -49,7 +49,13 @@ sửa bảng trạng thái chuyến đi (id, tên người, tên tour, số ngư
 DB:
 Admin(IdAdmin, Username, Pass)
 Staff(IdStaff, IdAdmin, Username, Pass)
-Tour(IdTour, DayStart, DayEnd, Description, LocationStart, LocationVisit, Cost, Vehicle)
-Client(IdClient, Username, Password, FullName, Add, Phone, Email)\
+Tour(IdTour, DayStart, DayEnd, Description, IdLocationStart, IdLocationVisit, Cost, IdVehicle)
+Client(IdClient, Username, Password, FullName, Add, Phone, Email)
 Order(IdOrder, IdClient, Total)
 OrderDetail(Id, IdOrder, IdClient, Adults, Childs)
+LocationStart(Id, Province)
+LocationVisit(Id, Province)
+Vehicle(Id, Type, Capacity)
+OrderStatus(Id, IdOrder, Status)
+RecycleBin(Id, IdOrder)
+History(IdOrder, TimeOrder)
