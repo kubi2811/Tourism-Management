@@ -4,7 +4,12 @@
  */
 package Form;
 
+import Connect.JDBCConnection;
+import Entity.Role;
 import de.javasoft.synthetica.simple2d.SyntheticaSimple2DLookAndFeel;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,6 +21,8 @@ import javax.swing.UnsupportedLookAndFeelException;
  * @author ranco
  */
 public class Login extends javax.swing.JFrame {
+    private Connection connection = JDBCConnection.getConnection();
+    private static String roleLogin;
 
     /**
      * Creates new form NewJFrame
@@ -40,11 +47,11 @@ public class Login extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
-        idField = new javax.swing.JTextField();
+        UserName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        passField = new javax.swing.JPasswordField();
+        Password = new javax.swing.JPasswordField();
         jPanel8 = new javax.swing.JPanel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
@@ -100,7 +107,7 @@ public class Login extends javax.swing.JFrame {
 
         jPanel7.setPreferredSize(new java.awt.Dimension(250, 50));
         jPanel7.setLayout(new java.awt.BorderLayout(4, 4));
-        jPanel7.add(idField, java.awt.BorderLayout.CENTER);
+        jPanel7.add(UserName, java.awt.BorderLayout.CENTER);
 
         jLabel3.setText("ID User");
         jPanel7.add(jLabel3, java.awt.BorderLayout.PAGE_START);
@@ -112,7 +119,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setText("Password");
         jPanel6.add(jLabel2, java.awt.BorderLayout.PAGE_START);
-        jPanel6.add(passField, java.awt.BorderLayout.CENTER);
+        jPanel6.add(Password, java.awt.BorderLayout.CENTER);
 
         jPanel5.add(jPanel6);
 
@@ -153,7 +160,7 @@ public class Login extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon("F:\\Tourism-Management\\Tour Management\\Picture\\giaminh.png")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\hieut\\Documents\\GitHub\\Tourism-Management\\Tour Management\\Picture\\giaminh.png")); // NOI18N
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel6.setPreferredSize(new java.awt.Dimension(400, 400));
 
@@ -198,10 +205,33 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void buttonFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFieldActionPerformed
         // TODO add your handling code here:
+         String username = UserName.getText();
+        String password = Password.getText();
+        try {
+            Statement statement = connection.createStatement();
+            Role roles[] = Role.values();
+            for( Role role : roles ) {
+            String sql = " select * from "+ role + " where Username = '" + username +"'";
+            ResultSet resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+                if(password.equals(resultSet.getString("Password"))){
+                        roleLogin = role.toString();
+                        HomePage home = new HomePage();
+                        home.setVisible(true);
+                        this.dispose();            
+                    }
+                }                 
+            }
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        
+        System.out.println(roleLogin);
     }//GEN-LAST:event_buttonFieldActionPerformed
 
     /**
@@ -247,8 +277,9 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField Password;
+    private javax.swing.JTextField UserName;
     private javax.swing.JButton buttonField;
-    private javax.swing.JTextField idField;
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
@@ -267,6 +298,5 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JPasswordField passField;
     // End of variables declaration//GEN-END:variables
 }
