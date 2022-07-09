@@ -232,14 +232,13 @@ public class Login extends javax.swing.JFrame {
                 }                 
             }
 
-<<<<<<< HEAD
-=======
+
             System.out.println("Test");
             System.out.println("Test3");
 
             System.out.println("Test2");
 
->>>>>>> parent of 4ac18fb (AdminForm)
+
         } catch (Exception e) {
             e.getMessage();
         }
@@ -280,7 +279,6 @@ public class Login extends javax.swing.JFrame {
 //            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
 //        }
         
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
