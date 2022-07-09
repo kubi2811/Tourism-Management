@@ -227,6 +227,8 @@ public class Login extends javax.swing.JFrame {
                     }
                 }                 
             }
+            
+            System.out.println("Test");
         } catch (Exception e) {
             e.getMessage();
         }
