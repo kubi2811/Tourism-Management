@@ -160,11 +160,7 @@ public class Login extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-<<<<<<< Updated upstream
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/giaminh.png"))); // NOI18N
-=======
         jLabel6.setIcon(new javax.swing.ImageIcon("F:\\Tourism-Management\\Tour Management\\Picture\\giaminh.png")); // NOI18N
->>>>>>> Stashed changes
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel6.setPreferredSize(new java.awt.Dimension(400, 400));
 
@@ -231,12 +227,6 @@ public class Login extends javax.swing.JFrame {
                     }
                 }                 
             }
-
-
-            System.out.println("Test");
-            System.out.println("Test3");
-
-            System.out.println("Test2");
 
 
         } catch (Exception e) {
