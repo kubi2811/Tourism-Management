@@ -160,7 +160,7 @@ public class Login extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/giaminh.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Picture/giaminh.png"))); // NOI18N
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel6.setPreferredSize(new java.awt.Dimension(400, 400));
 
@@ -227,6 +227,7 @@ public class Login extends javax.swing.JFrame {
                     }
                 }                 
             }
+
         } catch (Exception e) {
             e.getMessage();
         }

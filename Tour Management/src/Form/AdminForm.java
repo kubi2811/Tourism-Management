@@ -25,9 +25,6 @@ public class AdminForm extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        btnQLNhanVien = new javax.swing.JButton();
-        btnQLTaiKhoan = new javax.swing.JButton();
-        btnThongKeDS = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -78,39 +75,6 @@ public class AdminForm extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chức năng nghiệp vụ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
-        btnQLNhanVien.setBackground(new java.awt.Color(153, 255, 153));
-        btnQLNhanVien.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnQLNhanVien.setForeground(new java.awt.Color(0, 153, 255));
-        btnQLNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/qlNhanVien.png"))); // NOI18N
-        btnQLNhanVien.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(10, 118, 108)));
-        btnQLNhanVien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnQLNhanVienActionPerformed(evt);
-            }
-        });
-
-        btnQLTaiKhoan.setBackground(new java.awt.Color(204, 204, 204));
-        btnQLTaiKhoan.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnQLTaiKhoan.setForeground(new java.awt.Color(0, 153, 255));
-        btnQLTaiKhoan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/qlTaiKhoan.png"))); // NOI18N
-        btnQLTaiKhoan.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(10, 118, 108)));
-        btnQLTaiKhoan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnQLTaiKhoanActionPerformed(evt);
-            }
-        });
-
-        btnThongKeDS.setBackground(new java.awt.Color(204, 204, 204));
-        btnThongKeDS.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnThongKeDS.setForeground(new java.awt.Color(0, 153, 255));
-        btnThongKeDS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/ThongKe.png"))); // NOI18N
-        btnThongKeDS.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(10, 118, 108)));
-        btnThongKeDS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnThongKeDSActionPerformed(evt);
-            }
-        });
-
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 51, 102));
         jLabel4.setText("Quản lý tài khoản");
@@ -146,29 +110,13 @@ public class AdminForm extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(jLabel5))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(btnQLNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(75, 75, 75)
+                .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnQLTaiKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(96, 96, 96))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(84, 84, 84)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(btnThongKeDS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(104, 104, 104))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(88, 88, 88))))
+                .addComponent(jLabel4)
+                .addGap(101, 101, 101)
+                .addComponent(jLabel6)
+                .addGap(88, 88, 88))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(214, 214, 214)
                 .addComponent(btnOut, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -179,12 +127,7 @@ public class AdminForm extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnQLNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnQLTaiKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnThongKeDS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(159, 159, 159)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
@@ -220,20 +163,8 @@ public class AdminForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnQLNhanVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQLNhanVienActionPerformed
-        
-    }//GEN-LAST:event_btnQLNhanVienActionPerformed
-
-    private void btnQLTaiKhoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQLTaiKhoanActionPerformed
-        
-    }//GEN-LAST:event_btnQLTaiKhoanActionPerformed
-
-    private void btnThongKeDSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThongKeDSActionPerformed
-        
-    }//GEN-LAST:event_btnThongKeDSActionPerformed
-
     private void btnOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOutActionPerformed
-        HomePage a = new HomePage();
+        Login a = new Login();
         a.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnOutActionPerformed
@@ -283,10 +214,7 @@ public class AdminForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnOut;
-    private javax.swing.JButton btnQLNhanVien;
-    private javax.swing.JButton btnQLTaiKhoan;
     private javax.swing.JButton btnThoat;
-    private javax.swing.JButton btnThongKeDS;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
