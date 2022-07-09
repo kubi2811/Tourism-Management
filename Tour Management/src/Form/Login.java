@@ -228,6 +228,14 @@ public class Login extends javax.swing.JFrame {
                 }                 
             }
 
+<<<<<<< HEAD
+=======
+            System.out.println("Test");
+            System.out.println("Test3");
+
+            System.out.println("Test2");
+
+>>>>>>> parent of 4ac18fb (AdminForm)
         } catch (Exception e) {
             e.getMessage();
         }
