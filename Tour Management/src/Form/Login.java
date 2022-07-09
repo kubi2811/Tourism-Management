@@ -227,14 +227,12 @@ public class Login extends javax.swing.JFrame {
                     }
                 }                 
             }
-            
-<<<<<<< HEAD
+
             System.out.println("Test");
             System.out.println("Test3");
-=======
+
             System.out.println("Test2");
-            
->>>>>>> a93b4a3e0270c21e34036ab3e6edd4803a662f01
+
         } catch (Exception e) {
             e.getMessage();
         }
