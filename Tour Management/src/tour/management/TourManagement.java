@@ -26,12 +26,12 @@ public class TourManagement {
     public void test(){
          try {
             conn = JDBCConnection.getConnection();
-            String sql = "select * from Staff";
+            String sql = "select * from Admin";
             pre = conn.prepareStatement(sql);
             rs = pre.executeQuery();
             while (rs.next()) {
                 
-                System.out.print(rs.getString("Lastname"));
+                System.out.print(rs.getString("IdAdmin"));
                 
             }
         } catch (SQLException ex) {
