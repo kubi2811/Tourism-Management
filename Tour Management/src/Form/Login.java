@@ -22,7 +22,8 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class Login extends javax.swing.JFrame {
     private Connection connection = JDBCConnection.getConnection();
-    private static String roleLogin;
+    static String roleLogin;
+    static String idClient;
 
     /**
      * Creates new form NewJFrame
@@ -221,9 +222,19 @@ public class Login extends javax.swing.JFrame {
             while(resultSet.next()){
                 if(password.equals(resultSet.getString("Password"))){
                         roleLogin = role.toString();
-                        HomePage home = new HomePage();
-                        home.setVisible(true);
-                        this.dispose();            
+                        idClient = resultSet.getString("IdClient");
+                       if(roleLogin.equals("Admin")){
+                           new AdminForm().setVisible(true);
+                           this.dispose();
+                       }     
+                       else if(roleLogin.equals("Staff")){
+                           new StaffForm().setVisible(true);
+                           this.dispose();
+                       }
+                       else{
+                           new ClientForm().setVisible(true);
+                           this.dispose();
+                       }
                     }
                 }                 
             }
