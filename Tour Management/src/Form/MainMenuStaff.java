@@ -14,22 +14,24 @@ import java.awt.Frame;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
-import ClientForm.ClientAllTrips;
+import FormClient.YourTrip;
+import FormClient.BookTripNow;
+import FormClient.Information;
 
 /**
  *
  * @author proxc
  */
-public class ClientBuyTicket extends javax.swing.JFrame {
+public class MainMenuStaff extends javax.swing.JFrame {
 
     private CardLayout cardLayout;
-    private ClientAllTrips CAT;
+    private YourTrip CAT;
     /**
      * Creates new form Home20
      */
-    public ClientBuyTicket() {
+    public MainMenuStaff() {
         initComponents();
-        ClientBuyTicket.this.getRootPane().setBorder(new LineBorder(new Color(102, 102, 255)));
+        MainMenuStaff.this.getRootPane().setBorder(new LineBorder(new Color(102, 102, 255)));
 //        lblTitle.setText(this.getTitle());
         cardLayout = (CardLayout) pnlRight.getLayout();
         
@@ -112,10 +114,15 @@ public class ClientBuyTicket extends javax.swing.JFrame {
         btn_data = new javax.swing.JPanel();
         ind_data = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
+        btn_btns1 = new javax.swing.JPanel();
+        ind_btns1 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        btn_icons1 = new javax.swing.JPanel();
+        ind_icons1 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
         pnlRight = new javax.swing.JPanel();
         pnlDataCards = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
         pnlTypography = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -224,7 +231,7 @@ public class ClientBuyTicket extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Book Trip Now");
+        jLabel12.setText("Manage Trips");
         btn_typo.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -263,7 +270,7 @@ public class ClientBuyTicket extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Your Trip");
+        jLabel5.setText("Client Information");
         btn_fonts.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         btn_icons.setBackground(new java.awt.Color(76, 41, 211));
@@ -292,12 +299,12 @@ public class ClientBuyTicket extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Information");
+        jLabel6.setText("Status Tour");
         btn_icons.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("FOR CLIENT");
+        jLabel7.setText("FOR STAFF");
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -358,8 +365,66 @@ public class ClientBuyTicket extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Datacards");
+        jLabel10.setText("Buttons");
         btn_data.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
+
+        btn_btns1.setBackground(new java.awt.Color(76, 41, 211));
+        btn_btns1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_btns1MousePressed(evt);
+            }
+        });
+        btn_btns1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ind_btns1.setOpaque(false);
+        ind_btns1.setPreferredSize(new java.awt.Dimension(4, 40));
+
+        javax.swing.GroupLayout ind_btns1Layout = new javax.swing.GroupLayout(ind_btns1);
+        ind_btns1.setLayout(ind_btns1Layout);
+        ind_btns1Layout.setHorizontalGroup(
+            ind_btns1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 4, Short.MAX_VALUE)
+        );
+        ind_btns1Layout.setVerticalGroup(
+            ind_btns1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        btn_btns1.add(ind_btns1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 40));
+
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("LOG OUT");
+        btn_btns1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
+
+        btn_icons1.setBackground(new java.awt.Color(76, 41, 211));
+        btn_icons1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_icons1MousePressed(evt);
+            }
+        });
+        btn_icons1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ind_icons1.setOpaque(false);
+        ind_icons1.setPreferredSize(new java.awt.Dimension(4, 40));
+
+        javax.swing.GroupLayout ind_icons1Layout = new javax.swing.GroupLayout(ind_icons1);
+        ind_icons1.setLayout(ind_icons1Layout);
+        ind_icons1Layout.setHorizontalGroup(
+            ind_icons1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 4, Short.MAX_VALUE)
+        );
+        ind_icons1Layout.setVerticalGroup(
+            ind_icons1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        btn_icons1.add(ind_icons1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 40));
+
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Statistical");
+        btn_icons1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         javax.swing.GroupLayout sidepaneLayout = new javax.swing.GroupLayout(sidepane);
         sidepane.setLayout(sidepaneLayout);
@@ -385,6 +450,8 @@ public class ClientBuyTicket extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel8)))
                 .addContainerGap(34, Short.MAX_VALUE))
+            .addComponent(btn_btns1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_icons1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         sidepaneLayout.setVerticalGroup(
             sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -401,13 +468,17 @@ public class ClientBuyTicket extends javax.swing.JFrame {
                 .addComponent(btn_fonts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_icons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
+                .addGap(10, 10, 10)
+                .addComponent(btn_icons1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_btns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addComponent(btn_btns1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
 
         pnlParent.add(sidepane, java.awt.BorderLayout.LINE_START);
@@ -416,34 +487,24 @@ public class ClientBuyTicket extends javax.swing.JFrame {
 
         pnlDataCards.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel3.setText("WELCOME TO OUR COMPANY, LETS CHOOSE YOUR TRIPS");
 
         javax.swing.GroupLayout pnlDataCardsLayout = new javax.swing.GroupLayout(pnlDataCards);
         pnlDataCards.setLayout(pnlDataCardsLayout);
         pnlDataCardsLayout.setHorizontalGroup(
             pnlDataCardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDataCardsLayout.createSequentialGroup()
-                .addContainerGap(185, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(171, 171, 171))
+            .addGroup(pnlDataCardsLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         pnlDataCardsLayout.setVerticalGroup(
             pnlDataCardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDataCardsLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addGap(164, 164, 164)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(211, Short.MAX_VALUE))
         );
 
         pnlRight.add(pnlDataCards, "card1");
@@ -500,7 +561,7 @@ public class ClientBuyTicket extends javax.swing.JFrame {
 //        pnlRight.removeAll();
 //        pnlRight.add(CAT).setVisible(true);
         pnlRight.removeAll();
-        pnlRight.add(new ClientAllTrips()).setVisible(true);
+        pnlRight.add(new BookTripNow()).setVisible(true);
         pnlRight.repaint();
         pnlRight.revalidate();
     }//GEN-LAST:event_btn_typoMousePressed
@@ -521,7 +582,7 @@ public class ClientBuyTicket extends javax.swing.JFrame {
         ind_icons.setOpaque(false);
         
         pnlRight.removeAll();
-        pnlRight.add(new ClientAllTrips()).setVisible(true);
+        pnlRight.add(new YourTrip()).setVisible(true);
         pnlRight.repaint();
         pnlRight.revalidate();
         
@@ -542,6 +603,11 @@ public class ClientBuyTicket extends javax.swing.JFrame {
         ind_data.setOpaque(false);
         ind_fonts.setOpaque(false);
         ind_icons.setOpaque(true);
+        
+        pnlRight.removeAll();
+        pnlRight.add(new Information()).setVisible(true);
+        pnlRight.repaint();
+        pnlRight.revalidate();
 
     }//GEN-LAST:event_btn_iconsMousePressed
 
@@ -580,10 +646,10 @@ public class ClientBuyTicket extends javax.swing.JFrame {
 
 
     private void lblMaximizeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMaximizeMousePressed
-        if (ClientBuyTicket.this.getExtendedState() == MAXIMIZED_BOTH) {
-            ClientBuyTicket.this.setExtendedState(JFrame.NORMAL);
+        if (MainMenuStaff.this.getExtendedState() == MAXIMIZED_BOTH) {
+            MainMenuStaff.this.setExtendedState(JFrame.NORMAL);
         } else {
-            ClientBuyTicket.this.setExtendedState(MAXIMIZED_BOTH);
+            MainMenuStaff.this.setExtendedState(MAXIMIZED_BOTH);
         }
     }//GEN-LAST:event_lblMaximizeMousePressed
 
@@ -592,7 +658,7 @@ public class ClientBuyTicket extends javax.swing.JFrame {
     }//GEN-LAST:event_lblCloseMousePressed
 
     private void lblMinimizeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMinimizeMousePressed
-        ClientBuyTicket.this.setState(Frame.ICONIFIED);
+        MainMenuStaff.this.setState(Frame.ICONIFIED);
     }//GEN-LAST:event_lblMinimizeMousePressed
 
     private void pnlTopMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlTopMousePressed
@@ -608,13 +674,21 @@ public class ClientBuyTicket extends javax.swing.JFrame {
 
     private void pnlTopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlTopMouseClicked
         if (evt.getClickCount() == 2 && !evt.isConsumed()) {
-            if (ClientBuyTicket.this.getExtendedState() == MAXIMIZED_BOTH) {
-                ClientBuyTicket.this.setExtendedState(JFrame.NORMAL);
+            if (MainMenuStaff.this.getExtendedState() == MAXIMIZED_BOTH) {
+                MainMenuStaff.this.setExtendedState(JFrame.NORMAL);
             } else {
-                ClientBuyTicket.this.setExtendedState(MAXIMIZED_BOTH);
+                MainMenuStaff.this.setExtendedState(MAXIMIZED_BOTH);
             }
         }
     }//GEN-LAST:event_pnlTopMouseClicked
+
+    private void btn_btns1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_btns1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_btns1MousePressed
+
+    private void btn_icons1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_icons1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_icons1MousePressed
 
     // set and reset color
     void setColor(JPanel panel) {
@@ -642,45 +716,50 @@ public class ClientBuyTicket extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ClientBuyTicket.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainMenuStaff.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ClientBuyTicket.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainMenuStaff.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ClientBuyTicket.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainMenuStaff.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ClientBuyTicket.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainMenuStaff.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ClientBuyTicket().setVisible(true);
+                new MainMenuStaff().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btn_btns;
+    private javax.swing.JPanel btn_btns1;
     private javax.swing.JPanel btn_data;
     private javax.swing.JPanel btn_fonts;
     private javax.swing.JPanel btn_icons;
+    private javax.swing.JPanel btn_icons1;
     private javax.swing.JPanel btn_typo;
     private javax.swing.JPanel ind_btns;
+    private javax.swing.JPanel ind_btns1;
     private javax.swing.JPanel ind_data;
     private javax.swing.JPanel ind_fonts;
     private javax.swing.JPanel ind_icons;
+    private javax.swing.JPanel ind_icons1;
     private javax.swing.JPanel ind_typo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblClose;
     private javax.swing.JLabel lblMaximize;
     private javax.swing.JLabel lblMinimize;
