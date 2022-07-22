@@ -44,8 +44,6 @@ public class Login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         UserName = new javax.swing.JTextField();
@@ -64,12 +62,16 @@ public class Login extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 0));
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(400, 100));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 153, 255));
         jLabel1.setText("Welcome Back");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -79,57 +81,60 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(127, 127, 127)
                 .addComponent(jLabel1)
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(jLabel1)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel3);
 
-        jPanel4.setPreferredSize(new java.awt.Dimension(400, 50));
-
-        jButton1.setText("Login with Google");
-        jButton1.setPreferredSize(new java.awt.Dimension(250, 30));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jButton1);
-
-        jPanel1.add(jPanel4);
-
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setPreferredSize(new java.awt.Dimension(400, 150));
 
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setPreferredSize(new java.awt.Dimension(250, 50));
         jPanel7.setLayout(new java.awt.BorderLayout(4, 4));
         jPanel7.add(UserName, java.awt.BorderLayout.CENTER);
 
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel3.setText("ID User");
         jPanel7.add(jLabel3, java.awt.BorderLayout.PAGE_START);
 
         jPanel5.add(jPanel7);
 
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setPreferredSize(new java.awt.Dimension(250, 50));
         jPanel6.setLayout(new java.awt.BorderLayout(4, 4));
 
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel2.setText("Password");
         jPanel6.add(jLabel2, java.awt.BorderLayout.PAGE_START);
         jPanel6.add(Password, java.awt.BorderLayout.CENTER);
 
         jPanel5.add(jPanel6);
 
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setPreferredSize(new java.awt.Dimension(250, 25));
         jPanel8.setLayout(new java.awt.BorderLayout());
 
-        jCheckBox1.setText("Remamber me");
+        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBox1.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jCheckBox1.setText("Remember me");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
         jPanel8.add(jCheckBox1, java.awt.BorderLayout.WEST);
 
+        jLabel4.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 255));
         jLabel4.setText("Forgot your password ?");
         jPanel8.add(jLabel4, java.awt.BorderLayout.EAST);
@@ -138,8 +143,10 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.add(jPanel5);
 
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setPreferredSize(new java.awt.Dimension(400, 50));
 
+        buttonField.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         buttonField.setText("Login");
         buttonField.setPreferredSize(new java.awt.Dimension(250, 30));
         buttonField.addActionListener(new java.awt.event.ActionListener() {
@@ -151,8 +158,10 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.add(jPanel9);
 
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setPreferredSize(new java.awt.Dimension(400, 50));
 
+        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel5.setText("Don't have an account yet ?");
         jPanel10.add(jLabel5);
 
@@ -204,11 +213,6 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-       
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void buttonFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFieldActionPerformed
         // TODO add your handling code here:
          String username = UserName.getText();
@@ -246,6 +250,10 @@ public class Login extends javax.swing.JFrame {
         
         System.out.println(roleLogin);
     }//GEN-LAST:event_buttonFieldActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -292,7 +300,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField Password;
     private javax.swing.JTextField UserName;
     private javax.swing.JButton buttonField;
-    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -304,7 +311,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
