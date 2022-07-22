@@ -14,6 +14,7 @@ import java.awt.Frame;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+import ClientForm.ClientAllTrips;
 
 /**
  *
@@ -22,7 +23,7 @@ import javax.swing.border.LineBorder;
 public class ClientBuyTicket extends javax.swing.JFrame {
 
     private CardLayout cardLayout;
-
+    private ClientAllTrips CAT;
     /**
      * Creates new form Home20
      */
@@ -31,7 +32,7 @@ public class ClientBuyTicket extends javax.swing.JFrame {
         ClientBuyTicket.this.getRootPane().setBorder(new LineBorder(new Color(102, 102, 255)));
 //        lblTitle.setText(this.getTitle());
         cardLayout = (CardLayout) pnlRight.getLayout();
-
+        
         if (OSUtils.getOSType() == OSUtils.OSType.MacOS) {
             pnlTop.remove(pnlTitle);
             pnlTop.remove(pnlRight);
@@ -113,6 +114,8 @@ public class ClientBuyTicket extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         pnlRight = new javax.swing.JPanel();
         pnlDataCards = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         pnlTypography = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -413,18 +416,39 @@ public class ClientBuyTicket extends javax.swing.JFrame {
 
         pnlDataCards.setBackground(new java.awt.Color(255, 255, 255));
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout pnlDataCardsLayout = new javax.swing.GroupLayout(pnlDataCards);
         pnlDataCards.setLayout(pnlDataCardsLayout);
         pnlDataCardsLayout.setHorizontalGroup(
             pnlDataCardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 808, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDataCardsLayout.createSequentialGroup()
+                .addContainerGap(185, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(171, 171, 171))
         );
         pnlDataCardsLayout.setVerticalGroup(
             pnlDataCardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(pnlDataCardsLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         pnlRight.add(pnlDataCards, "card1");
+
+        pnlTypography.setBackground(new java.awt.Color(255, 255, 102));
 
         javax.swing.GroupLayout pnlTypographyLayout = new javax.swing.GroupLayout(pnlTypography);
         pnlTypography.setLayout(pnlTypographyLayout);
@@ -459,20 +483,26 @@ public class ClientBuyTicket extends javax.swing.JFrame {
 
     private void btn_typoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_typoMousePressed
         // TODO add your handling code here:
-
+        //Màu sắc
         setColor(btn_typo);
         resetColor(btn_data);
         resetColor(btn_btns);
         resetColor(btn_fonts);
         resetColor(btn_icons);
+        
+        //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_typo.setOpaque(true);
         ind_btns.setOpaque(false);
         ind_data.setOpaque(false);
         ind_fonts.setOpaque(false);
         ind_icons.setOpaque(false);
 
-        cardLayout.show(pnlRight, "card2");
-
+//        pnlRight.removeAll();
+//        pnlRight.add(CAT).setVisible(true);
+        pnlRight.removeAll();
+        pnlRight.add(new ClientAllTrips()).setVisible(true);
+        pnlRight.repaint();
+        pnlRight.revalidate();
     }//GEN-LAST:event_btn_typoMousePressed
 
     private void btn_fontsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_fontsMousePressed
@@ -483,15 +513,19 @@ public class ClientBuyTicket extends javax.swing.JFrame {
         resetColor(btn_typo);
         resetColor(btn_icons);
 
-        //indicators
+        //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_typo.setOpaque(false);
         ind_btns.setOpaque(false);
         ind_data.setOpaque(false);
         ind_fonts.setOpaque(true);
         ind_icons.setOpaque(false);
         
-        cardLayout.show(pnlRight, "card3");
-
+        pnlRight.removeAll();
+        pnlRight.add(new ClientAllTrips()).setVisible(true);
+        pnlRight.repaint();
+        pnlRight.revalidate();
+        
+        
     }//GEN-LAST:event_btn_fontsMousePressed
 
     private void btn_iconsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_iconsMousePressed
@@ -502,6 +536,7 @@ public class ClientBuyTicket extends javax.swing.JFrame {
         resetColor(btn_fonts);
         resetColor(btn_typo);
 
+        //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_typo.setOpaque(false);
         ind_btns.setOpaque(false);
         ind_data.setOpaque(false);
@@ -518,6 +553,7 @@ public class ClientBuyTicket extends javax.swing.JFrame {
         resetColor(btn_fonts);
         resetColor(btn_icons);
 
+        //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_typo.setOpaque(false);
         ind_btns.setOpaque(true);
         ind_data.setOpaque(false);
@@ -533,13 +569,13 @@ public class ClientBuyTicket extends javax.swing.JFrame {
         resetColor(btn_fonts);
         resetColor(btn_icons);
 
+        //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_typo.setOpaque(false);
         ind_btns.setOpaque(false);
         ind_data.setOpaque(true);
         ind_fonts.setOpaque(false);
         ind_icons.setOpaque(false);
 
-        cardLayout.show(pnlRight, "card1");
     }//GEN-LAST:event_btn_dataMousePressed
 
 
@@ -643,6 +679,8 @@ public class ClientBuyTicket extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblClose;
     private javax.swing.JLabel lblMaximize;
     private javax.swing.JLabel lblMinimize;
