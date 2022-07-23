@@ -26,30 +26,16 @@ public class MainMenuClient extends javax.swing.JFrame {
 
     private CardLayout cardLayout;
     private YourTrip CAT;
-    
-    int IdClient;
-    public int getIdClient() {
-        return IdClient;
-    }
 
-    public void setIdClient(int IdClient) {
-        this.IdClient = IdClient;
-    }
+    static int IdClient;
+    static String nameClient;
 
-    String FullName;
-    public String getFullName() {
-        return FullName;
-    }
-
-    public void setFullName(String FullName) {
-        this.FullName = FullName;
-    }
     /**
      * Creates new form Home20
      */
     public MainMenuClient() {
         initComponents();
-        
+
         MainMenuClient.this.getRootPane().setBorder(new LineBorder(new Color(102, 102, 255)));
 //        lblTitle.setText(this.getTitle());
         cardLayout = (CardLayout) pnlRight.getLayout();
@@ -599,11 +585,12 @@ public class MainMenuClient extends javax.swing.JFrame {
         ind_yourTrips.setOpaque(false);
         ind_icons.setOpaque(true);
         ind_logOut.setOpaque(false);
-
+        
         pnlRight.removeAll();
         pnlRight.add(new Information()).setVisible(true);
         pnlRight.repaint();
-        pnlRight.revalidate();
+        pnlRight.revalidate();        
+        
 
     }//GEN-LAST:event_btn_infoMousePressed
 
@@ -703,8 +690,7 @@ public class MainMenuClient extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_logOutMousePressed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here
-        label_forClient.setText("For Client: " + getFullName());
+        label_forClient.setText("For Client: " + Login.nameClient);
     }//GEN-LAST:event_formWindowOpened
 
     // set and reset color

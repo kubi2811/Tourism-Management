@@ -6,6 +6,7 @@ package Form;
 
 import Connect.JDBCConnection;
 import Entity.Role;
+import FormClient.Information;
 import de.javasoft.synthetica.simple2d.SyntheticaSimple2DLookAndFeel;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -24,9 +25,15 @@ public class Login extends javax.swing.JFrame {
 
     private Connection connection = JDBCConnection.getConnection();
     static String roleLogin;
-    static String idClient;
-    static String idAdmin;
-    static String idStaff;
+    
+    static int IdClient;
+    static String nameClient;
+    
+    static int idAdmin;
+    static String usernameAdmin;
+    
+    static int idStaff;
+    static String nameStaff;
 
     /**
      * Creates new form NewJFrame
@@ -227,25 +234,26 @@ public class Login extends javax.swing.JFrame {
                 String sql = " select * from " + role + " where Username = '" + username + "'";
                 ResultSet resultSet = statement.executeQuery(sql);
                 while (resultSet.next()) {
-                    if (password.equals(resultSet.getString("hashPassword"))) {
+                    if (password.equals(resultSet.getString("Password"))) {
                         roleLogin = role.toString();
-                        
+
                         if (roleLogin.equals("Admin")) {
-                            idAdmin = resultSet.getString("idAdmin");
-                            MainMenuAdmin MMA =  new MainMenuAdmin();
-                            MMA.setVisible(true);
-                            
+                            idAdmin = Integer.valueOf(resultSet.getString("idAdmin"));
+                            usernameAdmin = resultSet.getString("Username");
+                            new MainMenuAdmin().setVisible(true);
                             this.dispose();
                         } else if (roleLogin.equals("Staff")) {
-                            idStaff = resultSet.getString("idStaff");
+                            idStaff = Integer.valueOf(resultSet.getString("idStaff"));
+                            nameStaff = resultSet.getString("FullName");
                             new MainMenuStaff().setVisible(true);
                             this.dispose();
                         } else {
-                            idClient = resultSet.getString("IdClient");
-                            MainMenuClient MMC =  new MainMenuClient();
-                            MMC.setVisible(true);
-                            MMC.setIdClient(Integer.valueOf(resultSet.getString("idClient")));
-                            MMC.setFullName(resultSet.getString("FullName"));
+                            new MainMenuClient().setVisible(true);
+
+                            IdClient = Integer.valueOf(resultSet.getString("idClient"));
+                            nameClient = resultSet.getString("FullName");
+                            
+                            Information.IdClient = Integer.valueOf(resultSet.getString("idClient"));
                             this.dispose();
                         }
                     }
@@ -255,7 +263,7 @@ public class Login extends javax.swing.JFrame {
         } catch (Exception e) {
             e.getMessage();
         }
-        System.out.println(idClient);
+        System.out.println(IdClient);
     }//GEN-LAST:event_buttonFieldActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
