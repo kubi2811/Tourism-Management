@@ -42,7 +42,7 @@ public class OrderTourService {
 
     public void OrderTour(String idClient) {
         try {
-            String sql = "INSERT INTO orderdetail (idClient) values(?)";
+            String sql = "INSERT INTO OrderTour (idClient) values (?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,idClient);
             preparedStatement.execute();
@@ -52,7 +52,7 @@ public class OrderTourService {
     }
     public void OrderTourDetail(String idOrder, String idClient , String nameTour , int audlts , int childs){
         try {
-            String sql = "Insert into OrderDetail(IdOrder,IdClient,Tour,Adults,Childs) values(?,?,?,?,?)";
+            String sql = "Insert into OrderDetail(IdOrder,IdClient,Tour,Adluts,Childs) values(?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, idOrder);
             preparedStatement.setString(2,idClient);
@@ -76,6 +76,19 @@ public class OrderTourService {
             e.printStackTrace();
         }
     }
-    public String 
-          
+    
+    public String getIdOrderByIdClient ( String idClient){ 
+        String idTour  = null;
+        try {
+            String sql = "select IdOrder from OrderTour where idClient ='" + idClient +"'";
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){                
+                idTour = resultSet.getString("IdOrder");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+          return idTour;
+    }
 }

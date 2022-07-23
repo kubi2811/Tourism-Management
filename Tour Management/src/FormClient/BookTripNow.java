@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 import static javax.management.remote.JMXConnectorFactory.connect;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -32,12 +33,15 @@ public class BookTripNow extends javax.swing.JPanel {
     private LocationVisitService locationVisitService = new LocationVisitService();
     private LocationStartService locationStartService = new LocationStartService();
     private OrderTourService orderTourService = new OrderTourService();
+    static String nameTour;
+    public static String idClient;
     /**
      * Creates new form ClientAllTrips
      */
     public BookTripNow() {
         initComponents();
         ShowListTour();
+        
     }
 
     /**
@@ -56,8 +60,8 @@ public class BookTripNow extends javax.swing.JPanel {
         description = new javax.swing.JLabel();
         Adults = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        Childs = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        Childs = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -104,9 +108,9 @@ public class BookTripNow extends javax.swing.JPanel {
 
         jLabel2.setText("Enter number of Ado");
 
-        Childs.setText("jTextField1");
-
         jLabel3.setText("Enter number of childs");
+
+        Childs.setText("jTextField1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -121,6 +125,7 @@ public class BookTripNow extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
+                                    .addGap(2, 2, 2)
                                     .addComponent(Childs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
                                     .addComponent(jLabel3))
@@ -150,8 +155,8 @@ public class BookTripNow extends javax.swing.JPanel {
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Childs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(Childs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addContainerGap(15, Short.MAX_VALUE))
@@ -170,6 +175,9 @@ public class BookTripNow extends javax.swing.JPanel {
         String temp = jTable1.getValueAt(index, 0).toString();
         TourService tourService = new TourService();
         description.setText(tourService.getDescription(temp));
+        nameTour = tourService.getNameTourByIdTour(temp) ;
+       
+        
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void AdultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdultsActionPerformed
@@ -183,12 +191,13 @@ public class BookTripNow extends javax.swing.JPanel {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         int numberOfAdo = Integer.parseInt(Adults.getText());
-        int numberOfChilds = Integer.parseInt(Childs.getText());
-        orderTourService.OrderTour(2);
-        orderTourService.OrderTourDetail(TOOL_TIP_TEXT_KEY, TOOL_TIP_TEXT_KEY, TOOL_TIP_TEXT_KEY, WIDTH, WIDTH);
-        
-        
-        
+        int numberOfChilds = Integer.parseInt(Childs.getText()); 
+        orderTourService.OrderTour("3");
+        orderTourService.OrderTourDetail(orderTourService.getIdOrderByIdClient("3"), "3", nameTour ,numberOfAdo, numberOfChilds);
+        orderTourService.OrderStatusTour(orderTourService.getIdOrderByIdClient("3"), "TThai 1");
+        JOptionPane.showMessageDialog(null, "You are registed successfully");
+    
+   
     }//GEN-LAST:event_jButton1MouseClicked
     public void ShowListTour() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();

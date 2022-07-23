@@ -25,7 +25,7 @@ public class Login extends javax.swing.JFrame {
 
     private Connection connection = JDBCConnection.getConnection();
     static String roleLogin;
-    
+
     static int IdClient;
     static String nameClient;
     
@@ -34,6 +34,7 @@ public class Login extends javax.swing.JFrame {
     
     static int idStaff;
     static String nameStaff;
+
 
     /**
      * Creates new form NewJFrame
@@ -256,6 +257,7 @@ public class Login extends javax.swing.JFrame {
                             Information.IdClient = Integer.valueOf(resultSet.getString("idClient"));
                             this.dispose();
                         }
+
                     }
                 }
             }
