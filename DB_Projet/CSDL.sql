@@ -97,7 +97,6 @@ go
 create table OrderDetail(
 		IdOrderDetail INT IDENTITY(1,1) primary key,
 		IdOrder int,
-		IdClient int,
 		Tour nvarchar(50) FOREIGN KEY REFERENCES Tour(TourName),
 		--Tong so nguoi
 		Adluts int NOT NULL,
@@ -129,9 +128,11 @@ go
 create table OrderStatus(
 	IdOrderStatus INT IDENTITY(1,1) primary key,
 	IdOrder int,
-	Status varchar(50)
+	OrderStatus nvarchar(50)
 )
 go
+--drop table OrderStatus
+
 
 create table Trash(
 	IdTrash INT IDENTITY(1,1) primary key,
@@ -168,6 +169,9 @@ go
 alter table History
 add foreign key(IdOrder) references OrderTour(IdOrder)
 go
+
+
+
 
 
 
