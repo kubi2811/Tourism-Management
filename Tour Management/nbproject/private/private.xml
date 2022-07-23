@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< Updated upstream
 <<<<<<< HEAD
             <file>file:/F:/Tourism-Management/Tour%20Management/src/FormClient/YourTrip.java</file>
             <file>file:/F:/Tourism-Management/Tour%20Management/src/Entity/LocationStart.java</file>
@@ -26,6 +27,12 @@
 =======
             <file>file:/F:/Tourism-Management/Tour%20Management/src/Form/MainMenuClient.java</file>
 >>>>>>> b8346c94e9b8c470503e16ad9220d1e7735bef83
+=======
+            <file>file:/F:/Tourism-Management/Tour%20Management/src/Service/LocationVisitService.java</file>
+            <file>file:/F:/Tourism-Management/Tour%20Management/src/Service/LocationStartService.java</file>
+            <file>file:/F:/Tourism-Management/Tour%20Management/src/Form/MainMenuClient.java</file>
+            <file>file:/F:/Tourism-Management/Tour%20Management/src/Service/TourService.java</file>
+>>>>>>> Stashed changes
             <file>file:/F:/Tourism-Management/Tour%20Management/src/FormClient/Information.java</file>
         </group>
     </open-files>
