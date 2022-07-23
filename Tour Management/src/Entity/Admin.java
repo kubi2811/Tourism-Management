@@ -4,6 +4,8 @@
  */
 package Entity;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author hieut
@@ -12,6 +14,15 @@ package Entity;
 public class Admin {
     private String username;
     private String password;
+    public static ArrayList<Admin> listAddmin = new ArrayList<>();
+
+    public ArrayList<Admin> getListAddmin() {
+        return listAddmin;
+    }
+
+    public void setListAddmin(ArrayList<Admin> listAddmin) {
+        this.listAddmin = listAddmin;
+    }
 
     public String getUsername() {
         return username;
