@@ -74,7 +74,6 @@ public class MainMenuAdmin extends javax.swing.JFrame {
             pnlTitle.remove(lblTitle);
             pnlTitle.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 8));
             pnlTitle.add(lblTitle);      
-            
         }
     }
 
