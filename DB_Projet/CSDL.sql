@@ -180,7 +180,23 @@ BEGIN
 END
 GO
 
-Insert into OrderDetail(IdOrder,IdClient,Tour,Adluts,Childs) values(1,1,'HN-HCM',20,10)
+CREATE TRiGGER trg_CapNhatOrderTour ON OrderDetail After Update as 
+begin 
+	UPDATE OrderTour
+	SET Total = (SELECT Adluts from OrderDetail where IdOrder = OrderDetail.IdOrder) * (SELECT CostAdo from Tour where Tour = Tour.TourName)  + 
+	(Select Childs from OrderDetail where IdOrder = OrderDetail.IdOrder) * (SELECT CostChild from Tour where Tour = Tour.TourName)
+	FROM OrderTour
+	JOIN deleted ON OrderTour.IdOrder = deleted.IdOrder
+end
+go
+CREATE TRiGGER trg_HuyOrderTour ON OrderDetail After delete as 
+begin 
+	UPDATE OrderTour Set Total = 0 
+	from OrderTour
+	JOIN deleted ON OrderTour.IdOrder = deleted.IdOrder
+end
+
+
 
 
 
