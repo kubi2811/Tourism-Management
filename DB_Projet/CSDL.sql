@@ -7,7 +7,7 @@ go
 
 --use master 
 --go
-drop database ManageTourist
+--drop database ManageTourist
 --go
 
 
@@ -52,7 +52,7 @@ create table UserAddress(
 	city nvarchar(50),
 	provience nvarchar(50)
 )
-
+go
 -- drop table UserAddress
 
 -- Đặt tour
@@ -70,7 +70,8 @@ create table Descriptions (
 	IdDescription INT IDENTITY(1,1) primary key,
 	Tour nvarchar(50) FOREIGN KEY REFERENCES Tour(TourName),
 	Total float,
-) go
+) 
+go
 
 create table DescriptionDetail (
 	
@@ -169,6 +170,9 @@ go
 alter table History
 add foreign key(IdOrder) references OrderTour(IdOrder)
 go
+
+
+
 
 
 
