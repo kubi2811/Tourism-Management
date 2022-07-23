@@ -5,6 +5,7 @@
 package FormClient;
 
 import Connect.JDBCConnection;
+import Entity.Vehicle;
 import Service.LocationStartService;
 import Service.LocationVisitService;
 import Service.TourService;
@@ -12,6 +13,8 @@ import Service.VehicleService;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 import static javax.management.remote.JMXConnectorFactory.connect;
 import javax.swing.table.DefaultTableModel;
@@ -21,12 +24,11 @@ import javax.swing.table.DefaultTableModel;
  * @author ranco
  */
 public class BookTripNow extends javax.swing.JPanel {
-        private Connection connect = JDBCConnection.getConnection();
-        private VehicleService vehicleService = new VehicleService();
-        private LocationVisitService locationVisitService = new LocationVisitService();
-        private LocationStartService locationStartService = new LocationStartService();
-               
 
+    private Connection connect = JDBCConnection.getConnection();
+    private VehicleService vehicleService = new VehicleService();
+    private LocationVisitService locationVisitService = new LocationVisitService();
+    private LocationStartService locationStartService = new LocationStartService();
 
     /**
      * Creates new form ClientAllTrips
@@ -58,7 +60,7 @@ public class BookTripNow extends javax.swing.JPanel {
 
             },
             new String [] {
-                "IdTour", "DayStart", "DayEnd", "Address Start", "Address Visit", "Vehicle"
+                "IdTour", "Tour Name", "DayStart", "DayEnd", "Address Start", "Address Visit", "Vehicle"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -114,37 +116,44 @@ public class BookTripNow extends javax.swing.JPanel {
 
     private void jTable1ComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jTable1ComponentHidden
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_jTable1ComponentHidden
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        int index  = jTable1.getSelectedRow();
-            String temp = jTable1.getValueAt(index,0).toString();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        int index = jTable1.getSelectedRow();
+        String temp = jTable1.getValueAt(index, 0).toString();
         TourService tourService = new TourService();
         description.setText(tourService.getDescription(temp));
     }//GEN-LAST:event_jTable1MouseClicked
-    public void ShowListTour(){
-          DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    public void ShowListTour() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         try {
             String sql = "select * from Tour";
             Statement statement = connect.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
-            while(resultSet.next()){
-                Vector vector = new Vector();
-                vector.add(resultSet.getString("IdTour"));
-                vector.add(resultSet.getString("DayStart"));
-                vector.add(resultSet.getString("DayEnd"));
-                vector.add(locationStartService.getAddressStartById(String.valueOf(resultSet.getString("IdLocationStart"))));
-                vector.add(locationVisitService.getVisitPlaceById(String.valueOf(resultSet.getString("IdLocationVisit"))));
-                vector.add(vehicleService.getTransportById(String.valueOf(resultSet.getString("IdVehicle")) ));
-                model.addRow(vector);  
+            while (resultSet.next()) {
+                List<String> listTransports = new ArrayList<>();
+                listTransports.add(vehicleService.getTransportById(String.valueOf(resultSet.getString("TourName"))));
+                for (String transport : listTransports) {
+                    Vector vector = new Vector();
+                    vector.add(resultSet.getString("IdTour"));
+                    vector.add(resultSet.getString("TourName"));
+                    vector.add(resultSet.getString("DayStart"));
+                    vector.add(resultSet.getString("DayEnd"));
+                    vector.add(locationStartService.getAddressStartById(String.valueOf(resultSet.getString("TourName"))));
+                    vector.add(locationVisitService.getVisitPlaceById(String.valueOf(resultSet.getString("TourName"))));
+                    vector.add(transport);
+                    model.addRow(vector);
+                    System.out.println(transport);
+                }
             }
         } catch (Exception e) {
             e.getMessage();
         }
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel description;

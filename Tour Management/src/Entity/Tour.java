@@ -13,23 +13,24 @@ import java.sql.Date;
  */
 public class Tour {
     private String idTour;
+    private String tour;
     private Date dayStart;
     private Date dayEnd;
     private String discription;
-    private String idLocationStart;
-    private String idLocationVisit;
-    private float cost;
-    private String idVehicle;
+    private float costAdo;
+    private float costChild;
 
-    public Tour(String idTour, Date dayStart, Date dayEnd, String discription, String idLocationStart, String idLocationVisit, float cost, String idVehicle) {
+    public Tour(String idTour, String tour, Date dayStart, Date dayEnd, String discription, float costAdo, float costChild) {
         this.idTour = idTour;
+        this.tour = tour;
         this.dayStart = dayStart;
         this.dayEnd = dayEnd;
         this.discription = discription;
-        this.idLocationStart = idLocationStart;
-        this.idLocationVisit = idLocationVisit;
-        this.cost = cost;
-        this.idVehicle = idVehicle;
+        this.costAdo = costAdo;
+        this.costChild = costChild;
+    }
+
+    public Tour() {
     }
 
     public String getIdTour() {
@@ -38,6 +39,14 @@ public class Tour {
 
     public void setIdTour(String idTour) {
         this.idTour = idTour;
+    }
+
+    public String getTour() {
+        return tour;
+    }
+
+    public void setTour(String tour) {
+        this.tour = tour;
     }
 
     public Date getDayStart() {
@@ -64,36 +73,22 @@ public class Tour {
         this.discription = discription;
     }
 
-    public String getIdLocationStart() {
-        return idLocationStart;
+    public float getCostAdo() {
+        return costAdo;
     }
 
-    public void setIdLocationStart(String idLocationStart) {
-        this.idLocationStart = idLocationStart;
+    public void setCostAdo(float costAdo) {
+        this.costAdo = costAdo;
     }
 
-    public String getIdLocationVisit() {
-        return idLocationVisit;
+    public float getCostChild() {
+        return costChild;
     }
 
-    public void setIdLocationVisit(String idLocationVisit) {
-        this.idLocationVisit = idLocationVisit;
+    public void setCostChild(float costChild) {
+        this.costChild = costChild;
     }
 
-    public float getCost() {
-        return cost;
-    }
 
-    public void setCost(float cost) {
-        this.cost = cost;
-    }
-
-    public String getIdVehicle() {
-        return idVehicle;
-    }
-
-    public void setIdVehicle(String idVehicle) {
-        this.idVehicle = idVehicle;
-    }
-    
+   
 }

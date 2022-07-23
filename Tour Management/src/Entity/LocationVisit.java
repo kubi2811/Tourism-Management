@@ -11,11 +11,7 @@ package Entity;
 public class LocationVisit {
     private String idRandomVisit;
     private String  visitPlace;
-
-    public LocationVisit(String idRandomVisit, String visitPlace) {
-        this.idRandomVisit = idRandomVisit;
-        this.visitPlace = visitPlace;
-    }
+    private String tour;
 
     public String getIdRandomVisit() {
         return idRandomVisit;
@@ -32,5 +28,20 @@ public class LocationVisit {
     public void setVisitPlace(String visitPlace) {
         this.visitPlace = visitPlace;
     }
+
+    public String getTour() {
+        return tour;
+    }
+
+    public void setTour(String tour) {
+        this.tour = tour;
+    }
+
+    public LocationVisit(String idRandomVisit, String visitPlace, String tour) {
+        this.idRandomVisit = idRandomVisit;
+        this.visitPlace = visitPlace;
+        this.tour = tour;
+    }
+
             
 }

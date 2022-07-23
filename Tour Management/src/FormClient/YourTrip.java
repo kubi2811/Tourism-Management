@@ -16,6 +16,9 @@ public class YourTrip extends javax.swing.JPanel {
     public YourTrip() {
         initComponents();
     }
+    public void showYourTrip(){
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
