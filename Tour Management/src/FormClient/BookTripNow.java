@@ -176,7 +176,7 @@ public class BookTripNow extends javax.swing.JPanel {
         TourService tourService = new TourService();
         description.setText(tourService.getDescription(temp));
         nameTour = tourService.getNameTourByIdTour(temp) ;
-        System.out.println(nameTour);
+       
         
     }//GEN-LAST:event_jTable1MouseClicked
 

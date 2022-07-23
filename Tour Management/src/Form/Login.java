@@ -25,12 +25,11 @@ public class Login extends javax.swing.JFrame {
     private Connection connection = JDBCConnection.getConnection();
     static String roleLogin;
     static String idClient;
-<<<<<<< HEAD
- 
-=======
+
+
     static String idAdmin;
     static String idStaff;
->>>>>>> e440e62cc63f468effc13aeba44b2f828446f5a9
+
 
     /**
      * Creates new form NewJFrame
@@ -233,7 +232,7 @@ public class Login extends javax.swing.JFrame {
                 while (resultSet.next()) {
                     if (password.equals(resultSet.getString("hashPassword"))) {
                         roleLogin = role.toString();
-<<<<<<< HEAD
+
                        if(roleLogin.equals("Admin")){
                            new AdminForm().setVisible(true);
                            this.dispose();
@@ -247,8 +246,7 @@ public class Login extends javax.swing.JFrame {
                            new ClientForm().setVisible(true);
                            this.dispose();
                        }
-=======
-                        
+                
                         if (roleLogin.equals("Admin")) {
                             idAdmin = resultSet.getString("idAdmin");
                             MainMenuAdmin MMA =  new MainMenuAdmin();
@@ -267,7 +265,7 @@ public class Login extends javax.swing.JFrame {
                             MMC.setFullName(resultSet.getString("FullName"));
                             this.dispose();
                         }
->>>>>>> e440e62cc63f468effc13aeba44b2f828446f5a9
+
                     }
                 }
             }
