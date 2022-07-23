@@ -170,9 +170,17 @@ alter table History
 add foreign key(IdOrder) references OrderTour(IdOrder)
 go
 
+CREATE TRIGGER trg_OrderTour ON OrderDetail  AFTER INSERT AS 
+BEGIN
+	UPDATE OrderTour
+	SET Total = (SELECT Adluts from OrderDetail where IdOrder = OrderDetail.IdOrder) * (SELECT CostAdo from Tour where Tour = Tour.TourName)  + 
+	(Select Childs from OrderDetail where IdOrder = OrderDetail.IdOrder) * (SELECT CostChild from Tour where Tour = Tour.TourName)
+	FROM OrderTour
+	JOIN inserted ON OrderTour.IdOrder = inserted.IdOrder
+END
+GO
 
-
-
+Insert into OrderDetail(IdOrder,IdClient,Tour,Adults,Childs) values(1,1,'HN-HCM',20,10)
 
 
 
