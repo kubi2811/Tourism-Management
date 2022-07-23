@@ -10,13 +10,17 @@ package Entity;
  */
 public class Vehicle {
     private String idRandomVehicle;
+    private String tour;
     private String transport;
     private int capacity;
-
-    public Vehicle(String idRandomVehicle, String transport, int capacity) {
+    public Vehicle(String idRandomVehicle, String tour, String transport, int capacity) {
         this.idRandomVehicle = idRandomVehicle;
+        this.tour = tour;
         this.transport = transport;
         this.capacity = capacity;
+    }
+
+    public Vehicle() {
     }
 
     public String getIdRandomVehicle() {
@@ -25,6 +29,14 @@ public class Vehicle {
 
     public void setIdRandomVehicle(String idRandomVehicle) {
         this.idRandomVehicle = idRandomVehicle;
+    }
+
+    public String getTour() {
+        return tour;
+    }
+
+    public void setTour(String tour) {
+        this.tour = tour;
     }
 
     public String getTransport() {
@@ -42,5 +54,7 @@ public class Vehicle {
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
+
+   
     
 }

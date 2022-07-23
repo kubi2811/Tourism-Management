@@ -11,26 +11,38 @@ package Entity;
 public class LocationStart {
     private String idRandomStart;
     private String province;
+    private String tour;
 
-    public LocationStart(String IdRandomStart, String Province) {
-        this.idRandomStart = IdRandomStart;
-        this.province = Province;
+    public LocationStart(String idRandomStart, String province, String tour) {
+        this.idRandomStart = idRandomStart;
+        this.province = province;
+        this.tour = tour;
     }
 
     public String getIdRandomStart() {
         return idRandomStart;
     }
 
-    public void setIdRandomStart(String IdRandomStart) {
-        this.idRandomStart = IdRandomStart;
+    public void setIdRandomStart(String idRandomStart) {
+        this.idRandomStart = idRandomStart;
     }
 
     public String getProvince() {
         return province;
     }
 
-    public void setProvince(String Province) {
-        this.province = Province;
+    public void setProvince(String province) {
+        this.province = province;
     }
+
+    public String getTour() {
+        return tour;
+    }
+
+    public void setTour(String tour) {
+        this.tour = tour;
+    }
+
+    
     
 }

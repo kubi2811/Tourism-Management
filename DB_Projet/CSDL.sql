@@ -7,7 +7,7 @@ go
 
 --use master 
 --go
-----------------------drop database ManageTourist
+drop database ManageTourist
 --go
 
 

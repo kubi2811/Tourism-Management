@@ -16,7 +16,7 @@ import java.sql.Statement;
 public class LocationVisitService {
             private Connection connection = JDBCConnection.getConnection();
             public String getVisitPlaceById(String id){
-            String sql = " Select * from LocationVisit where IdRandomVisit='" + id +"'";
+            String sql = " Select * from LocationVisit where Tour='" + id +"'";
             String addressVisit = null;
             try {
                 Statement statement = connection.createStatement();

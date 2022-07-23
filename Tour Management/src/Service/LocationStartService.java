@@ -17,7 +17,7 @@ public class LocationStartService {
         private Connection connection = JDBCConnection.getConnection();
        
         public String getAddressStartById(String id){
-            String sql = " Select * from LocationStart where IdRandomStart='" + id +"'";
+            String sql = " Select * from LocationStart where Tour='" + id +"'";
             String addressStart = null;
             try {
                 Statement statement = connection.createStatement();

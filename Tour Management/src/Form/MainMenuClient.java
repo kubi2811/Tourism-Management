@@ -26,6 +26,7 @@ public class MainMenuClient extends javax.swing.JFrame {
 
     private CardLayout cardLayout;
     private YourTrip CAT;
+
     /**
      * Creates new form Home20
      */
@@ -34,14 +35,14 @@ public class MainMenuClient extends javax.swing.JFrame {
         MainMenuClient.this.getRootPane().setBorder(new LineBorder(new Color(102, 102, 255)));
 //        lblTitle.setText(this.getTitle());
         cardLayout = (CardLayout) pnlRight.getLayout();
-        
+
         if (OSUtils.getOSType() == OSUtils.OSType.MacOS) {
             pnlTop.remove(pnlTitle);
             pnlTop.remove(pnlRight);
-            
+
             pnlTop.add(pnlTitle, BorderLayout.EAST);
             pnlTop.add(pnlActions, BorderLayout.WEST);
-            
+
             pnlActions.remove(lblClose);
             pnlActions.remove(lblMaximize);
             pnlActions.remove(lblMinimize);
@@ -49,19 +50,19 @@ public class MainMenuClient extends javax.swing.JFrame {
             pnlActions.add(lblClose);
             pnlActions.add(lblMaximize);
             pnlActions.add(lblMinimize);
-            
+
             pnlTitle.remove(lblTitle);
             pnlTitle.setLayout(new FlowLayout(FlowLayout.RIGHT, 10, 8));
-            pnlTitle.add(lblTitle);      
-            
-        }        
-           if (OSUtils.getOSType() == OSUtils.OSType.Windows) {
+            pnlTitle.add(lblTitle);
+
+        }
+        if (OSUtils.getOSType() == OSUtils.OSType.Windows) {
             pnlTop.remove(pnlTitle);
             pnlTop.remove(pnlRight);
-            
+
             pnlTop.add(pnlTitle, BorderLayout.WEST);
             pnlTop.add(pnlActions, BorderLayout.EAST);
-            
+
             pnlActions.remove(lblClose);
             pnlActions.remove(lblMaximize);
             pnlActions.remove(lblMinimize);
@@ -69,11 +70,11 @@ public class MainMenuClient extends javax.swing.JFrame {
             pnlActions.add(lblMinimize);
             pnlActions.add(lblMaximize);
             pnlActions.add(lblClose);
-            
+
             pnlTitle.remove(lblTitle);
             pnlTitle.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 8));
-            pnlTitle.add(lblTitle);      
-            
+            pnlTitle.add(lblTitle);
+
         }
     }
 
@@ -516,7 +517,7 @@ public class MainMenuClient extends javax.swing.JFrame {
         resetColor(btn_yourTrips);
         resetColor(btn_info);
         resetColor(btn_logOut);
-        
+
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_bookTrips.setOpaque(true);
         ind_btns.setOpaque(false);
@@ -549,13 +550,13 @@ public class MainMenuClient extends javax.swing.JFrame {
         ind_yourTrips.setOpaque(true);
         ind_icons.setOpaque(false);
         ind_logOut.setOpaque(false);
-        
+
         pnlRight.removeAll();
         pnlRight.add(new YourTrip()).setVisible(true);
         pnlRight.repaint();
         pnlRight.revalidate();
-        
-        
+
+
     }//GEN-LAST:event_btn_yourTripsMousePressed
 
     private void btn_infoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_infoMousePressed
@@ -574,7 +575,7 @@ public class MainMenuClient extends javax.swing.JFrame {
         ind_yourTrips.setOpaque(false);
         ind_icons.setOpaque(true);
         ind_logOut.setOpaque(false);
-        
+
         pnlRight.removeAll();
         pnlRight.add(new Information()).setVisible(true);
         pnlRight.repaint();
@@ -660,11 +661,11 @@ public class MainMenuClient extends javax.swing.JFrame {
     private void btn_logOutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_logOutMousePressed
         // TODO add your handling code here:
         setColor(btn_logOut);
-        
+
         resetColor(btn_bookTrips);
         resetColor(btn_yourTrips);
         resetColor(btn_info);
-        
+
         resetColor(btn_btns);
         resetColor(btn_data);
 

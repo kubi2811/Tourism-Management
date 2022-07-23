@@ -5,6 +5,7 @@
 package Service;
 
 import Connect.JDBCConnection;
+import Entity.Vehicle;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -15,15 +16,14 @@ import java.sql.Statement;
  */
 public class VehicleService {
         private Connection connection = JDBCConnection.getConnection();
-        public  String getTransportById(String idVehicle){
+        public  String getTransportById(String idTour){
         String vehicle = null;
-            String sql = "Select * from Vehicle where idRandomVehicle = '"+idVehicle+"'";
+            String sql = "Select * from Vehicle where Tour = '"+idTour+"'";
             try {
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(sql);
                 while(resultSet.next()){
                     vehicle = resultSet.getString("Transport");
-           
                 }
             } catch (Exception e) {
                 e.printStackTrace();
