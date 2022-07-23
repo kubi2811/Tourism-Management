@@ -24,6 +24,7 @@ public class Login extends javax.swing.JFrame {
     private Connection connection = JDBCConnection.getConnection();
     static String roleLogin;
     static String idClient;
+ 
 
     /**
      * Creates new form NewJFrame
@@ -226,7 +227,6 @@ public class Login extends javax.swing.JFrame {
             while(resultSet.next()){
                 if(password.equals(resultSet.getString("Password"))){
                         roleLogin = role.toString();
-                        idClient = resultSet.getString("IdClient");
                        if(roleLogin.equals("Admin")){
                            new AdminForm().setVisible(true);
                            this.dispose();
@@ -236,6 +236,7 @@ public class Login extends javax.swing.JFrame {
                            this.dispose();
                        }
                        else{
+                           idClient = resultSet.getString("IdClient");
                            new ClientForm().setVisible(true);
                            this.dispose();
                        }

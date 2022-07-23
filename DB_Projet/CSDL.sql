@@ -97,6 +97,7 @@ go
 create table OrderDetail(
 		IdOrderDetail INT IDENTITY(1,1) primary key,
 		IdOrder int,
+		IdClient int,
 		Tour nvarchar(50) FOREIGN KEY REFERENCES Tour(TourName),
 		--Tong so nguoi
 		Adluts int NOT NULL,
@@ -128,11 +129,9 @@ go
 create table OrderStatus(
 	IdOrderStatus INT IDENTITY(1,1) primary key,
 	IdOrder int,
-	OrderStatus nvarchar(50)
+	Status varchar(50)
 )
 go
---drop table OrderStatus
-
 
 create table Trash(
 	IdTrash INT IDENTITY(1,1) primary key,
@@ -180,9 +179,6 @@ BEGIN
 END
 GO
 
-Insert into OrderDetail(IdOrder,IdClient,Tour,Adults,Childs) values(1,1,'HN-HCM',20,10)
-
-
-
+Insert into OrderDetail(IdOrder,IdClient,Tour,Adluts,Childs) values(1,1,'HN-HCM',20,10)
 
 
