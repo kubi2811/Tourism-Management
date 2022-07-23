@@ -14,15 +14,17 @@ import java.sql.Statement;
  * @author hieut
  */
 public class TourService {
+
     private Connection connection = JDBCConnection.getConnection();
-    public String getDescription(String id){
-        String description = null ;
+
+    public String getDescription(String id) {
+        String description = null;
         try {
             Statement statement = connection.createStatement();
-        String sql= " Select Description from Tour where idTour = '" + id +"'";
-        ResultSet resultSet = statement.executeQuery(sql);
-        while(resultSet.next()){
-            description =  resultSet.getString("Description");
+            String sql = " Select Description from Tour where idTour = '" + id + "'";
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                description = resultSet.getString("Description");
             }
         } catch (Exception e) {
             e.getMessage();
