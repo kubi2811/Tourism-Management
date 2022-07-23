@@ -4,7 +4,16 @@
  */
 package Form;
 
-
+import Connect.JDBCConnection;
+import Entity.Role;
+import de.javasoft.synthetica.simple2d.SyntheticaSimple2DLookAndFeel;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 /**
@@ -12,6 +21,9 @@ import javax.swing.UnsupportedLookAndFeelException;
  * @author ranco
  */
 public class Login extends javax.swing.JFrame {
+    private Connection connection = JDBCConnection.getConnection();
+    static String roleLogin;
+    static String idClient;
 
     /**
      * Creates new form NewJFrame
@@ -32,15 +44,13 @@ public class Login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
-        idField = new javax.swing.JTextField();
+        UserName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        passField = new javax.swing.JPasswordField();
+        Password = new javax.swing.JPasswordField();
         jPanel8 = new javax.swing.JPanel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
@@ -52,12 +62,16 @@ public class Login extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 0));
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(400, 100));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 153, 255));
         jLabel1.setText("Welcome Back");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -67,57 +81,60 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(127, 127, 127)
                 .addComponent(jLabel1)
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(jLabel1)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel3);
 
-        jPanel4.setPreferredSize(new java.awt.Dimension(400, 50));
-
-        jButton1.setText("Login with Google");
-        jButton1.setPreferredSize(new java.awt.Dimension(250, 30));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jButton1);
-
-        jPanel1.add(jPanel4);
-
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setPreferredSize(new java.awt.Dimension(400, 150));
 
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setPreferredSize(new java.awt.Dimension(250, 50));
         jPanel7.setLayout(new java.awt.BorderLayout(4, 4));
-        jPanel7.add(idField, java.awt.BorderLayout.CENTER);
+        jPanel7.add(UserName, java.awt.BorderLayout.CENTER);
 
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel3.setText("ID User");
         jPanel7.add(jLabel3, java.awt.BorderLayout.PAGE_START);
 
         jPanel5.add(jPanel7);
 
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setPreferredSize(new java.awt.Dimension(250, 50));
         jPanel6.setLayout(new java.awt.BorderLayout(4, 4));
 
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel2.setText("Password");
         jPanel6.add(jLabel2, java.awt.BorderLayout.PAGE_START);
-        jPanel6.add(passField, java.awt.BorderLayout.CENTER);
+        jPanel6.add(Password, java.awt.BorderLayout.CENTER);
 
         jPanel5.add(jPanel6);
 
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setPreferredSize(new java.awt.Dimension(250, 25));
         jPanel8.setLayout(new java.awt.BorderLayout());
 
-        jCheckBox1.setText("Remamber me");
+        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBox1.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jCheckBox1.setText("Remember me");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
         jPanel8.add(jCheckBox1, java.awt.BorderLayout.WEST);
 
+        jLabel4.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 255));
         jLabel4.setText("Forgot your password ?");
         jPanel8.add(jLabel4, java.awt.BorderLayout.EAST);
@@ -126,8 +143,10 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.add(jPanel5);
 
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setPreferredSize(new java.awt.Dimension(400, 50));
 
+        buttonField.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         buttonField.setText("Login");
         buttonField.setPreferredSize(new java.awt.Dimension(250, 30));
         buttonField.addActionListener(new java.awt.event.ActionListener() {
@@ -139,8 +158,10 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.add(jPanel9);
 
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setPreferredSize(new java.awt.Dimension(400, 50));
 
+        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel5.setText("Don't have an account yet ?");
         jPanel10.add(jLabel5);
 
@@ -149,7 +170,7 @@ public class Login extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/2.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon("F:\\Tourism-Management\\Tour Management\\Picture\\giaminh.png")); // NOI18N
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel6.setPreferredSize(new java.awt.Dimension(400, 400));
 
@@ -157,11 +178,11 @@ public class Login extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 912, Short.MAX_VALUE)
+            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 829, Short.MAX_VALUE)
+            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -169,7 +190,7 @@ public class Login extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 73, Short.MAX_VALUE)
+                .addGap(0, 403, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -192,13 +213,47 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void buttonFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFieldActionPerformed
         // TODO add your handling code here:
+         String username = UserName.getText();
+        String password = Password.getText();
+        try {
+            Statement statement = connection.createStatement();
+            Role roles[] = Role.values();
+            for( Role role : roles ) {
+            String sql = " select * from "+ role + " where Username = '" + username +"'";
+            ResultSet resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+                if(password.equals(resultSet.getString("Password"))){
+                        roleLogin = role.toString();
+                        idClient = resultSet.getString("IdClient");
+                       if(roleLogin.equals("Admin")){
+                           new AdminForm().setVisible(true);
+                           this.dispose();
+                       }     
+                       else if(roleLogin.equals("Staff")){
+                           new StaffForm().setVisible(true);
+                           this.dispose();
+                       }
+                       else{
+                           new ClientForm().setVisible(true);
+                           this.dispose();
+                       }
+                    }
+                }                 
+            }
+
+
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        
+        System.out.println(roleLogin);
     }//GEN-LAST:event_buttonFieldActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,7 +288,6 @@ public class Login extends javax.swing.JFrame {
 //            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
 //        }
         
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -243,9 +297,9 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField Password;
+    private javax.swing.JTextField UserName;
     private javax.swing.JButton buttonField;
-    private javax.swing.JTextField idField;
-    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -257,12 +311,10 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JPasswordField passField;
     // End of variables declaration//GEN-END:variables
 }
