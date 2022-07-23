@@ -22,7 +22,7 @@ create table Admin(
 --Staff
 create table Staff (
 	IdStaff INT IDENTITY(1,1) primary key,
-	IdAdmin int NOT NULL,
+	Admin varchar(50) NOT NULL FOREIGN KEY REFERENCES Admin(Username),
 	FullName nvarchar(50),
 	Username varchar(50) UNIQUE,
 	Password varchar(50) NOT NULL
@@ -34,13 +34,26 @@ go
 create table Client (
 	IdClient INT IDENTITY(1,1) primary key,
 	FullName nvarchar(50),
-	Address nvarchar(50),
 	Phone varchar(50) UNIQUE,
 	Username varchar(50) UNIQUE,
-	Password varchar(50) NOT NULL,
+	hashPassword varchar(50) NOT NULL,
 	Email varchar(50)
 )
 go
+
+-- drop table Client
+
+create table UserAddress(
+	Id INT IDENTITY(1,1) primary key,
+	Username varchar(50) FOREIGN KEY REFERENCES Client(Username),
+	number int,
+	street nvarchar(50), 
+	ward nvarchar(50),
+	city nvarchar(50),
+	provience nvarchar(50)
+)
+
+-- drop table UserAddress
 
 -- Đặt tour
 create table Tour (
@@ -52,16 +65,26 @@ create table Tour (
 )
 go
 
-create table Description (
-	
+
+create table Descriptions (
 	IdDescription INT IDENTITY(1,1) primary key,
-	Tour nvarchar(50) foreign key references Tour(TourName),
+	Tour nvarchar(50) FOREIGN KEY REFERENCES Tour(TourName),
+	Total float,
+) go
+
+create table DescriptionDetail (
+	
+	IdDescriptionDetail INT IDENTITY(1,1) primary key,
+	IdDescription int FOREIGN KEY REFERENCES Descriptions(IdDescription),
+	nameDescription nvarchar(50),
 	Adults int, 
 	Childs int,
 	Incurred float,
 	Total float
 ) 
 go
+
+--drop table DescriptionDetail
 
 create table OrderTour (
 	IdOrder INT IDENTITY(1,1) primary key,
@@ -75,11 +98,11 @@ create table OrderDetail(
 		IdOrderDetail INT IDENTITY(1,1) primary key,
 		IdOrder int,
 		IdClient int,
-		IdTour int,
+		Tour nvarchar(50) FOREIGN KEY REFERENCES Tour(TourName),
 		--Tong so nguoi
 		Adluts int NOT NULL,
 		Childs int NOT NULL
-	)
+)
 go
 --drop table OrderDetail
 create table LocationStart(
@@ -123,21 +146,15 @@ create table History(
 )
 go
 
-alter table Staff
-add foreign key(IdAdmin) references Admin(IdAdmin)
-go
 
 
+-- ALTER TABLE
 alter table OrderTour
 add foreign key(IdClient) references Client(IdClient)
 go
 
 alter table OrderDetail
 add foreign key(IdOrder) references OrderTour(IdOrder)
-go
-
-alter table OrderDetail
-add foreign key(IdTour) references Tour(IdTour)
 go
 
 alter table OrderStatus
