@@ -13,97 +13,111 @@ go
 
 --admin
 create table Admin(
-	IdAdmin char(10) not null primary key,
-	Username varchar(50),
-	Password varchar(50)
+	IdAdmin INT IDENTITY(1,1) primary key,
+	Username varchar(50) UNIQUE,
+	Password varchar(50) NOT NULL
 )
 --drop table admin
+
+--Staff
+create table Staff (
+	IdStaff INT IDENTITY(1,1) primary key,
+	IdAdmin int NOT NULL,
+	FullName nvarchar(50),
+	Username varchar(50) UNIQUE,
+	Password varchar(50) NOT NULL
+)
+go
+--drop table Staff
+
 --khách hàng
 create table Client (
-	IdClient char(10) not null primary key,
+	IdClient INT IDENTITY(1,1) primary key,
 	FullName nvarchar(50),
 	Address nvarchar(50),
-	Phone varchar(50),
-	Username varchar(50),
-	Password varchar(50),
+	Phone varchar(50) UNIQUE,
+	Username varchar(50) UNIQUE,
+	Password varchar(50) NOT NULL,
 	Email varchar(50)
 )
 go
 
 -- Đặt tour
 create table Tour (
-	IdTour char(10) not null primary key,
+	IdTour INT IDENTITY(1,1) primary key,
+	TourName nvarchar(50) UNIQUE,
 	DayStart Date,
 	DayEnd Date,
-	Description nvarchar(500),
-	IdLocationStart char(10),
-	IdLocationVisit char(10),
 	Cost float,
-	IdVehicle char(10)
 )
 go
 
---Staff
-create table Staff (
-	IdStaff char(10) not null primary key,
-	IdAdmin char(10),
-	FullName nvarchar(50),
-	Username varchar(50),
-	Password varchar(50)
-)
+create table Description (
+	
+	IdDescription INT IDENTITY(1,1) primary key,
+	Tour nvarchar(50) foreign key references Tour(TourName),
+	Adults int, 
+	Childs int,
+	Incurred float,
+	Total float
+) 
 go
---drop table Staff
 
 create table OrderTour (
-	IdOrder char(10) not null primary key,
-	IdClient char(10),
+	IdOrder INT IDENTITY(1,1) primary key,
+	IdClient int,
+	createDate datetime default getdate(),
 	Total float
 )
 	go
 create table OrderDetail(
-		IdRadom char(10) not null primary key,
-		IdOrder char(10),
-		IdClient char(10),
-		IdTour char(10),
+		IdOrderDetail INT IDENTITY(1,1) primary key,
+		IdOrder int,
+		IdClient int,
+		IdTour int,
 		--Tong so nguoi
-		Adluts int,
-		Childs int
+		Adluts int NOT NULL,
+		Childs int NOT NULL
 	)
 go
 --drop table OrderDetail
 create table LocationStart(
-	IdRandomStart char(10) not null primary key,
-	Province nvarchar(50)
+	IdLocationStart INT IDENTITY(1,1) primary key,
+	Tour nvarchar(50) FOREIGN KEY REFERENCES Tour(TourName),
+	Province nvarchar(50) NOT NULL
 )
 go
 create table LocationVisit(
-	IdRandomVisit char(10) not null primary key,
-	VisitPlace nvarchar(50)
+	IdLocationVisit INT IDENTITY(1,1) primary key,
+	Tour nvarchar(50) FOREIGN KEY REFERENCES Tour(TourName),
+	VisitPlace nvarchar(50) NOT NULL
 )
 go
+
 create table Vehicle(
-	IdRandomVehicle char(10) not null primary key,
-	Transport varchar(50),
-	Capacity int 
+	IdVehicle INT IDENTITY(1,1) primary key,
+	Tour nvarchar(50) FOREIGN KEY REFERENCES Tour(TourName), -- Lấy tour name từ bảng tour
+	Transport varchar(50) NOT NULL,
+	Capacity int NOT NULL
 )
 
 go
 create table OrderStatus(
-	IdRandomStatus char(10) not null primary key,
-	IdOrder char(10),
+	IdOrderStatus INT IDENTITY(1,1) primary key,
+	IdOrder int,
 	Status varchar(50)
 )
 go
 create table Trash(
-	IdRandomTrash char(10) not null primary key,
-	IdOrder char(10)
+	IdTrash INT IDENTITY(1,1) primary key,
+	IdOrder int 
 )
 go
 
 create table History(
-	IdRandomHis char(10) not null primary key,
-	IdOrder char(10) ,
-	TimeOrder Date
+	IdHistory INT IDENTITY(1,1) primary key,
+	IdOrder int,
+	TimeOrder datetime FOREIGN KEY REFERENCES OrderTour(createDate)
 )
 
 
