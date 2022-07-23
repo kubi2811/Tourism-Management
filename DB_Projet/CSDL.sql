@@ -69,7 +69,8 @@ create table OrderTour (
 	createDate datetime default getdate(),
 	Total float
 )
-	go
+go
+
 create table OrderDetail(
 		IdOrderDetail INT IDENTITY(1,1) primary key,
 		IdOrder int,
@@ -100,14 +101,15 @@ create table Vehicle(
 	Transport varchar(50) NOT NULL,
 	Capacity int NOT NULL
 )
-
 go
+
 create table OrderStatus(
 	IdOrderStatus INT IDENTITY(1,1) primary key,
 	IdOrder int,
 	Status varchar(50)
 )
 go
+
 create table Trash(
 	IdTrash INT IDENTITY(1,1) primary key,
 	IdOrder int 
@@ -117,40 +119,39 @@ go
 create table History(
 	IdHistory INT IDENTITY(1,1) primary key,
 	IdOrder int,
-	TimeOrder datetime FOREIGN KEY REFERENCES OrderTour(createDate)
+	--TimeOrder datetime FOREIGN KEY REFERENCES OrderTour(createDate)
 )
-
-
 go
+
 alter table Staff
 add foreign key(IdAdmin) references Admin(IdAdmin)
 go
-alter table Tour
-add foreign key(IdLocationStart) references LocationStart(IdRandomStart)
-go
-alter table Tour
-add foreign key(IdLocationVisit) references LocationVisit(IdRandomVisit)
-go
+
+
 alter table OrderTour
 add foreign key(IdClient) references Client(IdClient)
 go
+
 alter table OrderDetail
 add foreign key(IdOrder) references OrderTour(IdOrder)
 go
+
 alter table OrderDetail
 add foreign key(IdTour) references Tour(IdTour)
 go
+
 alter table OrderStatus
 add foreign key(IdOrder) references OrderTour(IdOrder)
 go
+
 alter table Trash
 add foreign key(IdOrder) references OrderTour(IdOrder)
 go
+
 alter table History
 add foreign key(IdOrder) references OrderTour(IdOrder)
 go
-alter table Tour
-add foreign key(IdVehicle) references Vehicle(IdRandomVehicle)
+
 
 
 
