@@ -31,4 +31,18 @@ public class TourService {
         }
         return description;
     }
+    public String getNameTourByIdTour(String id){
+        String nameTour = null;
+        try {
+            Statement statement = connection.createStatement();
+            String sql = " Select TourName from Tour where idTour = '" + id + "'";
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                nameTour = resultSet.getString("TourName");
+            }
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        return nameTour;
+    }
 }

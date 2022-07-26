@@ -27,11 +27,15 @@ public class MainMenuClient extends javax.swing.JFrame {
     private CardLayout cardLayout;
     private YourTrip CAT;
 
+    static int IdClient;
+    static String nameClient;
+
     /**
      * Creates new form Home20
      */
     public MainMenuClient() {
         initComponents();
+
         MainMenuClient.this.getRootPane().setBorder(new LineBorder(new Color(102, 102, 255)));
 //        lblTitle.setText(this.getTitle());
         cardLayout = (CardLayout) pnlRight.getLayout();
@@ -107,7 +111,7 @@ public class MainMenuClient extends javax.swing.JFrame {
         btn_info = new javax.swing.JPanel();
         ind_icons = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        label_forClient = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         btn_btns = new javax.swing.JPanel();
         ind_btns = new javax.swing.JPanel();
@@ -127,6 +131,11 @@ public class MainMenuClient extends javax.swing.JFrame {
         setTitle("Title Frame Test");
         setLocationByPlatform(true);
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         pnlTop.setBackground(new java.awt.Color(76, 41, 211));
         pnlTop.setPreferredSize(new java.awt.Dimension(1024, 30));
@@ -300,9 +309,9 @@ public class MainMenuClient extends javax.swing.JFrame {
         jLabel6.setText("Information");
         btn_info.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("FOR CLIENT");
+        label_forClient.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        label_forClient.setForeground(new java.awt.Color(255, 255, 255));
+        label_forClient.setText("FOR CLIENT");
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -410,14 +419,15 @@ public class MainMenuClient extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addComponent(jLabel1))
                     .addGroup(sidepaneLayout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel2))
-                    .addGroup(sidepaneLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel7))
-                    .addGroup(sidepaneLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel8)))
+                        .addComponent(jLabel8))
+                    .addGroup(sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, sidepaneLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(label_forClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, sidepaneLayout.createSequentialGroup()
+                            .addGap(43, 43, 43)
+                            .addComponent(jLabel2))))
                 .addContainerGap(34, Short.MAX_VALUE))
             .addComponent(btn_logOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -429,7 +439,7 @@ public class MainMenuClient extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(46, 46, 46)
-                .addComponent(jLabel7)
+                .addComponent(label_forClient)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_bookTrips, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -575,11 +585,12 @@ public class MainMenuClient extends javax.swing.JFrame {
         ind_yourTrips.setOpaque(false);
         ind_icons.setOpaque(true);
         ind_logOut.setOpaque(false);
-
+        
         pnlRight.removeAll();
         pnlRight.add(new Information()).setVisible(true);
         pnlRight.repaint();
-        pnlRight.revalidate();
+        pnlRight.revalidate();        
+        
 
     }//GEN-LAST:event_btn_infoMousePressed
 
@@ -678,6 +689,10 @@ public class MainMenuClient extends javax.swing.JFrame {
         ind_logOut.setOpaque(true);
     }//GEN-LAST:event_btn_logOutMousePressed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        label_forClient.setText("For Client: " + Login.nameClient);
+    }//GEN-LAST:event_formWindowOpened
+
     // set and reset color
     void setColor(JPanel panel) {
         panel.setBackground(new Color(135, 112, 225));
@@ -742,9 +757,9 @@ public class MainMenuClient extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel label_forClient;
     private javax.swing.JLabel lblClose;
     private javax.swing.JLabel lblMaximize;
     private javax.swing.JLabel lblMinimize;

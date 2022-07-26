@@ -26,6 +26,8 @@ import FormStaff.StatusTour;
 public class MainMenuStaff extends javax.swing.JFrame {
 
     private CardLayout cardLayout;
+    static int idStaff;
+    static String nameStaff;
     /**
      * Creates new form Home20
      */
@@ -106,7 +108,7 @@ public class MainMenuStaff extends javax.swing.JFrame {
         btn_icons = new javax.swing.JPanel();
         ind_icons = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        label_forStaff = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         btn_btns = new javax.swing.JPanel();
         ind_btns = new javax.swing.JPanel();
@@ -129,6 +131,11 @@ public class MainMenuStaff extends javax.swing.JFrame {
         setTitle("Title Frame Test");
         setLocationByPlatform(true);
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         pnlTop.setBackground(new java.awt.Color(76, 41, 211));
         pnlTop.setPreferredSize(new java.awt.Dimension(1024, 30));
@@ -302,9 +309,9 @@ public class MainMenuStaff extends javax.swing.JFrame {
         jLabel6.setText("Status Tour");
         btn_icons.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("FOR STAFF");
+        label_forStaff.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        label_forStaff.setForeground(new java.awt.Color(255, 255, 255));
+        label_forStaff.setText("FOR STAFF");
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -436,7 +443,7 @@ public class MainMenuStaff extends javax.swing.JFrame {
             .addComponent(btn_btns, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_data, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(sidepaneLayout.createSequentialGroup()
-                .addGroup(sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(sidepaneLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jLabel1))
@@ -445,10 +452,10 @@ public class MainMenuStaff extends javax.swing.JFrame {
                         .addComponent(jLabel2))
                     .addGroup(sidepaneLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel7))
+                        .addComponent(jLabel8))
                     .addGroup(sidepaneLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel8)))
+                        .addComponent(label_forStaff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(34, Short.MAX_VALUE))
             .addComponent(btn_btns1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_Statistical, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -461,7 +468,7 @@ public class MainMenuStaff extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(46, 46, 46)
-                .addComponent(jLabel7)
+                .addComponent(label_forStaff)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_typo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -748,6 +755,11 @@ public class MainMenuStaff extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_StatisticalMousePressed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        label_forStaff.setText("For Staff: " + Login.nameStaff);
+    }//GEN-LAST:event_formWindowOpened
+
     // set and reset color
     void setColor(JPanel panel) {
         panel.setBackground(new Color(135, 112, 225));
@@ -815,9 +827,9 @@ public class MainMenuStaff extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel label_forStaff;
     private javax.swing.JLabel lblClose;
     private javax.swing.JLabel lblMaximize;
     private javax.swing.JLabel lblMinimize;

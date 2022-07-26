@@ -5,6 +5,7 @@
 package FormClient;
 
 import Connect.JDBCConnection;
+import Form.MainMenuClient;
 import Service.AddressService;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -17,9 +18,14 @@ import javax.swing.table.DefaultTableModel;
  * @author ranco
  */
 public class Information extends javax.swing.JPanel {
-        private Connection connect = JDBCConnection.getConnection();
-        private AddressService addressService = new AddressService();
 
+    private Connection connect = JDBCConnection.getConnection();
+    private AddressService addressService = new AddressService();
+ 
+    public static int IdClient;
+    public static String nameClient;
+    
+    
     /**
      * Creates new form ClientAllTrips
      */
@@ -151,28 +157,26 @@ public class Information extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
-    public void ShowClientInfo(){
-          DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-          int IdOfClient = 1;
-          
+    public void ShowClientInfo() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         try {
-            String sql = "select * from Client where IdClient = '" + IdOfClient + "'";
+            String sql = "select * from Client where IdClient = '" + IdClient + "'";
             Statement statement = connect.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 Vector vector = new Vector();
                 vector.add(resultSet.getString("FullName"));
                 vector.add(addressService.getAddressByUsername(String.valueOf(resultSet.getString("Username"))));
                 vector.add(resultSet.getString("Phone"));
                 vector.add(resultSet.getString("Username"));
                 vector.add(resultSet.getString("Email"));
-                
+
                 label_name.setText(resultSet.getString("FullName"));
                 label_address.setText(addressService.getAddressByUsername(String.valueOf(resultSet.getString("Username"))));
                 label_phone.setText(resultSet.getString("Phone"));
                 label_username.setText(resultSet.getString("Username"));
                 label_gmail.setText(resultSet.getString("Email"));
-                model.addRow(vector);  
+                model.addRow(vector);
             }
         } catch (Exception e) {
             e.getMessage();

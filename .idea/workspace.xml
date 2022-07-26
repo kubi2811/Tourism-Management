@@ -1,7 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="baea5e79-fec0-4f0d-8bdd-171755e82d21" name="Changes" comment="" />
+    <list default="true" id="baea5e79-fec0-4f0d-8bdd-171755e82d21" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/DB_Projet/Insert/InsertAll.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$15.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tour Management/build/classes/Objects/Client.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tour Management/src/Objects/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB_Projet/CSDL.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DB_Projet/CSDL.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB_Projet/Insert/insert_Description.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DB_Projet/Insert/insert_Description.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/Login$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Form/Login$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/Login$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Form/Login$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/Login$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Form/Login$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Form/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient.form" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuClient.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Service/OrderTourService.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Service/OrderTourService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/src/Form/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/src/Form/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/src/Form/MainMenuClient.form" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/src/Form/MainMenuClient.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/src/Form/MainMenuClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/src/Form/MainMenuClient.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,13 +46,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -31,6 +62,7 @@
       <option name="presentableId" value="Default" />
       <updated>1656229090127</updated>
       <workItem from="1656229090129" duration="10000" />
+      <workItem from="1658604647884" duration="11000" />
     </task>
     <servers />
   </component>

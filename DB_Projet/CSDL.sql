@@ -98,6 +98,7 @@ go
 create table OrderDetail(
 		IdOrderDetail INT IDENTITY(1,1) primary key,
 		IdOrder int,
+		IdClient int,
 		Tour nvarchar(50) FOREIGN KEY REFERENCES Tour(TourName),
 		--Tong so nguoi
 		Adluts int NOT NULL,
@@ -129,11 +130,9 @@ go
 create table OrderStatus(
 	IdOrderStatus INT IDENTITY(1,1) primary key,
 	IdOrder int,
-	OrderStatus nvarchar(50)
+	Status varchar(50)
 )
 go
---drop table OrderStatus
-
 
 create table Trash(
 	IdTrash INT IDENTITY(1,1) primary key,
@@ -181,8 +180,21 @@ BEGIN
 END
 GO
 
-Insert into OrderDetail(IdOrder,IdClient,Tour,Adults,Childs) values(1,1,'HN-HCM',20,10)
-
+CREATE TRiGGER trg_CapNhatOrderTour ON OrderDetail After Update as 
+begin 
+	UPDATE OrderTour
+	SET Total = (SELECT Adluts from OrderDetail where IdOrder = OrderDetail.IdOrder) * (SELECT CostAdo from Tour where Tour = Tour.TourName)  + 
+	(Select Childs from OrderDetail where IdOrder = OrderDetail.IdOrder) * (SELECT CostChild from Tour where Tour = Tour.TourName)
+	FROM OrderTour
+	JOIN deleted ON OrderTour.IdOrder = deleted.IdOrder
+end
+go
+CREATE TRiGGER trg_HuyOrderTour ON OrderDetail After delete as 
+begin 
+	UPDATE OrderTour Set Total = 0 
+	from OrderTour
+	JOIN deleted ON OrderTour.IdOrder = deleted.IdOrder
+end
 
 
 
