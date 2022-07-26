@@ -4,14 +4,18 @@ go
 
 -- Tạo index
 
---Select * from dbo.Client where Username = ' Client99';
+Select * from dbo.Admin where Username = 'Admin78';
 
+Select * from dbo.Staff where Admin = 'Admin667';
 
 -- Index cho Admin
 CREATE INDEX TimKiemAdmin ON Admin(Username ASC)
 
+--Drop Index TimKiemAdmin ON Admin
+
 -- Index cho nhân viên
 CREATE NONCLUSTERED INDEX TimKiemNhanVien ON Staff(
+	Admin ASC,
 	Fullname ASC,
 	Username ASC)
 

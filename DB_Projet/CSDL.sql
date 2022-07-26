@@ -61,7 +61,8 @@ create table Tour (
 	TourName nvarchar(50) UNIQUE,
 	DayStart Date,
 	DayEnd Date,
-	Cost float,
+	CostAdo float,
+	CostChild float
 )
 go
 
@@ -170,6 +171,9 @@ alter table History
 add foreign key(IdOrder) references OrderTour(IdOrder)
 go
 
+
+-- Trigger 
+
 CREATE TRIGGER trg_OrderTour ON OrderDetail  AFTER INSERT AS 
 BEGIN
 	UPDATE OrderTour
@@ -189,6 +193,7 @@ begin
 	JOIN deleted ON OrderTour.IdOrder = deleted.IdOrder
 end
 go
+
 CREATE TRiGGER trg_HuyOrderTour ON OrderDetail After delete as 
 begin 
 	UPDATE OrderTour Set Total = 0 
