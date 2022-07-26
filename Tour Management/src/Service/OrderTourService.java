@@ -91,4 +91,18 @@ public class OrderTourService {
         }
           return idTour;
     }
+    public int getTotalbyIdOrder(String idOrder){
+        int total = 0;
+        try {
+            String sql = "select Total from OrderTour where idOrder ='"+idOrder+"'";
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+                total = (int)(resultSet.getFloat("Total")) ;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return total;
+    }
 }

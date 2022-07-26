@@ -12,15 +12,15 @@ public class OrderDetail {
     private String idRandom;
     private String idOrder;
     private String idClient;
-    private String idTour;
+    private String tour;
     private int adluts;
     private int childs;
 
-    public OrderDetail(String idRandom, String idOrder, String idClient, String idTour, int adluts, int childs) {
+    public OrderDetail( String idRandom, String idOrder, String idClient, String Tour, int adluts, int childs) {
         this.idRandom = idRandom;
         this.idOrder = idOrder;
         this.idClient = idClient;
-        this.idTour = idTour;
+        this.tour = Tour;
         this.adluts = adluts;
         this.childs = childs;
     }
@@ -49,12 +49,12 @@ public class OrderDetail {
         this.idClient = idClient;
     }
 
-    public String getIdTour() {
-        return idTour;
+    public String getTour() {
+        return tour;
     }
 
-    public void setIdTour(String idTour) {
-        this.idTour = idTour;
+    public void setTour(String tour) {
+        this.tour = tour;
     }
 
     public int getAdluts() {

@@ -15,7 +15,7 @@ public class OrderTour extends javax.swing.JFrame {
      */
     public OrderTour() {
         initComponents();
-        jLabel4.setText(Login.idClient);
+        jLabel4.setText(String.valueOf(Login.IdClient));
         jLabel8.setText(ListTour.temp);
     }
 
