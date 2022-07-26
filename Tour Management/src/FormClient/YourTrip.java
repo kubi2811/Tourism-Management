@@ -4,20 +4,52 @@
  */
 package FormClient;
 
+import Connect.JDBCConnection;
+import Entity.OrderDetail;
+import Service.OrderTourService;
+import Service.TourService;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ranco
  */
 public class YourTrip extends javax.swing.JPanel {
 
+    private TourService tourService = new TourService();
+    private OrderTourService orderTourService = new OrderTourService();
+    private Connection connect = JDBCConnection.getConnection();
+
     /**
      * Creates new form ClientAllTrips
      */
     public YourTrip() {
         initComponents();
+        showYourTrip();
     }
-    public void showYourTrip(){
-        
+
+    public void showYourTrip() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        String sql = "select * from OrderDetail";
+        try {
+            Statement statement = connect.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                Vector vector = new Vector();
+                vector.add(resultSet.getString("Tour"));
+                vector.add(resultSet.getString("Adluts"));
+                vector.add(resultSet.getString("Childs"));
+                vector.add(orderTourService.getTotalbyIdOrder(resultSet.getString("IdOrder")));
+                model.addRow(vector);
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -36,13 +68,10 @@ public class YourTrip extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Tour", "Number of adults", "Number of childs", "Total"
             }
         ));
         jScrollPane1.setViewportView(jTable1);

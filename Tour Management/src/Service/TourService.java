@@ -5,9 +5,12 @@
 package Service;
 
 import Connect.JDBCConnection;
+import Entity.OrderDetail;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,6 +19,8 @@ import java.sql.Statement;
 public class TourService {
 
     private Connection connection = JDBCConnection.getConnection();
+    private ClientService clientService = null;
+            
 
     public String getDescription(String id) {
         String description = null;
@@ -44,5 +49,20 @@ public class TourService {
             e.getMessage();
         }
         return nameTour;
+    }
+    public List<OrderDetail> getMyTour(){
+        List<OrderDetail> myTours = new ArrayList<>();
+        String sql = "select * from OrderDetail" ;
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+                OrderDetail orderDetail = new OrderDetail(resultSet.getString("IdOrderDetail"),resultSet.getString("IdOrder"), resultSet.getString("IdClient"), resultSet.getString("Tour"), resultSet.getInt("Adluts"), resultSet.getInt("Childs"));
+                myTours.add(orderDetail);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return myTours;
     }
 }
