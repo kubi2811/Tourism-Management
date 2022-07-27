@@ -7,6 +7,10 @@ go
 Select * from dbo.Admin where Username = 'Admin78';
 
 Select * from dbo.Staff where Admin = 'Admin667';
+Select * from dbo.Staff where dbo.Staff.FullName = 'Tòng Mỹ Loan';
+Select * from dbo.Staff where Username = 'Staff667';
+
+Select * from dbo.Client where FullName = 'Hoa An Nhiên';
 
 -- Index cho Admin
 CREATE INDEX TimKiemAdmin ON Admin(Username ASC)
