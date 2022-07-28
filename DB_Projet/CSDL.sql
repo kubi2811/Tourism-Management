@@ -172,7 +172,7 @@ add foreign key(IdOrder) references OrderTour(IdOrder)
 go
 
 
--- Trigger 
+-- Trigger order
 
 CREATE TRIGGER trg_OrderTour ON OrderDetail  AFTER INSERT AS 
 BEGIN
@@ -201,9 +201,33 @@ begin
 	JOIN deleted ON OrderTour.IdOrder = deleted.IdOrder
 end
 
+select * from OrderTour
+select * From OrderDetail
+select * from Descriptions
+select * from DescriptionDetail
+select * from Tour
+
+--insert into OrderDetail(IdOrder,IdClient,Tour,Adluts,Childs) Values(6,3,N'HN-HCM',20,10)
+--update OrderDetail set Adluts = 30, Childs = 20 where IdOrder = 6;
+--delete from OrderDetail where IdOrder = 6;
+
+
+SELECT SUM(Total) as SUM
+FROM DescriptionDetail
+WHERE IdDescription = 3;
 
 
 
-
-
+CREATE TRIGGER trg_description ON DescriptionDetail  AFTER INSERT AS 
+BEGIN
+	UPDATE Descriptions
+	SET Total = (SELECT SUM(Total) as SUM
+	FROM DescriptionDetail
+	WHERE IdDescription = Descriptions.IdDescription )
+	FROM Descriptions
+	JOIN inserted ON Descriptions.IdDescription = inserted.IdDescription
+END
+GO
+select * from Descriptions
+select * from DescriptionDetail
 
