@@ -228,6 +228,7 @@ BEGIN
 	JOIN inserted ON Descriptions.IdDescription = inserted.IdDescription
 END
 GO
+select * from OrderDetail
 select * from Descriptions
 select * from DescriptionDetail
 
