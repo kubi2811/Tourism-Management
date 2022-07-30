@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import FormStaff.ClientInformation;
+import FormStaff.CreateDescriptionForm;
 import FormStaff.ManageTrips;
 import FormStaff.Statistical;
 import FormStaff.StatusTour;
@@ -648,6 +649,11 @@ public class MainMenuStaff extends javax.swing.JFrame {
         ind_fonts.setOpaque(false);
         ind_icons.setOpaque(false);
         ind_icons1.setOpaque(false);
+        
+        pnlRight.removeAll();
+        pnlRight.add(new CreateDescriptionForm()).setVisible(true);
+        pnlRight.repaint();
+        pnlRight.revalidate();
     }//GEN-LAST:event_btn_btnsMousePressed
 
     private void btn_dataMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_dataMousePressed
@@ -767,6 +773,18 @@ public class MainMenuStaff extends javax.swing.JFrame {
 
     void resetColor(JPanel panel) {
         panel.setBackground(new Color(76, 41, 211));
+    }
+    
+    public void openCreateDescriptionForm(){
+        System.out.println("helo");
+        
+        pnlRight.removeAll();
+        pnlRight.repaint();
+        pnlRight.revalidate();
+        pnlRight.add(new CreateDescriptionForm()).setVisible(true);
+        
+        
+        System.out.println("helo2");
     }
 
     /**

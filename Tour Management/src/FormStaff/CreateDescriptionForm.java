@@ -28,6 +28,7 @@ public class CreateDescriptionForm extends javax.swing.JPanel {
     public CreateDescriptionForm() {
         initComponents();
         showDescription();
+        System.out.println("helo3");
     }
 
     /**
@@ -136,7 +137,7 @@ public class CreateDescriptionForm extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(467, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
