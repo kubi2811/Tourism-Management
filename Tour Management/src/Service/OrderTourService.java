@@ -32,7 +32,6 @@ public class OrderTourService {
                 tour.setTour(resultSet.getString("Tour"));
                 tour.setDayStart(Date.valueOf(resultSet.getString("DayStart")));
                 tour.setDayEnd(Date.valueOf(resultSet.getString("DayEnd")));
-                tour.setDiscription(resultSet.getString("Description"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -68,7 +67,7 @@ public class OrderTourService {
     public void OrderStatusTour(String idOrder , String status){
         try {
             String sql = "insert into OrderStatus(IdOrder,Status) values (?,?)";
-            PreparedStatement preparedStatement = connection.prepareCall(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,idOrder);
             preparedStatement.setString(2,status);
             preparedStatement.execute();
@@ -105,4 +104,7 @@ public class OrderTourService {
         }
         return total;
     }
+    
+ 
+    
 }

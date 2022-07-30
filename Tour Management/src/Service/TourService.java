@@ -65,4 +65,19 @@ public class TourService {
         }
         return myTours;
     }
+    public List<String> getListTourName (){
+        List<String> listTour = new ArrayList<>();
+        String sql = "Select * from Tour";
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+                listTour.add(resultSet.getString("TourName"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listTour;
+   
+    }
 }

@@ -16,21 +16,34 @@ public class Tour {
     private String tour;
     private Date dayStart;
     private Date dayEnd;
-    private String discription;
-    private float costAdo;
-    private float costChild;
 
-    public Tour(String idTour, String tour, Date dayStart, Date dayEnd, String discription, float costAdo, float costChild) {
+    private double costAdo;
+    private double costChild;
+
+    public Tour(String idTour, String tour, Date dayStart, Date dayEnd, double costAdo, double costChild) {
         this.idTour = idTour;
         this.tour = tour;
         this.dayStart = dayStart;
         this.dayEnd = dayEnd;
-        this.discription = discription;
+
+        this.costAdo = costAdo;
+        this.costChild = costChild;
+    }
+
+    public Tour(String tour, Date dayStart, Date dayEnd,  double costAdo, double costChild) {
+        this.tour = tour;
+        this.dayStart = dayStart;
+        this.dayEnd = dayEnd;
+
         this.costAdo = costAdo;
         this.costChild = costChild;
     }
 
     public Tour() {
+    }
+
+    public Tour(String text, java.util.Date dateStart, java.util.Date dateEnd, double parseDouble, double parseDouble0) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public String getIdTour() {
@@ -65,27 +78,19 @@ public class Tour {
         this.dayEnd = dayEnd;
     }
 
-    public String getDiscription() {
-        return discription;
-    }
-
-    public void setDiscription(String discription) {
-        this.discription = discription;
-    }
-
-    public float getCostAdo() {
+    public double getCostAdo() {
         return costAdo;
     }
 
-    public void setCostAdo(float costAdo) {
+    public void setCostAdo(double costAdo) {
         this.costAdo = costAdo;
     }
 
-    public float getCostChild() {
+    public double getCostChild() {
         return costChild;
     }
 
-    public void setCostChild(float costChild) {
+    public void setCostChild(double costChild) {
         this.costChild = costChild;
     }
 
