@@ -23,12 +23,17 @@ CREATE NONCLUSTERED INDEX TimKiemNhanVien ON Staff(
 	Fullname ASC,
 	Username ASC)
 
+--DROP INDEX TimKiemNhanVien ON Staff
+
 --Index cho khách hàng
 CREATE NONCLUSTERED INDEX TimKiemKhachHang ON Client
 (	Fullname ASC,
 	Username ASC,
 	Phone ASC,
 	Email ASC)
+
+
+-- DROP INDEX TimKiemKhachHang ON Client
 
 -- Index cho danh sách Tour
 CREATE NONCLUSTERED INDEX TimKiemTour ON Tour (TourName ASC, DayStart ASC, DayEnd ASC)
