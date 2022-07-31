@@ -198,7 +198,7 @@ public class MainMenuClient extends javax.swing.JFrame {
 
         pnlParent.setLayout(new java.awt.BorderLayout());
 
-        sidepane.setBackground(new java.awt.Color(102, 102, 255));
+        sidepane.setBackground(new java.awt.Color(153, 153, 255));
         sidepane.setForeground(new java.awt.Color(51, 51, 51));
         sidepane.setPreferredSize(new java.awt.Dimension(250, 200));
         sidepane.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {

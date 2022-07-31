@@ -8,7 +8,7 @@ package Form;
 import FormAdmin.ClientInformation;
 import FormAdmin.StaffInformation;
 import FormAdmin.Statistical;
-import FormAdmin.StatusTour;
+import FormAdmin.CreateStaff;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -31,6 +31,7 @@ public class MainMenuAdmin extends javax.swing.JFrame {
      * Creates new form Home20
      */
     static int idAdmin;
+    static String usernameAdmin;
     
     public MainMenuAdmin() {
         initComponents();
@@ -110,12 +111,6 @@ public class MainMenuAdmin extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         label_forAdmin = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        btn_btns = new javax.swing.JPanel();
-        ind_btns = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        btn_data = new javax.swing.JPanel();
-        ind_data = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
         btn_btns1 = new javax.swing.JPanel();
         ind_btns1 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -187,7 +182,7 @@ public class MainMenuAdmin extends javax.swing.JFrame {
         pnlTitle.setPreferredSize(new java.awt.Dimension(200, 30));
         pnlTitle.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 10, 8));
 
-        lblTitle.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Tour Managerment");
         pnlTitle.add(lblTitle);
@@ -198,7 +193,7 @@ public class MainMenuAdmin extends javax.swing.JFrame {
 
         pnlParent.setLayout(new java.awt.BorderLayout());
 
-        sidepane.setBackground(new java.awt.Color(102, 102, 255));
+        sidepane.setBackground(new java.awt.Color(153, 153, 255));
         sidepane.setForeground(new java.awt.Color(51, 51, 51));
         sidepane.setPreferredSize(new java.awt.Dimension(250, 200));
         sidepane.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -306,74 +301,16 @@ public class MainMenuAdmin extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Status Tour");
+        jLabel6.setText("Create Staff Account");
         btn_icons.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
-        label_forAdmin.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        label_forAdmin.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         label_forAdmin.setForeground(new java.awt.Color(255, 255, 255));
         label_forAdmin.setText("FOR ADMIN");
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("PROFILE");
-
-        btn_btns.setBackground(new java.awt.Color(76, 41, 211));
-        btn_btns.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_btnsMousePressed(evt);
-            }
-        });
-        btn_btns.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        ind_btns.setOpaque(false);
-        ind_btns.setPreferredSize(new java.awt.Dimension(4, 40));
-
-        javax.swing.GroupLayout ind_btnsLayout = new javax.swing.GroupLayout(ind_btns);
-        ind_btns.setLayout(ind_btnsLayout);
-        ind_btnsLayout.setHorizontalGroup(
-            ind_btnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 4, Short.MAX_VALUE)
-        );
-        ind_btnsLayout.setVerticalGroup(
-            ind_btnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
-
-        btn_btns.add(ind_btns, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 40));
-
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Buttons");
-        btn_btns.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
-
-        btn_data.setBackground(new java.awt.Color(76, 41, 211));
-        btn_data.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_dataMousePressed(evt);
-            }
-        });
-        btn_data.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        ind_data.setOpaque(false);
-        ind_data.setPreferredSize(new java.awt.Dimension(4, 40));
-
-        javax.swing.GroupLayout ind_dataLayout = new javax.swing.GroupLayout(ind_data);
-        ind_data.setLayout(ind_dataLayout);
-        ind_dataLayout.setHorizontalGroup(
-            ind_dataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 4, Short.MAX_VALUE)
-        );
-        ind_dataLayout.setVerticalGroup(
-            ind_dataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
-
-        btn_data.add(ind_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 40));
-
-        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Buttons");
-        btn_data.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
+        jLabel8.setText("INFORMATION");
 
         btn_btns1.setBackground(new java.awt.Color(76, 41, 211));
         btn_btns1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -440,8 +377,6 @@ public class MainMenuAdmin extends javax.swing.JFrame {
             .addComponent(btn_typo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_fonts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_icons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btn_btns, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btn_data, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(sidepaneLayout.createSequentialGroup()
                 .addGroup(sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(sidepaneLayout.createSequentialGroup()
@@ -469,21 +404,17 @@ public class MainMenuAdmin extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(46, 46, 46)
                 .addComponent(label_forAdmin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_typo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_fonts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btn_icons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addGap(31, 31, 31)
                 .addComponent(btn_Statistical, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(46, 46, 46)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_btns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_typo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(btn_fonts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(btn_btns1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -492,10 +423,10 @@ public class MainMenuAdmin extends javax.swing.JFrame {
 
         pnlRight.setLayout(new java.awt.CardLayout());
 
-        pnlDataCards.setBackground(new java.awt.Color(255, 255, 255));
+        pnlDataCards.setBackground(new java.awt.Color(255, 153, 153));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel3.setText("WELCOME TO OUR COMPANY, LETS CHOOSE YOUR TRIPS");
+        jLabel3.setText("WELCOME TO OUR COMPANY, YOU ARE ADMINISTRATOR");
 
         javax.swing.GroupLayout pnlDataCardsLayout = new javax.swing.GroupLayout(pnlDataCards);
         pnlDataCards.setLayout(pnlDataCardsLayout);
@@ -553,8 +484,6 @@ public class MainMenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         //Màu sắc
         setColor(btn_typo);
-        resetColor(btn_data);
-        resetColor(btn_btns);
         resetColor(btn_fonts);
         resetColor(btn_icons);
         resetColor(btn_Statistical);
@@ -562,8 +491,6 @@ public class MainMenuAdmin extends javax.swing.JFrame {
         
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_typo.setOpaque(true);
-        ind_btns.setOpaque(false);
-        ind_data.setOpaque(false);
         ind_fonts.setOpaque(false);
         ind_icons.setOpaque(false);
         ind_btns1.setOpaque(false);
@@ -581,8 +508,6 @@ public class MainMenuAdmin extends javax.swing.JFrame {
     private void btn_fontsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_fontsMousePressed
         // TODO add your handling code here:
         setColor(btn_fonts);
-        resetColor(btn_data);
-        resetColor(btn_btns);
         resetColor(btn_typo);
         resetColor(btn_icons);
         resetColor(btn_Statistical);
@@ -590,8 +515,6 @@ public class MainMenuAdmin extends javax.swing.JFrame {
 
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_typo.setOpaque(false);
-        ind_btns.setOpaque(false);
-        ind_data.setOpaque(false);
         ind_fonts.setOpaque(true);
         ind_icons.setOpaque(false);
         ind_btns1.setOpaque(false);
@@ -608,8 +531,6 @@ public class MainMenuAdmin extends javax.swing.JFrame {
     private void btn_iconsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_iconsMousePressed
         // TODO add your handling code here:
         setColor(btn_icons);
-        resetColor(btn_data);
-        resetColor(btn_btns);
         resetColor(btn_fonts);
         resetColor(btn_typo);
         resetColor(btn_Statistical);
@@ -617,60 +538,19 @@ public class MainMenuAdmin extends javax.swing.JFrame {
 
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_typo.setOpaque(false);
-        ind_btns.setOpaque(false);
-        ind_data.setOpaque(false);
         ind_fonts.setOpaque(false);
         ind_icons.setOpaque(true);
         ind_btns1.setOpaque(false);
         ind_icons1.setOpaque(false);
         
         pnlRight.removeAll();
-        pnlRight.add(new StatusTour()).setVisible(true);
+        CreateStaff a = new CreateStaff();
+        a.setusernameAdmin(Login.usernameAdmin);
+        pnlRight.add(new CreateStaff()).setVisible(true);
         pnlRight.repaint();
         pnlRight.revalidate();
 
     }//GEN-LAST:event_btn_iconsMousePressed
-
-    private void btn_btnsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_btnsMousePressed
-        // TODO add your handling code here:
-        setColor(btn_btns);
-        resetColor(btn_data);
-        resetColor(btn_typo);
-        resetColor(btn_fonts);
-        resetColor(btn_icons);
-        resetColor(btn_Statistical);
-        resetColor(btn_btns1);
-
-        //Gạch nhỏ đầu màu trắng khi bấm vào
-        ind_typo.setOpaque(false);
-        ind_btns.setOpaque(true);
-        ind_data.setOpaque(false);
-        ind_fonts.setOpaque(false);
-        ind_icons.setOpaque(false);
-        ind_icons1.setOpaque(false);
-        ind_btns1.setOpaque(false);
-    }//GEN-LAST:event_btn_btnsMousePressed
-
-    private void btn_dataMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_dataMousePressed
-        // TODO add your handling code here:
-        setColor(btn_data);
-        resetColor(btn_typo);
-        resetColor(btn_btns);
-        resetColor(btn_fonts);
-        resetColor(btn_icons);
-        resetColor(btn_Statistical);
-        resetColor(btn_btns1);
-
-        //Gạch nhỏ đầu màu trắng khi bấm vào
-        ind_typo.setOpaque(false);
-        ind_btns.setOpaque(false);
-        ind_data.setOpaque(true);
-        ind_fonts.setOpaque(false);
-        ind_icons.setOpaque(false);
-        ind_btns1.setOpaque(false);
-        ind_icons1.setOpaque(false);
-
-    }//GEN-LAST:event_btn_dataMousePressed
 
 
     private void lblMaximizeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMaximizeMousePressed
@@ -714,17 +594,13 @@ public class MainMenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         resetColor(btn_Statistical);
         resetColor(btn_typo);
-        resetColor(btn_btns);
         resetColor(btn_fonts);
         resetColor(btn_icons);
-        resetColor(btn_data);
         setColor(btn_btns1);
 
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_btns1.setOpaque(true);
         ind_typo.setOpaque(false);
-        ind_btns.setOpaque(false);
-        ind_data.setOpaque(false);
         ind_fonts.setOpaque(false);
         ind_icons.setOpaque(false);
         ind_icons1.setOpaque(false);
@@ -744,16 +620,12 @@ public class MainMenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         setColor(btn_Statistical);
         resetColor(btn_typo);
-        resetColor(btn_btns);
         resetColor(btn_fonts);
         resetColor(btn_icons);
-        resetColor(btn_data);
         resetColor(btn_btns1);
 
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_typo.setOpaque(false);
-        ind_btns.setOpaque(false);
-        ind_data.setOpaque(false);
         ind_fonts.setOpaque(false);
         ind_icons.setOpaque(false);
         ind_icons1.setOpaque(true);
@@ -818,21 +690,16 @@ public class MainMenuAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btn_Statistical;
-    private javax.swing.JPanel btn_btns;
     private javax.swing.JPanel btn_btns1;
-    private javax.swing.JPanel btn_data;
     private javax.swing.JPanel btn_fonts;
     private javax.swing.JPanel btn_icons;
     private javax.swing.JPanel btn_typo;
-    private javax.swing.JPanel ind_btns;
     private javax.swing.JPanel ind_btns1;
-    private javax.swing.JPanel ind_data;
     private javax.swing.JPanel ind_fonts;
     private javax.swing.JPanel ind_icons;
     private javax.swing.JPanel ind_icons1;
     private javax.swing.JPanel ind_typo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -841,7 +708,6 @@ public class MainMenuAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel label_forAdmin;
     private javax.swing.JLabel lblClose;
     private javax.swing.JLabel lblMaximize;
