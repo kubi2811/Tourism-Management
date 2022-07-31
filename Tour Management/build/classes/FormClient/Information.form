@@ -23,39 +23,56 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel2" min="-2" pref="120" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="label_name" min="-2" pref="300" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="590" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="updateInformationBtn" pref="114" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel3" min="-2" pref="120" max="-2" attributes="0"/>
+                      <Component id="jLabel6" min="-2" pref="120" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="label_address" min="-2" pref="575" max="-2" attributes="0"/>
+                      <Component id="label_gmail" min="-2" pref="286" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="gmailTextInput" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel6" min="-2" pref="120" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="label_gmail" min="-2" pref="300" max="-2" attributes="0"/>
-                          </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel5" min="-2" pref="120" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="label_username" min="-2" pref="300" max="-2" attributes="0"/>
+                              <Component id="label_username" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel3" min="-2" pref="120" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="label_address" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel2" min="-2" pref="120" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="label_name" min="-2" pref="280" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel4" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="label_phone" min="-2" pref="286" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="jLabel4" min="-2" pref="120" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="label_phone" min="-2" pref="300" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="nameTextInput" max="32767" attributes="0"/>
+                          <Component id="addressTextInput" max="32767" attributes="0"/>
+                          <Component id="phoneTextInput" max="32767" attributes="0"/>
+                          <Component id="userNameTextInput" alignment="0" pref="298" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="jScrollPane1" alignment="0" min="-2" pref="590" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="121" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -66,29 +83,46 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="label_name" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                  <Component id="nameTextInput" alignment="0" pref="49" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="label_address" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
-                  <Component id="jLabel3" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="label_address" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                      <Component id="jLabel3" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="addressTextInput" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="label_phone" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
-                  <Component id="jLabel4" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="label_phone" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                          <Component id="jLabel4" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="phoneTextInput" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="label_username" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
                   <Component id="jLabel5" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                  <Component id="userNameTextInput" alignment="1" pref="49" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="label_gmail" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="gmailTextInput" min="-2" pref="49" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="72" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jScrollPane1" min="-2" pref="72" max="-2" attributes="0"/>
+                  <Component id="updateInformationBtn" min="-2" pref="52" max="-2" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -101,7 +135,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="jTable1">
+        <Component class="javax.swing.JTable" name="ClientInforTable">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="5" rowCount="0">
@@ -145,6 +179,9 @@
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ClientInforTableMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -227,6 +264,42 @@
         </Property>
         <Property name="text" type="java.lang.String" value="null"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="nameTextInput">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="cawcj"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameTextInputActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="addressTextInput">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="cawcj"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="phoneTextInput">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="cawcj"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="userNameTextInput">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="cawcj"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="gmailTextInput">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="cawcj"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="updateInformationBtn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Update"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="updateInformationBtnMouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

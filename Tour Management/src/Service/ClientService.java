@@ -37,5 +37,16 @@ public class ClientService {
     }
     
               
-    
+    public boolean updateClientInformation(String idClient, String name, String phone, String gmail) {
+        String sql = "update Client set Fullname = '" + name +"',Phone ='" + phone +"', Email = '" + gmail + "' where idClient = " + idClient;
+        try{
+//            PreparedStatement preparedStatement = connection.prepareStatement(sql); 
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(sql);
+            return true;
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
