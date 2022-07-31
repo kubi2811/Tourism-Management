@@ -94,9 +94,12 @@ create table OrderTour (
 	IdOrder INT IDENTITY(1,1) primary key,
 	IdClient int,
 	createDate datetime default getdate(),
-	Total float
+	Total float,
+	isDeleted int default 0
 )
 go
+
+-- drop table OrderTour
 
 create table OrderDetail(
 		IdOrderDetail INT IDENTITY(1,1) primary key,
@@ -121,6 +124,8 @@ create table LocationVisit(
 	VisitPlace nvarchar(50) NOT NULL
 )
 go
+
+-- drop table LocationVisit
 
 create table Vehicle(
 	IdVehicle INT IDENTITY(1,1) primary key,
@@ -202,6 +207,7 @@ begin
 	from OrderTour
 	JOIN deleted ON OrderTour.IdOrder = deleted.IdOrder
 end
+go
 
 select * from OrderTour
 select * From OrderDetail
@@ -237,5 +243,5 @@ select * from Trash
 select * from OrderTour
 select * from OrderDetail
 select * from Tour
-select * from OrderTour where IdClient = 3 and IsDelete = 0
+--select * from OrderTour where IdClient = 3 and IsDelete = 0
 
