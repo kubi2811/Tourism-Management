@@ -34,6 +34,7 @@ public class ManageTrips extends javax.swing.JPanel {
     private TourService tourService = new TourService();
     static String idTour;
     static int idDescription;
+    public static String tourName;
     
 
     /**
@@ -67,7 +68,7 @@ public class ManageTrips extends javax.swing.JPanel {
         TourName = new javax.swing.JTextField();
         CostAdo = new javax.swing.JTextField();
         CostChild = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        Des = new javax.swing.JButton();
         ListTourName = new javax.swing.JComboBox<>();
         DayStart = new com.toedter.calendar.JDateChooser();
         DayEnd = new com.toedter.calendar.JDateChooser();
@@ -134,10 +135,10 @@ public class ManageTrips extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setText("Go to add Description");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        Des.setText("Go to add Description");
+        Des.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                DesMouseClicked(evt);
             }
         });
 
@@ -187,7 +188,7 @@ public class ManageTrips extends javax.swing.JPanel {
                                         .addGap(55, 55, 55)
                                         .addGroup(ManageTripsCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(ManageTripsCardLayout.createSequentialGroup()
-                                                .addComponent(jButton2)
+                                                .addComponent(Des)
                                                 .addGap(0, 0, Short.MAX_VALUE))
                                             .addGroup(ManageTripsCardLayout.createSequentialGroup()
                                                 .addComponent(jLabel5)
@@ -220,7 +221,7 @@ public class ManageTrips extends javax.swing.JPanel {
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(ManageTripsCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
+                    .addComponent(Des)
                     .addComponent(ListTourName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(246, Short.MAX_VALUE))
         );
@@ -371,7 +372,7 @@ public class ManageTrips extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_TourNameActionPerformed
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void DesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DesMouseClicked
         // TODO add your handling code here:
 //        idDescription = descriptionService.getIdDescriptionByTourName(String.valueOf(ListTourName.getSelectedItem()));
 //        CreateDescriptionForm createDescriptionForm = new CreateDescriptionForm();
@@ -379,7 +380,8 @@ public class ManageTrips extends javax.swing.JPanel {
 //
         CardLayout cards = (CardLayout)(this.getLayout());
         cards.show(this, "card02");
-    }//GEN-LAST:event_jButton2MouseClicked
+        tourName = String.valueOf(ListTourName.getSelectedItem());
+    }//GEN-LAST:event_DesMouseClicked
 
     private void ListTourNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListTourNameActionPerformed
         // TODO add your handling code here:
@@ -406,14 +408,13 @@ public class ManageTrips extends javax.swing.JPanel {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
-               
-                    Vector vector = new Vector();
-                    vector.add(resultSet.getString("TourName"));
-                    vector.add(resultSet.getString("DayStart"));
-                    vector.add(resultSet.getString("DayEnd"));
-                    vector.add(resultSet.getString("CostAdo"));
-                    vector.add(resultSet.getString("CostChild"));
-                    model.addRow(vector);
+                Vector vector = new Vector();
+                vector.add(resultSet.getString("TourName"));
+                vector.add(resultSet.getString("DayStart"));
+                vector.add(resultSet.getString("DayEnd"));
+                vector.add(resultSet.getString("CostAdo"));
+                vector.add(resultSet.getString("CostChild"));
+                model.addRow(vector);                  
             }
         } catch (Exception e) {
             e.getMessage();
@@ -453,6 +454,7 @@ public class ManageTrips extends javax.swing.JPanel {
     private javax.swing.JPanel CreateDescriptionCard;
     private com.toedter.calendar.JDateChooser DayEnd;
     private com.toedter.calendar.JDateChooser DayStart;
+    private javax.swing.JButton Des;
     private javax.swing.JTextField IdDescription;
     private javax.swing.JTextField Incurred;
     private javax.swing.JComboBox<String> ListTourName;
@@ -462,7 +464,6 @@ public class ManageTrips extends javax.swing.JPanel {
     private javax.swing.JTextField TourName;
     private javax.swing.JButton addDescription;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -44,7 +44,7 @@ public class TourService {
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
                 nameTour = resultSet.getString("TourName");
-            }
+            }   
         } catch (Exception e) {
             e.getMessage();
         }
@@ -78,6 +78,36 @@ public class TourService {
             e.printStackTrace();
         }
         return listTour;
-   
     }
+    public double getCostAdoByName(String nameTour){
+        String sql = " select CostAdo from Tour where TourName ='"+nameTour+"'";
+        double cost = 0;
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+                cost = resultSet.getDouble("CostAdo");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+                
+        return cost;
+    }
+     public double getCostChildByName(String nameTour){
+        String sql = " select CostChilds from Tour where TourName ='"+nameTour+"'";
+        double cost = 0;
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+                cost = resultSet.getDouble("CostChilds");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+                
+        return cost;
+    }
+  
 }

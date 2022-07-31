@@ -25,7 +25,9 @@ create table Staff (
 	Admin varchar(50) NOT NULL FOREIGN KEY REFERENCES Admin(Username),
 	FullName nvarchar(50),
 	Username varchar(50) UNIQUE,
-	Password varchar(50) NOT NULL
+	Password varchar(50) NOT NULL,
+	Status int default 0
+	-- Status 0 is Enable, Status 1 is Disable, ...
 )
 go
 --drop table Staff
@@ -231,4 +233,9 @@ GO
 select * from OrderDetail
 select * from Descriptions
 select * from DescriptionDetail
+select * from Trash
+select * from OrderTour
+select * from OrderDetail
+select * from Tour
+select * from OrderTour where IdClient = 3 and IsDelete = 0
 
