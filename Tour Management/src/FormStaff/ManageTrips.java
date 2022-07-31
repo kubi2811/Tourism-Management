@@ -156,7 +156,7 @@ public class ManageTrips extends javax.swing.JPanel {
             .addGroup(ManageTripsCardLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(ManageTripsCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(ManageTripsCardLayout.createSequentialGroup()
                         .addGap(132, 132, 132)
                         .addGroup(ManageTripsCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,35 +165,36 @@ public class ManageTrips extends javax.swing.JPanel {
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(ManageTripsCardLayout.createSequentialGroup()
                                 .addGroup(ManageTripsCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(ManageTripsCardLayout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ManageTripsCardLayout.createSequentialGroup()
                                         .addGroup(ManageTripsCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel1)
                                             .addComponent(jLabel2))
                                         .addGap(37, 37, 37)
+                                        .addComponent(TourName))
+                                    .addGroup(ManageTripsCardLayout.createSequentialGroup()
+                                        .addGroup(ManageTripsCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(ListTourName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel4))
+                                        .addGap(55, 55, 55)
+                                        .addComponent(Des)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(ManageTripsCardLayout.createSequentialGroup()
+                                        .addGroup(ManageTripsCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(ManageTripsCardLayout.createSequentialGroup()
+                                                .addGap(96, 96, 96)
+                                                .addComponent(DayStart, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(CostAdo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(ManageTripsCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addGroup(ManageTripsCardLayout.createSequentialGroup()
-                                                .addComponent(DayStart, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGap(0, 0, Short.MAX_VALUE)
                                                 .addComponent(jLabel3)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(DayEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(TourName)))
-                                    .addGroup(ManageTripsCardLayout.createSequentialGroup()
-                                        .addGroup(ManageTripsCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(CostAdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(ListTourName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(55, 55, 55)
-                                        .addGroup(ManageTripsCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(ManageTripsCardLayout.createSequentialGroup()
-                                                .addComponent(Des)
-                                                .addGap(0, 0, Short.MAX_VALUE))
                                             .addGroup(ManageTripsCardLayout.createSequentialGroup()
                                                 .addComponent(jLabel5)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(CostChild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                                                .addComponent(CostChild, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                 .addGap(46, 46, 46))))))
         );
         ManageTripsCardLayout.setVerticalGroup(
@@ -223,7 +224,7 @@ public class ManageTrips extends javax.swing.JPanel {
                 .addGroup(ManageTripsCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Des)
                     .addComponent(ListTourName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(246, Short.MAX_VALUE))
+                .addContainerGap(261, Short.MAX_VALUE))
         );
 
         add(ManageTripsCard, "card01");
@@ -358,8 +359,8 @@ public class ManageTrips extends javax.swing.JPanel {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        Date dateStart = new Date(DayStart.getDateFormatString());
-        Date dateEnd = new Date(DayEnd.getDateFormatString());
+        Date dateStart = DayStart.getDate();
+        Date dateEnd = DayEnd.getDate();
         Tour tour = new Tour(TourName.getText(),dateStart,dateEnd,Double.parseDouble(CostAdo.getText()),Double.parseDouble(CostChild.getText()));
         staffService.createTour(tour);
     }//GEN-LAST:event_jButton1MouseClicked
@@ -397,8 +398,8 @@ public class ManageTrips extends javax.swing.JPanel {
 
     private void addDescriptionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addDescriptionMouseClicked
         // TODO add your handling code here:
-        DescriptionDetail descriptionDetail = new DescriptionDetail(ManageTrips.idDescription, NameDescription.getText(),Integer.parseInt(Adults.getText()) , Integer.parseInt(Childs.getText()), Double.parseDouble(Incurred.getText()), Double.parseDouble(Total.getText()));
-        descriptionService.createDescriptionDetail(descriptionDetail);
+//        DescriptionDetail descriptionDetail = new DescriptionDetail(ManageTrips.idDescription, NameDescription.getText(),Integer.parseInt(Adults.getText()) , Integer.parseInt(Childs.getText()), Double.parseDouble(Incurred.getText()), Double.parseDouble(Total.getText()));
+//        descriptionService.createDescriptionDetail(descriptionDetail);
 
     }//GEN-LAST:event_addDescriptionMouseClicked
     public void showInfoManageTrips(){
