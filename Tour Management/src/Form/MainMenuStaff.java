@@ -733,6 +733,10 @@ public class MainMenuStaff extends javax.swing.JFrame {
         ind_icons.setOpaque(false);
         ind_icons1.setOpaque(false);
         ind_btns1.setOpaque(true);
+        
+        Login login = new Login();
+        login.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btn_btns1MousePressed
 
     private void btn_StatisticalMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_StatisticalMousePressed

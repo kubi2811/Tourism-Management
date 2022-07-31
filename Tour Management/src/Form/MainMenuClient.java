@@ -687,6 +687,10 @@ public class MainMenuClient extends javax.swing.JFrame {
         ind_yourTrips.setOpaque(false);
         ind_icons.setOpaque(false);
         ind_logOut.setOpaque(true);
+        
+        Login login = new Login();
+        login.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btn_logOutMousePressed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
