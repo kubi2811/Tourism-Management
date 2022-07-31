@@ -5,7 +5,6 @@
 package FormClient;
 
 import Connect.JDBCConnection;
-import Entity.OrderDetail;
 import Form.Login;
 import Service.OrderTourService;
 import Service.TourService;
@@ -19,31 +18,31 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author ranco
+ * @author hieut
  */
-public class YourTrip extends javax.swing.JPanel {
-
-    private TourService tourService = new TourService();
+public class TrashForm extends javax.swing.JPanel {
+     private TourService tourService = new TourService();
     private OrderTourService orderTourService = new OrderTourService();
     private Connection connect = JDBCConnection.getConnection();
     private TrashClientService trashClientService = new TrashClientService();
+            
 
     /**
-     * Creates new form ClientAllTrips
+     * Creates new form TrashForm
      */
-    public YourTrip() {
+    public TrashForm() {
         initComponents();
-        showYourTrip();
+        showTrashTable();
     }
-
-    public void showYourTrip() {
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    
+    public void showTrashTable(){
+         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         String sql = "select * from OrderDetail where idClient ='" + Login.IdClient +"'";
         try {
             Statement statement = connect.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
-                if(!trashClientService.checkTourDelete(resultSet.getInt("IdOrder"))){
+                if(trashClientService.checkTourDelete(resultSet.getInt("IdOrder"))){
                     Vector vector = new Vector();
                     vector.add(resultSet.getString("Tour"));
                     vector.add(resultSet.getString("Adluts"));
@@ -55,12 +54,12 @@ public class YourTrip extends javax.swing.JPanel {
         } catch (Exception e) {
             e.printStackTrace();
         }
-          List<String> listTour = trashClientService.getListNameTourTrash(0);
+        List<String> listTour = trashClientService.getListNameTourTrash(1);
         for(String tourName : listTour){
             jComboBox1.addItem(tourName);
         }
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -74,25 +73,31 @@ public class YourTrip extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
-
-        setBackground(new java.awt.Color(255, 255, 255));
+        jButton2 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Tour", "Number of adults", "Number of childs", "Total"
+                "TourName", "Number of Adults", "Number of Childs", "Total"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
 
-        jButton1.setText("SafeDelete");
+        jButton1.setText("Delete Tour");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
+            }
+        });
+
+        jButton2.setText("Restore");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
             }
         });
 
@@ -103,34 +108,45 @@ public class YourTrip extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46)
-                        .addComponent(jButton1)))
-                .addContainerGap(13, Short.MAX_VALUE))
+                        .addGap(45, 45, 45)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addGap(0, 45, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        trashClientService.safeDelete(orderTourService.getIdOrderByName(String.valueOf(jComboBox1.getSelectedItem())));
+        trashClientService.destroyTour(orderTourService.getIdOrderByName(String.valueOf(jComboBox1.getSelectedIndex())));
+        
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        trashClientService.reStoreTour(orderTourService.getIdOrderByName(String.valueOf(jComboBox1.getSelectedIndex())));
+    }//GEN-LAST:event_jButton2MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

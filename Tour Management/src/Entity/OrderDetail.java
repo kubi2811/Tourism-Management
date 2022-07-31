@@ -23,6 +23,7 @@ public class OrderDetail {
         this.tour = Tour;
         this.adluts = adluts;
         this.childs = childs;
+
     }
 
     public String getIdRandom() {
@@ -72,5 +73,7 @@ public class OrderDetail {
     public void setChilds(int childs) {
         this.childs = childs;
     }
+
+ 
     
 }

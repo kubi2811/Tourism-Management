@@ -44,7 +44,7 @@ public class TourService {
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
                 nameTour = resultSet.getString("TourName");
-            }
+            }   
         } catch (Exception e) {
             e.getMessage();
         }
@@ -78,6 +78,6 @@ public class TourService {
             e.printStackTrace();
         }
         return listTour;
-   
     }
+  
 }

@@ -26,7 +26,7 @@ public class Login extends javax.swing.JFrame {
     private Connection connection = JDBCConnection.getConnection();
     static String roleLogin;
 
-    static int IdClient;
+    public static int IdClient;
     static String nameClient;
     
     static int idAdmin;
@@ -265,7 +265,6 @@ public class Login extends javax.swing.JFrame {
         } catch (Exception e) {
             e.getMessage();
         }
-        System.out.println(IdClient);
     }//GEN-LAST:event_buttonFieldActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed

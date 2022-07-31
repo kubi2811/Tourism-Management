@@ -17,7 +17,7 @@ public class StaffService {
     private Connection connection = JDBCConnection.getConnection();
     
     public void createTour(Tour tour){
-        String sql = "INSERT INTO TOUR(TourName,DayStart,DayEnd,CostAdo,CostChild) values(?,?,?,?,?)";
+        String sql = "INSERT INTO TOUR(TourName,DayStart,DayEnd,CostAdo,CostChild,IsDelete) values(?,?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,tour.getTour());
@@ -25,10 +25,12 @@ public class StaffService {
             preparedStatement.setDate(3, tour.getDayEnd());
             preparedStatement.setDouble(4,tour.getCostAdo());
             preparedStatement.setDouble(5, tour.getCostChild());
+            preparedStatement.setInt(6,0);
             preparedStatement.execute();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+    
    
 }

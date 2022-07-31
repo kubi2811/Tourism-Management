@@ -104,7 +104,35 @@ public class OrderTourService {
         }
         return total;
     }
-    
- 
+    public int getIdOrderByName(String nameTour) {
+        int idOrder = 0 ;
+        String sql = "select IdOrder from OrderDetail where Tour ='"+nameTour+"'";
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+                idOrder = resultSet.getInt("IdOrder");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return idOrder;        
+    }
+    public String getNameTourByIdOrder(int idOrder){
+        String sql = "select Tour from OrderDetail where idOrder = '"+idOrder+"'";
+        String name = null;
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+                name = resultSet.getString("Tour");
+            }
+                    
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return name;
+    }
+
     
 }

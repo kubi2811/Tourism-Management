@@ -20,6 +20,7 @@ public class Tour {
     private double costAdo;
     private double costChild;
 
+
     public Tour(String idTour, String tour, Date dayStart, Date dayEnd, double costAdo, double costChild) {
         this.idTour = idTour;
         this.tour = tour;
