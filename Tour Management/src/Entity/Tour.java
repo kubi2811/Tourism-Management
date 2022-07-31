@@ -5,7 +5,7 @@
 package Entity;
 
 import java.awt.List;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  *
@@ -41,10 +41,6 @@ public class Tour {
     }
 
     public Tour() {
-    }
-
-    public Tour(String text, java.util.Date dateStart, java.util.Date dateEnd, double parseDouble, double parseDouble0) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public String getIdTour() {
@@ -94,7 +90,5 @@ public class Tour {
     public void setCostChild(double costChild) {
         this.costChild = costChild;
     }
-
-
    
 }
