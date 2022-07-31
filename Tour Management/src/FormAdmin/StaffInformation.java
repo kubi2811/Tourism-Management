@@ -4,6 +4,13 @@
  */
 package FormAdmin;
 
+import Connect.JDBCConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ranco
@@ -26,21 +33,150 @@ public class StaffInformation extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel12 = new javax.swing.JLabel();
+        nameClientVar = new javax.swing.JTextField();
+        searchBtn = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+
         setBackground(new java.awt.Color(255, 255, 255));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "Address", "Phone", "Username", "Phone"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(153, 153, 255));
+        jLabel12.setText("Staff");
+
+        nameClientVar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        nameClientVar.setForeground(new java.awt.Color(153, 153, 255));
+        nameClientVar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameClientVarActionPerformed(evt);
+            }
+        });
+
+        searchBtn.setText("Search");
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "Address", "Phone", "Username", "Phone"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTable2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(136, 136, 136)
+                            .addComponent(jLabel12)
+                            .addGap(29, 29, 29)
+                            .addComponent(nameClientVar, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(36, 36, 36)
+                            .addComponent(searchBtn))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(28, 28, 28)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nameClientVar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12)
+                    .addComponent(searchBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void nameClientVarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameClientVarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameClientVarActionPerformed
+
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+        // TODO add your handling code here:
+//        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+//        model.setRowCount(0);
+//        try {
+//            //            String tenSP = JOptionPane.showInputDialog(this, "Nhập tên sản phẩm cần tìm");
+//            if (nameClientVar.getText().equals("") == false) {
+//                Connection conn = JDBCConnection.getConnection();
+//                String sql = "select * from Client where FullName like ?";
+//                PreparedStatement pre = conn.prepareStatement(sql);
+//                pre.setString(1, "%" + nameClientVar.getText() + "%");
+//                ResultSet resultSet = pre.executeQuery();
+//                model.setRowCount(0);
+//                while (resultSet.next()) {
+//                    Vector vector = new Vector();
+//                    vector.add(resultSet.getString("FullName"));
+//                    vector.add(addressService.getAddressByUsername(String.valueOf(resultSet.getString("Username"))));
+//                    vector.add(resultSet.getString("Phone"));
+//                    vector.add(resultSet.getString("Username"));
+//                    vector.add(resultSet.getString("Email"));
+//
+//                    model.addRow(vector);
+//                }
+//            } else {
+//                ShowClientInfo();
+//            }
+//        } catch (Exception ex) {
+//            JOptionPane.showMessageDialog(null, "Không tìm thấy!");
+//        }
+    }//GEN-LAST:event_searchBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTextField nameClientVar;
+    private javax.swing.JButton searchBtn;
     // End of variables declaration//GEN-END:variables
 }
