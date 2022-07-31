@@ -38,7 +38,7 @@ create table Client (
 	FullName nvarchar(50),
 	Phone varchar(50) UNIQUE,
 	Username varchar(50) UNIQUE,
-	hashPassword varchar(50) NOT NULL,
+	Password varchar(50) NOT NULL,
 	Email varchar(50)
 )
 go
