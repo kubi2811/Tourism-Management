@@ -27,7 +27,7 @@ public class CreateDescriptionForm extends javax.swing.JPanel {
      */
     public CreateDescriptionForm() {
         initComponents();
-        showDescription();
+//        showDescription();
         System.out.println("helo3");
     }
 
@@ -185,26 +185,7 @@ public class CreateDescriptionForm extends javax.swing.JPanel {
         descriptionService.createDescriptionDetail(descriptionDetail);
         
     }//GEN-LAST:event_addDescriptionMouseClicked
-    public void showDescription(){
-         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        try {
-            String sql = "select * from DescriptionDetail where idDescription ='" + ManageTrips.idDescription +"'";
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(sql);
-            while (resultSet.next()) {
-               
-                    Vector vector = new Vector();
-                    vector.add(resultSet.getString("nameDescription"));
-                    vector.add(resultSet.getString("Adults"));
-                    vector.add(resultSet.getString("Childs"));
-                    vector.add(resultSet.getString("Incurred"));
-                    vector.add(resultSet.getString("Total"));   
-                    model.addRow(vector);
-            }
-        } catch (Exception e) {
-            e.getMessage();
-        }
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Adults;

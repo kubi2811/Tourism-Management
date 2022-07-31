@@ -8,12 +8,12 @@ package FormAdmin;
  *
  * @author ranco
  */
-public class ManageRole extends javax.swing.JPanel {
+public class StaffInformation extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageRole
      */
-    public ManageRole() {
+    public StaffInformation() {
         initComponents();
     }
 
