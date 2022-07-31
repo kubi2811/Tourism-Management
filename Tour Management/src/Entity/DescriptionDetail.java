@@ -23,7 +23,7 @@ public class DescriptionDetail {
     private TourService tourService = new TourService();
     private DescriptionService descriptionService = new DescriptionService();
 
-    public DescriptionDetail(int idDescription, String nameDescription, int adults, int childs, double inccurred, double total) {
+    public DescriptionDetail(int idDescription, String nameDescription, int adults, int childs, double inccurred) {
         this.idDescription = idDescription;
         this.nameDescription = nameDescription;
         this.adults = adults;
@@ -32,7 +32,7 @@ public class DescriptionDetail {
         this.total = tourService.getCostAdoByName(descriptionService.getNameTourByIdDes(idDescription)) * 0.5 + tourService.getCostChildByName(descriptionService.getNameTourByIdDes(idDescription)) + inccurred;
     }
 
-    public DescriptionDetail(int idDescriptionDetail, int idDescription, String nameDescription, int adults, int childs, double inccurred, double total) {
+    public DescriptionDetail(int idDescriptionDetail, int idDescription, String nameDescription, int adults, int childs, double inccurred) {
         this.idDescriptionDetail = idDescriptionDetail;
         this.idDescription = idDescription;
         this.nameDescription = nameDescription;
