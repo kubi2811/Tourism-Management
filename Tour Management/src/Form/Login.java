@@ -250,7 +250,6 @@ public class Login extends javax.swing.JFrame {
                             this.dispose();
                         } else {
                             new MainMenuClient().setVisible(true);
-
                             IdClient = Integer.valueOf(resultSet.getString("idClient"));
                             nameClient = resultSet.getString("FullName");
                             
