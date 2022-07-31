@@ -61,4 +61,18 @@ public class DescriptionService {
         }
         return id;
     }
+    public String getNameTourByIdDes(int id){
+        String sql = "Select Tour from Descriptions where IdDescription ='"+id+"'";
+        String name = null;
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+                name = resultSet.getString("Tour");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return name;
+    }
 }

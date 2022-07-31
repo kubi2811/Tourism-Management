@@ -4,6 +4,9 @@
  */
 package Entity;
 
+import Service.DescriptionService;
+import Service.TourService;
+
 /**
  *
  * @author hieut
@@ -17,6 +20,8 @@ public class DescriptionDetail {
     private int childs;
     private double inccurred;
     private double total;
+    private TourService tourService = new TourService();
+    private DescriptionService descriptionService = new DescriptionService();
 
     public DescriptionDetail(int idDescription, String nameDescription, int adults, int childs, double inccurred, double total) {
         this.idDescription = idDescription;
@@ -24,7 +29,7 @@ public class DescriptionDetail {
         this.adults = adults;
         this.childs = childs;
         this.inccurred = inccurred;
-        this.total = total;
+        this.total = tourService.getCostAdoByName(descriptionService.getNameTourByIdDes(idDescription)) * 0.5 + tourService.getCostChildByName(descriptionService.getNameTourByIdDes(idDescription)) + inccurred;
     }
 
     public DescriptionDetail(int idDescriptionDetail, int idDescription, String nameDescription, int adults, int childs, double inccurred, double total) {
@@ -34,7 +39,8 @@ public class DescriptionDetail {
         this.adults = adults;
         this.childs = childs;
         this.inccurred = inccurred;
-        this.total = total;
+        this.total = tourService.getCostAdoByName(descriptionService.getNameTourByIdDes(idDescription)) * 0.5 + tourService.getCostChildByName(descriptionService.getNameTourByIdDes(idDescription)) + inccurred;
+
     }
 
     public int getIdDescriptionDetail() {
