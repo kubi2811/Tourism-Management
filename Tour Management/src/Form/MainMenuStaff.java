@@ -17,6 +17,7 @@ import javax.swing.border.LineBorder;
 import FormStaff.ClientInformation;
 import FormStaff.CreateDescriptionForm;
 import FormStaff.ManageTrips;
+import FormStaff.StaffInformation;
 import FormStaff.Statistical;
 import FormStaff.StatusTour;
 
@@ -675,6 +676,10 @@ public class MainMenuStaff extends javax.swing.JFrame {
         ind_icons.setOpaque(false);
         ind_icons1.setOpaque(false);
 
+        pnlRight.removeAll();
+        pnlRight.add(new StaffInformation()).setVisible(true);
+        pnlRight.repaint();
+        pnlRight.revalidate();
     }//GEN-LAST:event_btn_dataMousePressed
 
 

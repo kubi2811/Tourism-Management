@@ -8,6 +8,8 @@ import Connect.JDBCConnection;
 import Entity.Tour;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
 
 /**
@@ -36,6 +38,38 @@ public class StaffService {
             e.printStackTrace();
         }
     }
-    
+        public boolean updateUsernameStaff(String idStaff, String Username) {
+        String sql = "update Staff set Username = '" + Username +"' where idStaff = " + idStaff;
+        try{
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(sql);
+            return true;
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+        public boolean updateFullnameStaff(String idStaff, String Fullname) {
+        String sql = "update Staff set FullName = '" + Fullname +"' where idStaff = " + idStaff;
+        try{
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(sql);
+            return true;
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+        public boolean updatePasswordStaff(String idStaff, String Password) {
+        String sql = "update Staff set Password = '" + Password +"' where idStaff = " + idStaff;
+        try{
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(sql);
+            return true;
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
    
 }
