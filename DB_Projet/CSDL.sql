@@ -62,7 +62,7 @@ create table Tour (
 	DayStart Date,
 	DayEnd Date,
 	CostAdo float,
-	CostChild float,
+	CostChild float
 )
 go
 
@@ -92,11 +92,9 @@ create table OrderTour (
 	IdOrder INT IDENTITY(1,1) primary key,
 	IdClient int,
 	createDate datetime default getdate(),
-	Total float,
-	isDeleted int default 0
+	Total float
 )
 go
---drop table OrderTour 
 
 create table OrderDetail(
 		IdOrderDetail INT IDENTITY(1,1) primary key,
@@ -137,6 +135,11 @@ create table OrderStatus(
 )
 go
 
+create table Trash(
+	IdTrash INT IDENTITY(1,1) primary key,
+	IdOrder int 
+)
+go
 
 create table History(
 	IdHistory INT IDENTITY(1,1) primary key,
@@ -160,6 +163,9 @@ alter table OrderStatus
 add foreign key(IdOrder) references OrderTour(IdOrder)
 go
 
+alter table Trash
+add foreign key(IdOrder) references OrderTour(IdOrder)
+go
 
 alter table History
 add foreign key(IdOrder) references OrderTour(IdOrder)
@@ -178,7 +184,7 @@ BEGIN
 END
 GO
 
-CREATE TRIGGER trg_CapNhatOrderTour ON OrderDetail After Update as 
+CREATE TRiGGER trg_CapNhatOrderTour ON OrderDetail After Update as 
 begin 
 	UPDATE OrderTour
 	SET Total = (SELECT Adluts from OrderDetail where IdOrder = OrderDetail.IdOrder) * (SELECT CostAdo from Tour where Tour = Tour.TourName)  + 
@@ -188,7 +194,7 @@ begin
 end
 go
 
-CREATE TRIGGER trg_HuyOrderTour ON OrderDetail After delete as 
+CREATE TRiGGER trg_HuyOrderTour ON OrderDetail After delete as 
 begin 
 	UPDATE OrderTour Set Total = 0 
 	from OrderTour
