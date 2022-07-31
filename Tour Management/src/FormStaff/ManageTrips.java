@@ -5,6 +5,7 @@
 package FormStaff;
 
 import Connect.JDBCConnection;
+import Entity.DescriptionDetail;
 import Entity.Tour;
 import Form.MainMenuStaff;
 import Service.DescriptionService;
@@ -349,11 +350,11 @@ public class ManageTrips extends javax.swing.JPanel {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        //         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        //        int index = jTable1.getSelectedRow();
-        //        String idOfTour = jTable1.getValueAt(index, 0).toString();
-        //        TourService tourService = new TourService();
-        //        TourEdit.setText(tourService.getNameTourByIdTour(idOfTour));
+//                 DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+//                int index = jTable1.getSelectedRow();
+//                String idOfTour = jTable1.getValueAt(index, 0).toString();
+//                TourService tourService = new TourService();
+//                TourEdit.setText(tourService.getNameTourByIdTour(idOfTour));
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
@@ -378,7 +379,6 @@ public class ManageTrips extends javax.swing.JPanel {
 //        CreateDescriptionForm createDescriptionForm = new CreateDescriptionForm();
 //        createDescriptionForm.setVisible(true);
 //
-
         CardLayout cards = (CardLayout)(this.getLayout());
         cards.show(this, "card02");
         tourName = String.valueOf(ListTourName.getSelectedItem());
@@ -423,6 +423,27 @@ public class ManageTrips extends javax.swing.JPanel {
         List<String> listTour = tourService.getListTourName();
         for(String tourName : listTour){
             ListTourName.addItem(tourName);
+        }
+    }
+    
+    public void showDescription(){
+         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        try {
+            String sql = "select * from DescriptionDetail where idDescription ='" + ManageTrips.idDescription +"'";
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+               
+                    Vector vector = new Vector();
+                    vector.add(resultSet.getString("nameDescription"));
+                    vector.add(resultSet.getString("Adults"));
+                    vector.add(resultSet.getString("Childs"));
+                    vector.add(resultSet.getString("Incurred"));
+                    vector.add(resultSet.getString("Total"));   
+                    model.addRow(vector);
+            }
+        } catch (Exception e) {
+            e.getMessage();
         }
     }
 

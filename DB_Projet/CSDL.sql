@@ -26,7 +26,7 @@ create table Staff (
 	FullName nvarchar(50),
 	Username varchar(50) UNIQUE,
 	Password varchar(50) NOT NULL,
-	Status int default 0
+	Status int default 1
 	-- Status 0 is Enable, Status 1 is Disable, ...
 )
 go
@@ -38,7 +38,7 @@ create table Client (
 	FullName nvarchar(50),
 	Phone varchar(50) UNIQUE,
 	Username varchar(50) UNIQUE,
-	hashPassword varchar(50) NOT NULL,
+	Password varchar(50) NOT NULL,
 	Email varchar(50)
 )
 go
@@ -94,9 +94,12 @@ create table OrderTour (
 	IdOrder INT IDENTITY(1,1) primary key,
 	IdClient int,
 	createDate datetime default getdate(),
-	Total float
+	Total float,
+	isDeleted int default 0
 )
 go
+
+-- drop table OrderTour
 
 create table OrderDetail(
 		IdOrderDetail INT IDENTITY(1,1) primary key,
@@ -121,6 +124,8 @@ create table LocationVisit(
 	VisitPlace nvarchar(50) NOT NULL
 )
 go
+
+-- drop table LocationVisit
 
 create table Vehicle(
 	IdVehicle INT IDENTITY(1,1) primary key,
@@ -202,6 +207,7 @@ begin
 	from OrderTour
 	JOIN deleted ON OrderTour.IdOrder = deleted.IdOrder
 end
+go
 
 select * from OrderTour
 select * From OrderDetail
@@ -237,5 +243,5 @@ select * from Trash
 select * from OrderTour
 select * from OrderDetail
 select * from Tour
-select * from OrderTour where IdClient = 3 and IsDelete = 0
+--select * from OrderTour where IdClient = 3 and IsDelete = 0
 
