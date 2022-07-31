@@ -83,8 +83,6 @@ public class ManageTrips extends javax.swing.JPanel {
         Childs = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         Incurred = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        Total = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         addDescription = new javax.swing.JButton();
@@ -224,7 +222,7 @@ public class ManageTrips extends javax.swing.JPanel {
                 .addGroup(ManageTripsCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Des)
                     .addComponent(ListTourName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(261, Short.MAX_VALUE))
+                .addContainerGap(262, Short.MAX_VALUE))
         );
 
         add(ManageTripsCard, "card01");
@@ -253,8 +251,6 @@ public class ManageTrips extends javax.swing.JPanel {
 
         jLabel10.setText("Incurred");
 
-        jLabel11.setText("Total");
-
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -279,7 +275,7 @@ public class ManageTrips extends javax.swing.JPanel {
             .addGroup(CreateDescriptionCardLayout.createSequentialGroup()
                 .addGroup(CreateDescriptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CreateDescriptionCardLayout.createSequentialGroup()
-                        .addGap(58, 58, 58)
+                        .addGap(102, 102, 102)
                         .addGroup(CreateDescriptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(CreateDescriptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(CreateDescriptionCardLayout.createSequentialGroup()
@@ -303,12 +299,7 @@ public class ManageTrips extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(Incurred, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(150, 150, 150))
-                            .addGroup(CreateDescriptionCardLayout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addGap(18, 18, 18)
-                                .addComponent(Total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(132, 132, 132)
-                                .addComponent(addDescription))))
+                            .addComponent(addDescription, javax.swing.GroupLayout.Alignment.LEADING)))
                     .addGroup(CreateDescriptionCardLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -335,12 +326,9 @@ public class ManageTrips extends javax.swing.JPanel {
                 .addGroup(CreateDescriptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(Incurred, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(CreateDescriptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(Total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addDescription))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(addDescription)
+                .addGap(24, 24, 24)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -398,8 +386,8 @@ public class ManageTrips extends javax.swing.JPanel {
 
     private void addDescriptionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addDescriptionMouseClicked
         // TODO add your handling code here:
-//        DescriptionDetail descriptionDetail = new DescriptionDetail(ManageTrips.idDescription, NameDescription.getText(),Integer.parseInt(Adults.getText()) , Integer.parseInt(Childs.getText()), Double.parseDouble(Incurred.getText()), Double.parseDouble(Total.getText()));
-//        descriptionService.createDescriptionDetail(descriptionDetail);
+        DescriptionDetail descriptionDetail = new DescriptionDetail(ManageTrips.idDescription, NameDescription.getText(),Integer.parseInt(Adults.getText()) , Integer.parseInt(Childs.getText()), Double.parseDouble(Incurred.getText()));
+        descriptionService.createDescriptionDetail(descriptionDetail);
 
     }//GEN-LAST:event_addDescriptionMouseClicked
     public void showInfoManageTrips(){
@@ -461,13 +449,11 @@ public class ManageTrips extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> ListTourName;
     private javax.swing.JPanel ManageTripsCard;
     private javax.swing.JTextField NameDescription;
-    private javax.swing.JTextField Total;
     private javax.swing.JTextField TourName;
     private javax.swing.JButton addDescription;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
