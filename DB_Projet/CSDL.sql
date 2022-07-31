@@ -26,8 +26,8 @@ create table Staff (
 	FullName nvarchar(50),
 	Username varchar(50) UNIQUE,
 	Password varchar(50) NOT NULL,
-	Status int default 0
-	-- Status 0 is Enable, Status 1 is Disable, ...
+	Status int default 1
+	-- Status 1 is Enable, Status 0 is Disable, ...
 )
 go
 --drop table Staff

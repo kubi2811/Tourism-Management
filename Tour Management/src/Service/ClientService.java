@@ -5,9 +5,14 @@
 package Service;
 
 import Connect.JDBCConnection;
+import Objects.Client;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -31,6 +36,6 @@ public class ClientService {
         return fullname;
     }
     
-           
+              
     
 }

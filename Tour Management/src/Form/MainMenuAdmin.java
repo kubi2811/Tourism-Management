@@ -6,7 +6,7 @@
 package Form;
 
 import FormAdmin.ClientInformation;
-import FormAdmin.ManageRole;
+import FormAdmin.StaffInformation;
 import FormAdmin.Statistical;
 import FormAdmin.StatusTour;
 import java.awt.BorderLayout;
@@ -238,7 +238,7 @@ public class MainMenuAdmin extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Manage Role");
+        jLabel12.setText("Staff Information");
         btn_typo.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -573,7 +573,7 @@ public class MainMenuAdmin extends javax.swing.JFrame {
 //        pnlRight.removeAll();
 //        pnlRight.add(CAT).setVisible(true);
         pnlRight.removeAll();
-        pnlRight.add(new ManageRole()).setVisible(true);
+        pnlRight.add(new StaffInformation()).setVisible(true);
         pnlRight.repaint();
         pnlRight.revalidate();
     }//GEN-LAST:event_btn_typoMousePressed
