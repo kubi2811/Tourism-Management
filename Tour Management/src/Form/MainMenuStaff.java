@@ -199,7 +199,7 @@ public class MainMenuStaff extends javax.swing.JFrame {
 
         pnlParent.setLayout(new java.awt.BorderLayout());
 
-        sidepane.setBackground(new java.awt.Color(102, 102, 255));
+        sidepane.setBackground(new java.awt.Color(153, 153, 255));
         sidepane.setForeground(new java.awt.Color(51, 51, 51));
         sidepane.setPreferredSize(new java.awt.Dimension(250, 200));
         sidepane.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -493,26 +493,26 @@ public class MainMenuStaff extends javax.swing.JFrame {
 
         pnlRight.setLayout(new java.awt.CardLayout());
 
-        pnlDataCards.setBackground(new java.awt.Color(255, 255, 255));
+        pnlDataCards.setBackground(new java.awt.Color(153, 255, 153));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel3.setText("WELCOME TO OUR COMPANY, LETS CHOOSE YOUR TRIPS");
+        jLabel3.setText("WELCOME TO OUR COMPANY, YOU ARE STAFF");
 
         javax.swing.GroupLayout pnlDataCardsLayout = new javax.swing.GroupLayout(pnlDataCards);
         pnlDataCards.setLayout(pnlDataCardsLayout);
         pnlDataCardsLayout.setHorizontalGroup(
             pnlDataCardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDataCardsLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDataCardsLayout.createSequentialGroup()
+                .addContainerGap(123, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(101, 101, 101))
         );
         pnlDataCardsLayout.setVerticalGroup(
             pnlDataCardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDataCardsLayout.createSequentialGroup()
-                .addGap(164, 164, 164)
+                .addGap(165, 165, 165)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(211, Short.MAX_VALUE))
+                .addContainerGap(210, Short.MAX_VALUE))
         );
 
         pnlRight.add(pnlDataCards, "card1");
@@ -733,6 +733,10 @@ public class MainMenuStaff extends javax.swing.JFrame {
         ind_icons.setOpaque(false);
         ind_icons1.setOpaque(false);
         ind_btns1.setOpaque(true);
+        
+        Login login = new Login();
+        login.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btn_btns1MousePressed
 
     private void btn_StatisticalMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_StatisticalMousePressed

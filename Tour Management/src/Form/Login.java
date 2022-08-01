@@ -29,11 +29,11 @@ public class Login extends javax.swing.JFrame {
     public static int IdClient;
     static String nameClient;
     
-    static int idAdmin;
-    static String usernameAdmin;
+    public static int idAdmin;
+    public static String usernameAdmin;
     
-    static int idStaff;
-    static String nameStaff;
+    public static int idStaff;
+    public static String nameStaff;
 
 
     /**
@@ -241,16 +241,17 @@ public class Login extends javax.swing.JFrame {
                         if (roleLogin.equals("Admin")) {
                             idAdmin = Integer.valueOf(resultSet.getString("idAdmin"));
                             usernameAdmin = resultSet.getString("Username");
+                            
                             new MainMenuAdmin().setVisible(true);
                             this.dispose();
                         } else if (roleLogin.equals("Staff")) {
                             idStaff = Integer.valueOf(resultSet.getString("idStaff"));
                             nameStaff = resultSet.getString("FullName");
+                            
                             new MainMenuStaff().setVisible(true);
                             this.dispose();
                         } else {
                             new MainMenuClient().setVisible(true);
-
                             IdClient = Integer.valueOf(resultSet.getString("idClient"));
                             nameClient = resultSet.getString("FullName");
                             

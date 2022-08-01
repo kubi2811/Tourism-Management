@@ -243,5 +243,7 @@ select * from Trash
 select * from OrderTour
 select * from OrderDetail
 select * from Tour
+select * from Client
+
 --select * from OrderTour where IdClient = 3 and IsDelete = 0
 

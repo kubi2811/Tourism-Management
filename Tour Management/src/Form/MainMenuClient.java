@@ -198,7 +198,7 @@ public class MainMenuClient extends javax.swing.JFrame {
 
         pnlParent.setLayout(new java.awt.BorderLayout());
 
-        sidepane.setBackground(new java.awt.Color(102, 102, 255));
+        sidepane.setBackground(new java.awt.Color(153, 153, 255));
         sidepane.setForeground(new java.awt.Color(51, 51, 51));
         sidepane.setPreferredSize(new java.awt.Dimension(250, 200));
         sidepane.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -687,6 +687,10 @@ public class MainMenuClient extends javax.swing.JFrame {
         ind_yourTrips.setOpaque(false);
         ind_icons.setOpaque(false);
         ind_logOut.setOpaque(true);
+        
+        Login login = new Login();
+        login.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btn_logOutMousePressed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

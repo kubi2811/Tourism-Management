@@ -51,7 +51,7 @@ public class ClientInformation extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
         nameClientVar = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        searchAcBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(808, 600));
@@ -86,10 +86,18 @@ public class ClientInformation extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("Search");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        searchAcBtn.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        searchAcBtn.setForeground(new java.awt.Color(153, 153, 255));
+        searchAcBtn.setText("Search");
+        searchAcBtn.setBorder(new javax.swing.border.MatteBorder(null));
+        searchAcBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchAcBtnMouseClicked(evt);
+            }
+        });
+        searchAcBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                searchAcBtnActionPerformed(evt);
             }
         });
 
@@ -104,12 +112,12 @@ public class ClientInformation extends javax.swing.JPanel {
                         .addComponent(jLabel12)
                         .addGap(29, 29, 29)
                         .addComponent(nameClientVar, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addComponent(jButton1))
+                        .addGap(43, 43, 43)
+                        .addComponent(searchAcBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,7 +126,7 @@ public class ClientInformation extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameClientVar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
-                    .addComponent(jButton1))
+                    .addComponent(searchAcBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57))
@@ -129,7 +137,7 @@ public class ClientInformation extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_nameClientVarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void searchAcBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchAcBtnMouseClicked
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
@@ -158,7 +166,11 @@ public class ClientInformation extends javax.swing.JPanel {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Không tìm thấy!");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_searchAcBtnMouseClicked
+
+    private void searchAcBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchAcBtnActionPerformed
+        
+    }//GEN-LAST:event_searchAcBtnActionPerformed
     public void ShowClientInfo() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         try {
@@ -187,10 +199,10 @@ public class ClientInformation extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField nameClientVar;
+    private javax.swing.JButton searchAcBtn;
     // End of variables declaration//GEN-END:variables
 }

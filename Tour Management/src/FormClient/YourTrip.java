@@ -33,7 +33,7 @@ public class YourTrip extends javax.swing.JPanel {
      */
     public YourTrip() {
         initComponents();
-        showYourTrip();
+//        showYourTrip();
     }
 
     public void showYourTrip() {
