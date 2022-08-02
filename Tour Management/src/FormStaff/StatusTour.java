@@ -4,12 +4,21 @@
  */
 package FormStaff;
 
+import Connect.JDBCConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ranco
  */
 public class StatusTour extends javax.swing.JPanel {
-
+    private Connection connect = JDBCConnection.getConnection();
     /**
      * Creates new form ClientBookedTour
      */
@@ -26,21 +35,260 @@ public class StatusTour extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextField1 = new javax.swing.JTextField();
+        temp = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        SearchTextField = new javax.swing.JTextField();
+        Search_btn = new javax.swing.JToggleButton();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        activeTable = new javax.swing.JTable();
+        Update2Btn = new javax.swing.JToggleButton();
+        Update1Btn = new javax.swing.JToggleButton();
+
+        jTextField1.setText("jTextField1");
+
+        temp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tempActionPerformed(evt);
+            }
+        });
+
         setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setText("Status Tour Management");
+
+        SearchTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchTextFieldActionPerformed(evt);
+            }
+        });
+
+        Search_btn.setText("Search");
+        Search_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Search_btnMouseClicked(evt);
+            }
+        });
+
+        jLabel3.setText("Attention: For change status tour, you must find by customer name !!!");
+
+        activeTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Customer Username", "Customer Fullname", "Order ID", "Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        activeTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                activeTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(activeTable);
+
+        Update2Btn.setText("Đã thanh toán");
+        Update2Btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Update2BtnMouseClicked(evt);
+            }
+        });
+
+        Update1Btn.setText("Chờ thanh toán");
+        Update1Btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Update1BtnMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 883, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(SearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(90, 90, 90)
+                                        .addComponent(Search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 768, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Update1Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Update2Btn)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(7, 7, 7)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addGap(37, 37, 37)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Update2Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Update1Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(210, 210, 210))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void activeTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_activeTableMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) activeTable.getModel();
+        int Myindex = activeTable.getSelectedRow();
+        temp.setText(model.getValueAt(Myindex, 2).toString());
+    }//GEN-LAST:event_activeTableMouseClicked
+
+    private void Search_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search_btnMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) activeTable.getModel();
+        model.setRowCount(0);
+        try {
+            if (SearchTextField.getText().equals("") == false) {
+                System.out.println(SearchTextField.getText());
+                String CusUserName =  SearchTextField.getText();
+                Statement statement = connect.createStatement();
+            
+                
+
+                
+                //Lấy ClientUsername
+                String sql = "select * from Client where FullName = N'" + SearchTextField.getText() + "'";
+                System.out.println(sql);
+                ResultSet resultSet = statement.executeQuery(sql);
+                String Username = null;
+                while(resultSet.next()){
+                   Username = resultSet.getString("Username"); 
+                   System.out.println(Username);
+                }
+                if (Username.isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Không tìm thấy khách hàng, vui lòng nhập lại!");
+                }
+                String sql2 = "select * from OrderStatus where ClientUserName = '" + Username + "'";
+                System.out.println(sql2);
+                ResultSet resultSet2 = statement.executeQuery(sql2);
+                model.setRowCount(0);
+                while (resultSet2.next()) {
+                    Vector vector = new Vector();
+                    vector.add(SearchTextField.getText());
+                    vector.add(Username);
+                    vector.add(resultSet2.getString("IdOrder"));
+                    vector.add(resultSet2.getString("Status"));
+                    model.addRow(vector);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Không tìm thấy khách hàng, vui lòng nhập lại!");
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error!");
+        }
+    }//GEN-LAST:event_Search_btnMouseClicked
+
+    private void Update1BtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Update1BtnMouseClicked
+        // TODO add your handling code here:
+        if(temp.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You need to choose one Order Tour !!!");
+        } else {
+            connect = JDBCConnection.getConnection();
+
+            String sql = "UPDATE OrderStatus SET Status = N'Chờ thanh toán' WHERE IdOrder = ?";
+            
+            try{
+                PreparedStatement pre = connect.prepareStatement(sql);
+                pre = connect.prepareStatement(sql);
+                System.out.println(temp.getText());
+                pre.setString(1, temp.getText());
+                
+                pre.execute();
+                
+                JOptionPane.showMessageDialog(this, "Information have been updated !!!");
+            } catch (Exception e){
+                e.printStackTrace();
+                
+            } 
+        }
+        DefaultTableModel model = (DefaultTableModel) activeTable.getModel();
+        model.setRowCount(0);
+    }//GEN-LAST:event_Update1BtnMouseClicked
+
+    private void Update2BtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Update2BtnMouseClicked
+        // TODO add your handling code here:
+                if(temp.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You need to choose one Order Tour !!!");
+        } else {
+            connect = JDBCConnection.getConnection();
+
+            String sql = "UPDATE OrderStatus SET Status = N'Đã thanh toán' WHERE IdOrder = ?";
+            
+            try{
+                PreparedStatement pre = connect.prepareStatement(sql);
+                pre = connect.prepareStatement(sql);
+                System.out.println(temp.getText());
+                pre.setString(1, temp.getText());
+                
+                pre.execute();
+                
+                JOptionPane.showMessageDialog(this, "Information have been updated !!!");
+            } catch (Exception e){
+                e.printStackTrace();
+                
+            } 
+        }
+        DefaultTableModel model = (DefaultTableModel) activeTable.getModel();
+        model.setRowCount(0);
+    }//GEN-LAST:event_Update2BtnMouseClicked
+
+    private void SearchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchTextFieldActionPerformed
+
+    private void tempActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tempActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tempActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField SearchTextField;
+    private javax.swing.JToggleButton Search_btn;
+    private javax.swing.JToggleButton Update1Btn;
+    private javax.swing.JToggleButton Update2Btn;
+    private javax.swing.JTable activeTable;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField temp;
     // End of variables declaration//GEN-END:variables
+
+    
 }

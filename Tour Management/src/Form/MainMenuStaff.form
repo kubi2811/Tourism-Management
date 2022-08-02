@@ -171,7 +171,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btn_typo" alignment="0" max="32767" attributes="0"/>
                   <Component id="btn_fonts" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btn_icons" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btn_status" alignment="0" max="32767" attributes="0"/>
                   <Component id="btn_btns" alignment="0" max="32767" attributes="0"/>
                   <Component id="btn_data" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
@@ -213,7 +213,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btn_fonts" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btn_icons" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_status" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Component id="btn_Statistical" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -374,14 +374,14 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="btn_icons">
+            <Container class="javax.swing.JPanel" name="btn_status">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="d3" green="29" red="4c" type="rgb"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_iconsMousePressed"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_statusMousePressed"/>
               </Events>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
@@ -560,11 +560,11 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Buttons"/>
+                    <Property name="text" type="java.lang.String" value="Information Management"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="70" y="10" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="36" y="10" width="180" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>

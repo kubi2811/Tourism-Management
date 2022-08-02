@@ -138,9 +138,12 @@ go
 create table OrderStatus(
 	IdOrderStatus INT IDENTITY(1,1) primary key,
 	IdOrder int,
-	Status varchar(50)
+	ClientUserName varchar(50) FOREIGN KEY REFERENCES Client(Username),
+	Status nvarchar(50)
 )
 go
+
+-- drop table OrderStatus
 
 create table Trash(
 	IdTrash INT IDENTITY(1,1) primary key,
@@ -236,14 +239,30 @@ BEGIN
 	JOIN inserted ON Descriptions.IdDescription = inserted.IdDescription
 END
 GO
-select * from OrderDetail
+
 select * from Descriptions
 select * from DescriptionDetail
 select * from Trash
-select * from OrderTour
 select * from OrderDetail
 select * from Tour
 select * from Client
+select * from OrderTour
+select * from dbo.OrderStatus
+select * from Client where FullName = N'Khương Hồng Anh'
+select * from Client where Username = 'Client1'
+
+select * from OrderStatus where ClientUserName = 'Client0'
+select * from OrderStatus where ClientUserName = 'Client1'
+
+insert into Tour values (N'Hà Nội - Hải Phòng', '2022-01-08', '2022-07-08', 500000, 200000)
+insert into Tour values (N'Hà Nội - Hạ Long', '2022-01-08', '2022-07-08', 500000, 200000)
+insert into Tour values (N'Hà Nội - Hồ Chí Minh', '2022-01-08', '2022-07-08', 500000, 200000)
+
+insert into OrderTour values(1, GETDATE(), 1000000, 1)
+insert into dbo.OrderTour values(2, getdate(),2000000, 1)
+insert into dbo.OrderStatus values (1, 'Client0',N'Chưa thanh toán')
+
+insert into dbo.OrderStatus values (2, 'Client1',N'Chưa thanh toán')
 
 --select * from OrderTour where IdClient = 3 and IsDelete = 0
 
