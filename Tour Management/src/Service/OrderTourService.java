@@ -39,36 +39,36 @@ public class OrderTourService {
         return tour;
     }
 
-    public void OrderTour(String idClient) {
+    public void OrderTour(int idClient) {
         try {
-            String sql = "INSERT INTO OrderTour (idClient) values (?)";
+            String sql = "INSERT INTO OrderTour (idClient,Isdelete) values (?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1,idClient);
+            preparedStatement.setInt(1,idClient);
+            preparedStatement.setInt(2,0);
             preparedStatement.execute();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    public void OrderTourDetail(String idOrder, String idClient , String nameTour , int audlts , int childs){
+    public void OrderTourDetail(int idOrder, int idClient , String nameTour , int audlts , int childs){
         try {
-            String sql = "Insert into OrderDetail(IdOrder,IdClient,Tour,Adluts,Childs) values(?,?,?,?,?)";
+            String sql = "Insert into OrderDetail(IdOrder,IdClient,Tour,Adluts,Childs) values (?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, idOrder);
-            preparedStatement.setString(2,idClient);
-            preparedStatement.setString(3,nameTour);
+            preparedStatement.setInt(1, idOrder);
+            preparedStatement.setInt(2,idClient);
+            preparedStatement.setString(3, nameTour);
             preparedStatement.setInt(4,audlts);
             preparedStatement.setInt(5,childs);
             preparedStatement.execute();
- 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    public void OrderStatusTour(String idOrder , String status){
+    public void OrderStatusTour(int idOrder , String status){
         try {
             String sql = "insert into OrderStatus(IdOrder,Status) values (?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1,idOrder);
+            preparedStatement.setInt(1,idOrder);
             preparedStatement.setString(2,status);
             preparedStatement.execute();
         } catch (Exception e) {
@@ -76,21 +76,21 @@ public class OrderTourService {
         }
     }
     
-    public String getIdOrderByIdClient ( String idClient){ 
-        String idTour  = null;
+    public int getIdOrderByIdClient ( int idClient){ 
+        int idTour  = 0;
         try {
             String sql = "select IdOrder from OrderTour where idClient ='" + idClient +"'";
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while(resultSet.next()){                
-                idTour = resultSet.getString("IdOrder");
+                idTour = resultSet.getInt("IdOrder");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
           return idTour;
     }
-    public int getTotalbyIdOrder(String idOrder){
+    public int getTotalbyIdOrder(int idOrder){
         int total = 0;
         try {
             String sql = "select Total from OrderTour where idOrder ='"+idOrder+"'";
@@ -133,6 +133,17 @@ public class OrderTourService {
         }
         return name;
     }
-
+    public void updateOrderClient(int idOrder ,int numsAdults , int numChilds){
+        String sql = "update OrderDetail set Adluts = ? , Childs = ? where IdOrder = ? ";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1,numsAdults);
+            preparedStatement.setInt(2,numChilds);
+            preparedStatement.setInt(3,idOrder);
+            preparedStatement.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     
 }

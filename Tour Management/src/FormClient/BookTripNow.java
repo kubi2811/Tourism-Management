@@ -33,6 +33,7 @@ public class BookTripNow extends javax.swing.JPanel {
     private LocationVisitService locationVisitService = new LocationVisitService();
     private LocationStartService locationStartService = new LocationStartService();
     private OrderTourService orderTourService = new OrderTourService();
+    private TourService tourService = new TourService();
     static String nameTour;
     public static String idClient;
     /**
@@ -64,6 +65,8 @@ public class BookTripNow extends javax.swing.JPanel {
         jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
+        OrderTourCbx = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -129,6 +132,10 @@ public class BookTripNow extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(jTable2);
 
+        jLabel4.setText("Order Tour");
+
+        OrderTourCbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -147,15 +154,19 @@ public class BookTripNow extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(Adults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(Childs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel3)))))
+                                        .addComponent(jLabel3))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(Adults, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(OrderTourCbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -169,8 +180,12 @@ public class BookTripNow extends javax.swing.JPanel {
                     .addComponent(jLabel1)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(OrderTourCbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Adults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -214,12 +229,10 @@ public class BookTripNow extends javax.swing.JPanel {
         // TODO add your handling code here:
         int numberOfAdo = Integer.parseInt(Adults.getText());
         int numberOfChilds = Integer.parseInt(Childs.getText()); 
-        orderTourService.OrderTour("3");
-        orderTourService.OrderTourDetail(orderTourService.getIdOrderByIdClient("3"), "3", nameTour ,numberOfAdo, numberOfChilds);
-        orderTourService.OrderStatusTour(orderTourService.getIdOrderByIdClient("3"), "TThai 1");
+        orderTourService.OrderTour(Login.IdClient);
+        orderTourService.OrderStatusTour(orderTourService.getIdOrderByIdClient(Login.IdClient), "TThai 1");
+        orderTourService.OrderTourDetail(orderTourService.getIdOrderByIdClient(Login.IdClient), Login.IdClient, String.valueOf(OrderTourCbx.getSelectedItem()) ,numberOfAdo, numberOfChilds);
         JOptionPane.showMessageDialog(null, "You are registed successfully");
-    
-   
     }//GEN-LAST:event_jButton1MouseClicked
     public void ShowListTour() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
@@ -237,24 +250,28 @@ public class BookTripNow extends javax.swing.JPanel {
                     vector.add(locationStartService.getAddressStartById(String.valueOf(resultSet.getString("TourName"))));
                     vector.add(locationVisitService.getVisitPlaceById(String.valueOf(resultSet.getString("TourName"))));
                     vector.add(vehicleService.getTransportById(resultSet.getString("TourName")));
-                    model.addRow(vector);
-                  
+                    model.addRow(vector);      
                 
             }
         } catch (Exception e) {
             e.getMessage();
         }
+        List<String> listTour = tourService.getListTourName();
+        for(String tourName : listTour){
+            OrderTourCbx.addItem(tourName);
+        }
     }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Adults;
     private javax.swing.JTextField Childs;
+    private javax.swing.JComboBox<String> OrderTourCbx;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;

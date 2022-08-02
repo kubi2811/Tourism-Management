@@ -4,12 +4,21 @@
  */
 package FormStaff;
 
+import Connect.JDBCConnection;
+import Service.OrderTourService;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ranco
  */
 public class StatusTour extends javax.swing.JPanel {
-
+    private Connection connection = JDBCConnection.getConnection();
+    private OrderTourService orderTourService = new OrderTourService();
     /**
      * Creates new form ClientBookedTour
      */
@@ -40,6 +49,7 @@ public class StatusTour extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

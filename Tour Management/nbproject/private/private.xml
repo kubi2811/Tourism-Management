@@ -17,9 +17,9 @@
             <file>file:/F:/Tourism-Management/Tour%20Management/src/Entity/LocationVisit.java</file>
             <file>file:/F:/Tourism-Management/Tour%20Management/src/Entity/Role.java</file>
             <file>file:/F:/Tourism-Management/Tour%20Management/src/Form/ListTour.java</file>
+            <file>file:/F:/Tourism-Management/Tour%20Management/src/FormAdmin/CreateStaff.java</file>
             <file>file:/F:/Tourism-Management/Tour%20Management/src/Entity/Descriptions.java</file>
             <file>file:/F:/Tourism-Management/Tour%20Management/src/Entity/OrderDetail.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Entity/Test.java</file>
             <file>file:/F:/Tourism-Management/Tour%20Management/src/Entity/Vehicle.java</file>
             <file>file:/F:/Tourism-Management/Tour%20Management/src/Form/AdminForm.java</file>
             <file>file:/F:/Tourism-Management/Tour%20Management/src/Connect/JDBCConnection.java</file>
@@ -33,6 +33,7 @@
             <file>file:/F:/Tourism-Management/Tour%20Management/src/Entity/Admin.java</file>
             <file>file:/F:/Tourism-Management/Tour%20Management/src/Service/ClientService.java</file>
             <file>file:/F:/Tourism-Management/Tour%20Management/src/Entity/Tour.java</file>
+            <file>file:/F:/Tourism-Management/Tour%20Management/src/FormStaff/StaffInformation.java</file>
             <file>file:/F:/Tourism-Management/Tour%20Management/src/Form/Login.java</file>
             <file>file:/F:/Tourism-Management/Tour%20Management/src/FormStaff/CreateDescriptionForm.java</file>
             <file>file:/F:/Tourism-Management/Tour%20Management/src/Service/LocationStartService.java</file>
