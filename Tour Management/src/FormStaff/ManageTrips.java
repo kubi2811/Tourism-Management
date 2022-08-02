@@ -6,6 +6,7 @@ package FormStaff;
 
 import Connect.JDBCConnection;
 import Entity.DescriptionDetail;
+import Entity.Descriptions;
 import Entity.Tour;
 import Form.MainMenuStaff;
 import Service.DescriptionService;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -28,6 +30,7 @@ import javax.swing.table.DefaultTableModel;
  * @author ranco
  */
 public class ManageTrips extends javax.swing.JPanel {
+
     private Connection connection = JDBCConnection.getConnection();
     private StaffService staffService = new StaffService();
     private DescriptionService descriptionService = new DescriptionService();
@@ -35,7 +38,7 @@ public class ManageTrips extends javax.swing.JPanel {
     static String idTour;
     static int idDescription;
     public static String tourName;
-    
+    public String listTourNameVar;
 
     /**
      * Creates new form ManageTrips
@@ -43,8 +46,7 @@ public class ManageTrips extends javax.swing.JPanel {
     public ManageTrips() {
         initComponents();
         showInfoManageTrips();
-        
-        
+        tourNameVar.setEnabled(false);
     }
 
     /**
@@ -368,8 +370,11 @@ public class ManageTrips extends javax.swing.JPanel {
         // TODO add your handling code here:
         Date dateStart = DayStart.getDate();
         Date dateEnd = DayEnd.getDate();
-        Tour tour = new Tour(TourName.getText(),dateStart,dateEnd,Double.parseDouble(CostAdo.getText()),Double.parseDouble(CostChild.getText()));
+        Tour tour = new Tour(TourName.getText(), dateStart, dateEnd, Double.parseDouble(CostAdo.getText()), Double.parseDouble(CostChild.getText()));
         staffService.createTour(tour);
+        JOptionPane.showMessageDialog(null, "You created Tour successfully !!!");
+        showInfoManageTrips();
+        showDescription();
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -386,13 +391,15 @@ public class ManageTrips extends javax.swing.JPanel {
 //        CreateDescriptionForm createDescriptionForm = new CreateDescriptionForm();
 //        createDescriptionForm.setVisible(true);
 //
-        CardLayout cards = (CardLayout)(this.getLayout());
+        tourNameVar.setText(listTourNameVar);
+        CardLayout cards = (CardLayout) (this.getLayout());
         cards.show(this, "card02");
         tourName = String.valueOf(ListTourName.getSelectedItem());
     }//GEN-LAST:event_DesMouseClicked
 
     private void ListTourNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListTourNameActionPerformed
         // TODO add your handling code here:
+        listTourNameVar = (String) ListTourName.getSelectedItem();
     }//GEN-LAST:event_ListTourNameActionPerformed
 
     private void adultVarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adultVarActionPerformed
@@ -401,7 +408,15 @@ public class ManageTrips extends javax.swing.JPanel {
 
     private void addDescriptionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addDescriptionMouseClicked
         // TODO add your handling code here:
-        DescriptionDetail descriptionDetail = new DescriptionDetail(ManageTrips.idDescription, descriptionVar.getText(),Integer.parseInt(adultVar.getText()) , Integer.parseInt(childVar.getText()), Double.parseDouble(incurredVar.getText()));
+        int numberIdDescription;
+        StaffService temp = new StaffService();
+        numberIdDescription = temp.getIdDescription(listTourNameVar);
+        
+        Descriptions description = new Descriptions(listTourNameVar, numberIdDescription);
+        descriptionService.createDescription(description);
+        
+        DescriptionDetail descriptionDetail = new DescriptionDetail(numberIdDescription, descriptionVar.getText(), Integer.parseInt(adultVar.getText()), Integer.parseInt(childVar.getText()), Double.parseDouble(incurredVar.getText()));
+        
         descriptionService.createDescriptionDetail(descriptionDetail);
 
     }//GEN-LAST:event_addDescriptionMouseClicked
@@ -417,8 +432,9 @@ public class ManageTrips extends javax.swing.JPanel {
     private void incurredVarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_incurredVarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_incurredVarActionPerformed
-    public void showInfoManageTrips(){
-         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    public void showInfoManageTrips() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
         try {
             String sql = "select * from Tour";
             Statement statement = connection.createStatement();
@@ -430,32 +446,33 @@ public class ManageTrips extends javax.swing.JPanel {
                 vector.add(resultSet.getString("DayEnd"));
                 vector.add(resultSet.getString("CostAdo"));
                 vector.add(resultSet.getString("CostChild"));
-                model.addRow(vector);                  
+                model.addRow(vector);
             }
         } catch (Exception e) {
             e.getMessage();
         }
         List<String> listTour = tourService.getListTourName();
-        for(String tourName : listTour){
+        for (String tourName : listTour) {
             ListTourName.addItem(tourName);
         }
     }
-    
-    public void showDescription(){
-         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+    public void showDescription() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+//        model.setRowCount(0);
         try {
-            String sql = "select * from DescriptionDetail where idDescription ='" + ManageTrips.idDescription +"'";
+            String sql = "select * from DescriptionDetail where idDescription ='" + ManageTrips.idDescription + "'";
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
-               
-                    Vector vector = new Vector();
-                    vector.add(resultSet.getString("nameDescription"));
-                    vector.add(resultSet.getString("Adults"));
-                    vector.add(resultSet.getString("Childs"));
-                    vector.add(resultSet.getString("Incurred"));
-                    vector.add(resultSet.getString("Total"));   
-                    model.addRow(vector);
+
+                Vector vector = new Vector();
+                vector.add(resultSet.getString("nameDescription"));
+                vector.add(resultSet.getString("Adults"));
+                vector.add(resultSet.getString("Childs"));
+                vector.add(resultSet.getString("Incurred"));
+                vector.add(resultSet.getString("Total"));
+                model.addRow(vector);
             }
         } catch (Exception e) {
             e.getMessage();
