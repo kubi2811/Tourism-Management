@@ -8,6 +8,7 @@ import Connect.JDBCConnection;
 
 import Service.OrderTourService;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Vector;
@@ -186,7 +187,7 @@ public class StatusTour extends javax.swing.JPanel {
             if (SearchTextField.getText().equals("") == false) {
                 System.out.println(SearchTextField.getText());
                 String CusUserName =  SearchTextField.getText();
-                Statement statement = connect.createStatement();
+                Statement statement = connection.createStatement();
             
                 
 
@@ -228,13 +229,13 @@ public class StatusTour extends javax.swing.JPanel {
         if(temp.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "You need to choose one Order Tour !!!");
         } else {
-            connect = JDBCConnection.getConnection();
+            connection = JDBCConnection.getConnection();
 
             String sql = "UPDATE OrderStatus SET Status = N'Chờ thanh toán' WHERE IdOrder = ?";
             
             try{
-                PreparedStatement pre = connect.prepareStatement(sql);
-                pre = connect.prepareStatement(sql);
+                PreparedStatement pre = connection.prepareStatement(sql);
+                pre = connection.prepareStatement(sql);
                 System.out.println(temp.getText());
                 pre.setString(1, temp.getText());
                 
@@ -255,13 +256,13 @@ public class StatusTour extends javax.swing.JPanel {
                 if(temp.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "You need to choose one Order Tour !!!");
         } else {
-            connect = JDBCConnection.getConnection();
+            connection = JDBCConnection.getConnection();
 
             String sql = "UPDATE OrderStatus SET Status = N'Đã thanh toán' WHERE IdOrder = ?";
             
             try{
-                PreparedStatement pre = connect.prepareStatement(sql);
-                pre = connect.prepareStatement(sql);
+                PreparedStatement pre = connection.prepareStatement(sql);
+                pre = connection.prepareStatement(sql);
                 System.out.println(temp.getText());
                 pre.setString(1, temp.getText());
                 
@@ -285,7 +286,7 @@ public class StatusTour extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_tempActionPerformed
 
->>>>>>> a7b2397328ca0c3bb0d97bd0121c71bb3a17e28a
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField SearchTextField;
