@@ -3,49 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/FormClient/YourTrip.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Entity/LocationStart.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/FormClient/TrashForm.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Service/OrderTourService.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/FormAdmin/ClientInformation.java</file>
             <file>file:/F:/Tourism-Management/Tour%20Management/src/FormStaff/ManageTrips.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Entity/DescriptionDetail.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/FormStaff/Statistical.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Service/TourService.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Form/MainMenuAdmin.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Entity/OrderTour.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Entity/LocationVisit.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Entity/Role.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Form/ListTour.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/FormAdmin/CreateStaff.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Entity/Descriptions.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Entity/OrderDetail.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Entity/Vehicle.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Form/AdminForm.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Connect/JDBCConnection.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/FormClient/BookTripNow.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/FormClient/Information.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Service/VehicleService.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Form/ClientForm.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Service/LocationVisitService.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Form/StaffForm.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Service/DescriptionService.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Entity/Admin.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Service/ClientService.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Entity/Tour.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/FormStaff/StaffInformation.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Form/Login.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/FormStaff/CreateDescriptionForm.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Service/LocationStartService.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Form/OrderTour.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Form/MainMenuClient.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Form/MainMenuStaff.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/FormStaff/ClientInformation.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Service/StaffService.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Service/TrashClientService.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Service/OrderTourService.java</file>
             <file>file:/F:/Tourism-Management/Tour%20Management/src/FormStaff/StatusTour.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/FormAdmin/StaffInformation.java</file>
+            <file>file:/F:/Tourism-Management/Tour%20Management/src/Form/MainMenuStaff.java</file>
         </group>
     </open-files>
 </project-private>
