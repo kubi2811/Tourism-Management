@@ -12,6 +12,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Vector;
 
 /**
  *
@@ -133,6 +134,7 @@ public class OrderTourService {
         }
         return name;
     }
+<<<<<<< HEAD
     public void updateOrderClient(int idOrder ,int numsAdults , int numChilds){
         String sql = "update OrderDetail set Adluts = ? , Childs = ? where IdOrder = ? ";
         try {
@@ -146,4 +148,6 @@ public class OrderTourService {
         }
     }
     
+=======
+>>>>>>> a7b2397328ca0c3bb0d97bd0121c71bb3a17e28a
 }

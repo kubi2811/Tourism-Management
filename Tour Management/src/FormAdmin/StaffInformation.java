@@ -47,6 +47,7 @@ public class StaffInformation extends javax.swing.JPanel {
     private void initComponents() {
 
         temp = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         activeTable = new javax.swing.JTable();
         StaffLabel = new javax.swing.JLabel();
@@ -61,6 +62,8 @@ public class StaffInformation extends javax.swing.JPanel {
         searchDacBtn = new javax.swing.JButton();
 
         temp.setText("jTextField1");
+
+        jTextField1.setText("jTextField1");
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -217,7 +220,7 @@ public class StaffInformation extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(317, 317, 317)
+                        .addGap(302, 302, 302)
                         .addComponent(deactivateStaffLabel))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(318, 318, 318)
@@ -479,6 +482,7 @@ public class StaffInformation extends javax.swing.JPanel {
     private javax.swing.JTable deactiveTable;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField nameClientVar;
     private javax.swing.JButton searchAcBtn;
     private javax.swing.JButton searchDacBtn;
