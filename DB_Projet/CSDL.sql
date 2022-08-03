@@ -242,11 +242,11 @@ GO
 
 select * from Descriptions
 select * from DescriptionDetail
-select * from Trash
+select * from OrderTour
 select * from OrderDetail
 select * from Tour
 select * from Client
-select * from OrderTour
+select * from Trash
 select * from dbo.OrderStatus
 select * from Client where FullName = N'Khương Hồng Anh'
 select * from Client where Username = 'Client1'
