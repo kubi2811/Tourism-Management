@@ -2,61 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="baea5e79-fec0-4f0d-8bdd-171755e82d21" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormStaff/StatusTour$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormStaff/StatusTour$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormStaff/StatusTour$3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormStaff/StatusTour$4.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormStaff/StatusTour$5.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormStaff/StatusTour$6.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormStaff/StatusTour$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB_Projet/CSDL.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DB_Projet/CSDL.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/built-jar.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/built-jar.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/HomePage$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/HomePage$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/HomePage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/Login1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/Login1$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/Login1$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/Login1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/Login1.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuStaff.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuStaff.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuStaff.form" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Form/MainMenuStaff.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/OrderTour$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/OrderTour$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/OrderTour$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Form/OrderTour$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation.form" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormAdmin/StaffInformation.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/FormClient/BookTripNow.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormClient/BookTripNow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/FormClient/TrashForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormClient/TrashForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/FormClient/YourTrip.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormClient/YourTrip.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/FormStaff/StatusTour.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormStaff/StatusTour.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/FormStaff/StatusTour.form" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/FormStaff/StatusTour.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Service/OrderTourService.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Service/OrderTourService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/build/classes/Service/TrashClientService.class" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/build/classes/Service/TrashClientService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/nbproject/private/private.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/src/Form/MainMenuStaff.form" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/src/Form/MainMenuStaff.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/src/Form/MainMenuStaff.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/src/Form/MainMenuStaff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/src/FormAdmin/StaffInformation.form" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/src/FormAdmin/StaffInformation.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/src/FormAdmin/StaffInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/src/FormAdmin/StaffInformation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/src/FormStaff/StatusTour.form" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/src/FormStaff/StatusTour.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/src/FormStaff/StatusTour.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/src/FormStaff/StatusTour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tour Management/src/Service/OrderTourService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/src/Service/OrderTourService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +40,7 @@
       <workItem from="1659349232999" duration="1484000" />
       <workItem from="1659454086699" duration="4000" />
       <workItem from="1659454114088" duration="146000" />
+      <workItem from="1659509514503" duration="30000" />
     </task>
     <servers />
   </component>
