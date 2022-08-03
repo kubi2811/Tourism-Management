@@ -95,13 +95,13 @@ public class TourService {
         return cost;
     }
      public double getCostChildByName(String nameTour){
-        String sql = " select CostChilds from Tour where TourName ='"+nameTour+"'";
+        String sql = " select CostChild from Tour where TourName ='"+nameTour+"'";
         double cost = 0;
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while(resultSet.next()){
-                cost = resultSet.getDouble("CostChilds");
+                cost = resultSet.getDouble("CostChild");
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -45,9 +45,9 @@ public class TrashForm extends javax.swing.JPanel {
                 if(trashClientService.checkTourDelete(resultSet.getInt("IdOrder"))){
                     Vector vector = new Vector();
                     vector.add(resultSet.getString("Tour"));
-                    vector.add(resultSet.getString("Adluts"));
-                    vector.add(resultSet.getString("Childs"));
-                    vector.add(orderTourService.getTotalbyIdOrder(resultSet.getString("IdOrder")));
+                    vector.add(resultSet.getInt("Adluts"));
+                    vector.add(resultSet.getInt("Childs"));
+                    vector.add(orderTourService.getTotalbyIdOrder(resultSet.getInt("IdOrder")));
                     model.addRow(vector);
                 }
             }

@@ -91,13 +91,6 @@ public class MainMenuClient extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlTop = new javax.swing.JPanel();
-        pnlActions = new javax.swing.JPanel();
-        lblMinimize = new javax.swing.JLabel();
-        lblMaximize = new javax.swing.JLabel();
-        lblClose = new javax.swing.JLabel();
-        pnlTitle = new javax.swing.JPanel();
-        lblTitle = new javax.swing.JLabel();
         pnlParent = new javax.swing.JPanel();
         sidepane = new javax.swing.JPanel();
         btn_bookTrips = new javax.swing.JPanel();
@@ -122,6 +115,13 @@ public class MainMenuClient extends javax.swing.JFrame {
         btn_logOut = new javax.swing.JPanel();
         ind_logOut = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
+        pnlTop = new javax.swing.JPanel();
+        pnlActions = new javax.swing.JPanel();
+        lblMinimize = new javax.swing.JLabel();
+        lblMaximize = new javax.swing.JLabel();
+        lblClose = new javax.swing.JLabel();
+        pnlTitle = new javax.swing.JPanel();
+        lblTitle = new javax.swing.JLabel();
         pnlRight = new javax.swing.JPanel();
         pnlDataCards = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -136,65 +136,6 @@ public class MainMenuClient extends javax.swing.JFrame {
                 formWindowOpened(evt);
             }
         });
-
-        pnlTop.setBackground(new java.awt.Color(76, 41, 211));
-        pnlTop.setPreferredSize(new java.awt.Dimension(1024, 30));
-        pnlTop.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                pnlTopMouseDragged(evt);
-            }
-        });
-        pnlTop.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlTopMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                pnlTopMousePressed(evt);
-            }
-        });
-        pnlTop.setLayout(new java.awt.BorderLayout());
-
-        pnlActions.setBackground(new java.awt.Color(50, 27, 140));
-        pnlActions.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
-
-        lblMinimize.setIcon(new javax.swing.ImageIcon("F:\\Tourism-Management\\Tour Management\\Picture\\icons8_minus_18px_1.png")); // NOI18N
-        lblMinimize.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblMinimizeMousePressed(evt);
-            }
-        });
-        pnlActions.add(lblMinimize);
-
-        lblMaximize.setIcon(new javax.swing.ImageIcon("F:\\Tourism-Management\\Tour Management\\Picture\\icons8_rectangle_stroked_18px.png")); // NOI18N
-        lblMaximize.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblMaximizeMousePressed(evt);
-            }
-        });
-        pnlActions.add(lblMaximize);
-
-        lblClose.setIcon(new javax.swing.ImageIcon("F:\\Tourism-Management\\Tour Management\\Picture\\icons8_multiply_18px_1.png")); // NOI18N
-        lblClose.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblCloseMousePressed(evt);
-            }
-        });
-        pnlActions.add(lblClose);
-
-        pnlTop.add(pnlActions, java.awt.BorderLayout.LINE_END);
-
-        pnlTitle.setBackground(new java.awt.Color(76, 41, 211));
-        pnlTitle.setPreferredSize(new java.awt.Dimension(200, 30));
-        pnlTitle.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 10, 8));
-
-        lblTitle.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitle.setText("Tour Managerment");
-        pnlTitle.add(lblTitle);
-
-        pnlTop.add(pnlTitle, java.awt.BorderLayout.LINE_START);
-
-        getContentPane().add(pnlTop, java.awt.BorderLayout.PAGE_START);
 
         pnlParent.setLayout(new java.awt.BorderLayout());
 
@@ -404,6 +345,63 @@ public class MainMenuClient extends javax.swing.JFrame {
         jLabel11.setText("LOG OUT");
         btn_logOut.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
+        pnlTop.setBackground(new java.awt.Color(76, 41, 211));
+        pnlTop.setPreferredSize(new java.awt.Dimension(1024, 30));
+        pnlTop.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                pnlTopMouseDragged(evt);
+            }
+        });
+        pnlTop.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlTopMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                pnlTopMousePressed(evt);
+            }
+        });
+        pnlTop.setLayout(new java.awt.BorderLayout());
+
+        pnlActions.setBackground(new java.awt.Color(50, 27, 140));
+        pnlActions.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        lblMinimize.setIcon(new javax.swing.ImageIcon("F:\\Tourism-Management\\Tour Management\\Picture\\icons8_minus_18px_1.png")); // NOI18N
+        lblMinimize.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblMinimizeMousePressed(evt);
+            }
+        });
+        pnlActions.add(lblMinimize);
+
+        lblMaximize.setIcon(new javax.swing.ImageIcon("F:\\Tourism-Management\\Tour Management\\Picture\\icons8_rectangle_stroked_18px.png")); // NOI18N
+        lblMaximize.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblMaximizeMousePressed(evt);
+            }
+        });
+        pnlActions.add(lblMaximize);
+
+        lblClose.setIcon(new javax.swing.ImageIcon("F:\\Tourism-Management\\Tour Management\\Picture\\icons8_multiply_18px_1.png")); // NOI18N
+        lblClose.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblCloseMousePressed(evt);
+            }
+        });
+        pnlActions.add(lblClose);
+
+        pnlTop.add(pnlActions, java.awt.BorderLayout.LINE_END);
+
+        pnlTitle.setBackground(new java.awt.Color(76, 41, 211));
+        pnlTitle.setPreferredSize(new java.awt.Dimension(200, 30));
+        pnlTitle.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 10, 8));
+
+        lblTitle.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitle.setText("Tour Managerment");
+        pnlTitle.add(lblTitle);
+
+        pnlTop.add(pnlTitle, java.awt.BorderLayout.LINE_START);
+
         javax.swing.GroupLayout sidepaneLayout = new javax.swing.GroupLayout(sidepane);
         sidepane.setLayout(sidepaneLayout);
         sidepaneLayout.setHorizontalGroup(
@@ -413,28 +411,36 @@ public class MainMenuClient extends javax.swing.JFrame {
             .addComponent(btn_info, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_btns, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_data, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_logOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(sidepaneLayout.createSequentialGroup()
                 .addGroup(sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(sidepaneLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel1))
-                    .addGroup(sidepaneLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel8))
-                    .addGroup(sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, sidepaneLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(label_forClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, sidepaneLayout.createSequentialGroup()
-                            .addGap(43, 43, 43)
-                            .addComponent(jLabel2))))
-                .addContainerGap(34, Short.MAX_VALUE))
-            .addComponent(btn_logOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(sidepaneLayout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(jLabel1))
+                            .addGroup(sidepaneLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel8))
+                            .addGroup(sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, sidepaneLayout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addComponent(label_forClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, sidepaneLayout.createSequentialGroup()
+                                    .addGap(43, 43, 43)
+                                    .addComponent(jLabel2))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sidepaneLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(pnlTop, javax.swing.GroupLayout.PREFERRED_SIZE, 1058, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         sidepaneLayout.setVerticalGroup(
             sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sidepaneLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addContainerGap()
+                .addComponent(pnlTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
@@ -452,7 +458,7 @@ public class MainMenuClient extends javax.swing.JFrame {
                 .addComponent(btn_btns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(btn_logOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -473,14 +479,14 @@ public class MainMenuClient extends javax.swing.JFrame {
             .addGroup(pnlDataCardsLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(820, Short.MAX_VALUE))
         );
         pnlDataCardsLayout.setVerticalGroup(
             pnlDataCardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDataCardsLayout.createSequentialGroup()
                 .addGap(164, 164, 164)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(211, Short.MAX_VALUE))
+                .addContainerGap(241, Short.MAX_VALUE))
         );
 
         pnlRight.add(pnlDataCards, "card1");
@@ -491,11 +497,11 @@ public class MainMenuClient extends javax.swing.JFrame {
         pnlTypography.setLayout(pnlTypographyLayout);
         pnlTypographyLayout.setHorizontalGroup(
             pnlTypographyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 808, Short.MAX_VALUE)
+            .addGap(0, 1584, Short.MAX_VALUE)
         );
         pnlTypographyLayout.setVerticalGroup(
             pnlTypographyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 630, Short.MAX_VALUE)
         );
 
         pnlRight.add(pnlTypography, "card2");

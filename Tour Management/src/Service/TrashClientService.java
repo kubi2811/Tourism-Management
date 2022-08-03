@@ -24,7 +24,7 @@ public class TrashClientService {
     private TourService tourService = new TourService();
     public boolean checkTourDelete(int idOrder){
         String sql = "select IsDelete from OrderTour where idOrder ='" + idOrder +"'";
-        int check  = 0;
+        int check = 0;
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);

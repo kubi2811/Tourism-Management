@@ -85,6 +85,9 @@ public class CreateDescriptionForm extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 addDescriptionMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addDescriptionMouseEntered(evt);
+            }
         });
 
         Tour.setText("jLabel7");
@@ -163,10 +166,14 @@ public class CreateDescriptionForm extends javax.swing.JPanel {
 
     private void addDescriptionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addDescriptionMouseClicked
         // TODO add your handling code here:
-//        DescriptionDetail descriptionDetail = new DescriptionDetail(ManageTrips.idDescription, NameDescription.getText(),Integer.parseInt(Adults.getText()) , Integer.parseInt(Childs.getText()), Double.parseDouble(Incurred.getText()));
-//        descriptionService.createDescriptionDetail(descriptionDetail);
+        DescriptionDetail descriptionDetail = new DescriptionDetail(ManageTrips.idDescription, NameDescription.getText(),Integer.parseInt(Adults.getText()) , Integer.parseInt(Childs.getText()), Double.parseDouble(Incurred.getText()));
+        descriptionService.createDescriptionDetail(descriptionDetail);
         
     }//GEN-LAST:event_addDescriptionMouseClicked
+
+    private void addDescriptionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addDescriptionMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addDescriptionMouseEntered
 
     public void showDescription(){
          DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
