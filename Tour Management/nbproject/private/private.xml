@@ -9,6 +9,8 @@
             <file>file:/F:/Tourism-Management/Tour%20Management/src/Service/OrderTourService.java</file>
             <file>file:/F:/Tourism-Management/Tour%20Management/src/FormAdmin/ClientInformation.java</file>
             <file>file:/F:/Tourism-Management/Tour%20Management/src/FormStaff/ManageTrips.java</file>
+            <file>file:/F:/Tourism-Management/Tour%20Management/src/FormStaff/StatusTour.java</file>
+            <file>file:/F:/Tourism-Management/Tour%20Management/src/FormAdmin/Statistical.java</file>
             <file>file:/F:/Tourism-Management/Tour%20Management/src/Entity/DescriptionDetail.java</file>
             <file>file:/F:/Tourism-Management/Tour%20Management/src/FormStaff/Statistical.java</file>
             <file>file:/F:/Tourism-Management/Tour%20Management/src/Service/TourService.java</file>
@@ -43,9 +45,6 @@
             <file>file:/F:/Tourism-Management/Tour%20Management/src/FormStaff/ClientInformation.java</file>
             <file>file:/F:/Tourism-Management/Tour%20Management/src/Service/StaffService.java</file>
             <file>file:/F:/Tourism-Management/Tour%20Management/src/Service/TrashClientService.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/Service/OrderTourService.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/FormStaff/StatusTour.java</file>
-            <file>file:/F:/Tourism-Management/Tour%20Management/src/FormAdmin/StaffInformation.java</file>
         </group>
     </open-files>
 </project-private>
