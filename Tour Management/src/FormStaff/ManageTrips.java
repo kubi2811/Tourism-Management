@@ -39,6 +39,7 @@ public class ManageTrips extends javax.swing.JPanel {
     static int idDescription;
     public static String tourName;
     public String listTourNameVar;
+    
 
     /**
      * Creates new form ManageTrips
@@ -390,11 +391,13 @@ public class ManageTrips extends javax.swing.JPanel {
 //        idDescription = descriptionService.getIdDescriptionByTourName(String.valueOf(ListTourName.getSelectedItem()));
 //        CreateDescriptionForm createDescriptionForm = new CreateDescriptionForm();
 //        createDescriptionForm.setVisible(true);
-//
-        tourNameVar.setText(listTourNameVar);
         CardLayout cards = (CardLayout) (this.getLayout());
         cards.show(this, "card02");
+        listTourNameVar = String.valueOf(ListTourName.getSelectedItem());
         tourName = String.valueOf(ListTourName.getSelectedItem());
+        Descriptions descriptions = new Descriptions(String.valueOf(ListTourName.getSelectedItem()), 0);
+        descriptionService.createDescription(descriptions);
+        
     }//GEN-LAST:event_DesMouseClicked
 
     private void ListTourNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListTourNameActionPerformed
@@ -410,14 +413,10 @@ public class ManageTrips extends javax.swing.JPanel {
         // TODO add your handling code here:
         int numberIdDescription;
         StaffService temp = new StaffService();
-        numberIdDescription = temp.getIdDescription(listTourNameVar);
-        
-        Descriptions description = new Descriptions(listTourNameVar, numberIdDescription);
-        descriptionService.createDescription(description);
-        
+        numberIdDescription = temp.getIdDescription(listTourNameVar);   
         DescriptionDetail descriptionDetail = new DescriptionDetail(numberIdDescription, descriptionVar.getText(), Integer.parseInt(adultVar.getText()), Integer.parseInt(childVar.getText()), Double.parseDouble(incurredVar.getText()));
-        
         descriptionService.createDescriptionDetail(descriptionDetail);
+       
 
     }//GEN-LAST:event_addDescriptionMouseClicked
 

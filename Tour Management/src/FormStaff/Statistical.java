@@ -59,8 +59,7 @@ public class Statistical extends javax.swing.JPanel {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        StaticService staticService = new StaticService();
-        staticService.getTotalREvenue(8);
+//        StaticService staticService = new StaticService();
     }//GEN-LAST:event_jButton1MouseClicked
 
 
