@@ -49,5 +49,20 @@ public class StaticService {
         }
         return total;
     }
+    public double getTotalDes(){
+        String sql = "select SUM(Total) as TotalPrice from Descriptions";
+        double total = 0 ;
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+                total = resultSet.getDouble("TotalPrice");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+                    
+        }
+        return total;
+    }
          
 }
