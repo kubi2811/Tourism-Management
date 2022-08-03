@@ -395,8 +395,19 @@ public class ManageTrips extends javax.swing.JPanel {
         cards.show(this, "card02");
         listTourNameVar = String.valueOf(ListTourName.getSelectedItem());
         tourName = String.valueOf(ListTourName.getSelectedItem());
-        Descriptions descriptions = new Descriptions(String.valueOf(ListTourName.getSelectedItem()), 0);
-        descriptionService.createDescription(descriptions);
+        String sql = "Select Count(Tour) as check from Descriptions where Tour = '"+listTourNameVar+"'";
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+                if(resultSet.getInt("check") != 0){
+                    Descriptions descriptions = new Descriptions(String.valueOf(ListTourName.getSelectedItem()), 0);
+                    descriptionService.createDescription(descriptions);
+                }
+            }                                      
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         
     }//GEN-LAST:event_DesMouseClicked
 

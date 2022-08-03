@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="baea5e79-fec0-4f0d-8bdd-171755e82d21" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tour Management/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Tour Management/nbproject/private/private.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +41,7 @@
       <workItem from="1659454086699" duration="4000" />
       <workItem from="1659454114088" duration="146000" />
       <workItem from="1659509514503" duration="30000" />
+      <workItem from="1659517348924" duration="7000" />
     </task>
     <servers />
   </component>
