@@ -33,8 +33,9 @@ public class DescriptionService {
     }
 
     public void createDescriptionDetail(DescriptionDetail descriptionDetail) {
-        String sql = "insert into DescriptionDetail(IdDescription , nameDescription,Adults,Childs,Incurred,Total) values (?,?,?,?,?,?)";
+        String sql = "insert into DescriptionDetail(IdDescription,nameDescription,Adults,Childs,Incurred,Total) values (?,?,?,?,?,?)";
         try {
+            
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, descriptionDetail.getIdDescription());
             preparedStatement.setString(2, descriptionDetail.getNameDescription());
@@ -42,6 +43,9 @@ public class DescriptionService {
             preparedStatement.setInt(4, descriptionDetail.getChilds());
             preparedStatement.setDouble(5, descriptionDetail.getInccurred());
             preparedStatement.setDouble(6, descriptionDetail.getTotal());
+            
+            System.out.println("id ngta: " + descriptionDetail.getIdDescription());
+            System.out.println("ten: " + descriptionDetail.getNameDescription());
             preparedStatement.execute();
         } catch (Exception e) {
             e.printStackTrace();
