@@ -24,8 +24,29 @@ public class StatusTour extends javax.swing.JPanel {
      */
     public StatusTour() {
         initComponents();
+        showStatusTour();
     }
-
+    public void showStatusTour(){
+        DefaultTableModel model = (DefaultTableModel) activeTable.getModel();
+        model.setRowCount(0);
+        try {
+            String sql = "select dbo.Client.FullName, dbo.OrderStatus.ClientUserName, dbo.OrderStatus.IdOrder, dbo.OrderStatus.Status\n" +
+"FROM(dbo.Client INNER JOIN dbo.OrderStatus ON dbo.OrderStatus.ClientUserName = dbo.Client.Username) ";
+            Statement statement = connect.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                Vector vector = new Vector();
+                vector.add(resultSet.getString("FullName"));
+                vector.add(resultSet.getString("ClientUserName"));
+                vector.add(resultSet.getString("IdOrder"));
+                vector.add(resultSet.getString("Status"));
+                model.addRow(vector);                  
+            }
+        }
+        catch(Exception e){
+            e.getMessage();
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -176,11 +197,7 @@ public class StatusTour extends javax.swing.JPanel {
             if (SearchTextField.getText().equals("") == false) {
                 System.out.println(SearchTextField.getText());
                 String CusUserName =  SearchTextField.getText();
-                Statement statement = connect.createStatement();
-            
-                
-
-                
+                Statement statement = connect.createStatement();          
                 //Lấy ClientUsername
                 String sql = "select * from Client where FullName = N'" + SearchTextField.getText() + "'";
                 System.out.println(sql);
@@ -205,7 +222,6 @@ public class StatusTour extends javax.swing.JPanel {
                     vector.add(resultSet2.getString("Status"));
                     model.addRow(vector);
                 }
-            } else {
                 JOptionPane.showMessageDialog(null, "Không tìm thấy khách hàng, vui lòng nhập lại!");
             }
         } catch (Exception ex) {
@@ -234,22 +250,28 @@ public class StatusTour extends javax.swing.JPanel {
             } catch (Exception e){
                 e.printStackTrace();
                 
-            } 
+            }
+            showStatusTour();
         }
-        DefaultTableModel model = (DefaultTableModel) activeTable.getModel();
-        model.setRowCount(0);
     }//GEN-LAST:event_Update1BtnMouseClicked
 
     private void Update2BtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Update2BtnMouseClicked
         // TODO add your handling code here:
-                if(temp.getText().isEmpty()){
+        if(temp.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "You need to choose one Order Tour !!!");
-        } else {
+            
+        }
+        else if (temp.getText().equals("Đã thanh toán")){
+            JOptionPane.showMessageDialog(this, "This tour has paid !!!");
+        }
+        else {
             connect = JDBCConnection.getConnection();
 
             String sql = "UPDATE OrderStatus SET Status = N'Đã thanh toán' WHERE IdOrder = ?";
+            String sql1 = "INSERT INTO History VALUES("+ temp.getText() +", GETDATE())";
             
             try{
+                Statement statement = connect.createStatement();
                 PreparedStatement pre = connect.prepareStatement(sql);
                 pre = connect.prepareStatement(sql);
                 System.out.println(temp.getText());
@@ -257,14 +279,14 @@ public class StatusTour extends javax.swing.JPanel {
                 
                 pre.execute();
                 
+                statement.execute(sql1);
+                
                 JOptionPane.showMessageDialog(this, "Information have been updated !!!");
             } catch (Exception e){
                 e.printStackTrace();
-                
-            } 
+            }
         }
-        DefaultTableModel model = (DefaultTableModel) activeTable.getModel();
-        model.setRowCount(0);
+        showStatusTour();
     }//GEN-LAST:event_Update2BtnMouseClicked
 
     private void SearchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchTextFieldActionPerformed

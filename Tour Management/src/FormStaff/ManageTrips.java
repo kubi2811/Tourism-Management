@@ -391,7 +391,7 @@ public class ManageTrips extends javax.swing.JPanel {
 
     }//GEN-LAST:event_addDescriptionMouseClicked
     public void showInfoManageTrips(){
-         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         try {
             String sql = "select * from Tour";
             Statement statement = connection.createStatement();

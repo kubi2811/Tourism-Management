@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import FormStaff.ClientInformation;
 import FormStaff.CreateDescriptionForm;
+import FormStaff.History;
 import FormStaff.ManageTrips;
 import FormStaff.StaffInformation;
 import FormStaff.Statistical;
@@ -124,6 +125,9 @@ public class MainMenuStaff extends javax.swing.JFrame {
         btn_Statistical = new javax.swing.JPanel();
         ind_icons1 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
+        history_btn = new javax.swing.JPanel();
+        ind_icons2 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
         pnlRight = new javax.swing.JPanel();
         pnlDataCards = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -435,6 +439,35 @@ public class MainMenuStaff extends javax.swing.JFrame {
         jLabel13.setText("Statistical");
         btn_Statistical.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
+        history_btn.setBackground(new java.awt.Color(76, 41, 211));
+        history_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                history_btnMousePressed(evt);
+            }
+        });
+        history_btn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ind_icons2.setOpaque(false);
+        ind_icons2.setPreferredSize(new java.awt.Dimension(4, 40));
+
+        javax.swing.GroupLayout ind_icons2Layout = new javax.swing.GroupLayout(ind_icons2);
+        ind_icons2.setLayout(ind_icons2Layout);
+        ind_icons2Layout.setHorizontalGroup(
+            ind_icons2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 4, Short.MAX_VALUE)
+        );
+        ind_icons2Layout.setVerticalGroup(
+            ind_icons2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        history_btn.add(ind_icons2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 40));
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("History Tour");
+        history_btn.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
+
         javax.swing.GroupLayout sidepaneLayout = new javax.swing.GroupLayout(sidepane);
         sidepane.setLayout(sidepaneLayout);
         sidepaneLayout.setHorizontalGroup(
@@ -458,9 +491,10 @@ public class MainMenuStaff extends javax.swing.JFrame {
                     .addGroup(sidepaneLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(label_forStaff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
             .addComponent(btn_btns1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_Statistical, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(history_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         sidepaneLayout.setVerticalGroup(
             sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -477,15 +511,17 @@ public class MainMenuStaff extends javax.swing.JFrame {
                 .addComponent(btn_fonts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(history_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(btn_Statistical, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_btns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btn_data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btn_btns1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -513,7 +549,7 @@ public class MainMenuStaff extends javax.swing.JFrame {
             .addGroup(pnlDataCardsLayout.createSequentialGroup()
                 .addGap(165, 165, 165)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addContainerGap(230, Short.MAX_VALUE))
         );
 
         pnlRight.add(pnlDataCards, "card1");
@@ -528,7 +564,7 @@ public class MainMenuStaff extends javax.swing.JFrame {
         );
         pnlTypographyLayout.setVerticalGroup(
             pnlTypographyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 620, Short.MAX_VALUE)
         );
 
         pnlRight.add(pnlTypography, "card2");
@@ -775,6 +811,31 @@ public class MainMenuStaff extends javax.swing.JFrame {
         label_forStaff.setText("For Staff: " + Login.nameStaff);
     }//GEN-LAST:event_formWindowOpened
 
+    private void history_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_history_btnMousePressed
+        // TODO add your handling code here:
+                setColor(btn_data);
+        resetColor(btn_typo);
+        resetColor(btn_btns);
+        resetColor(btn_btns1);
+        resetColor(btn_fonts);
+        resetColor(btn_status);
+        resetColor(btn_Statistical);
+
+        //Gạch nhỏ đầu màu trắng khi bấm vào
+        ind_typo.setOpaque(false);
+        ind_btns.setOpaque(false);
+        ind_btns1.setOpaque(false);
+        ind_data.setOpaque(true);
+        ind_fonts.setOpaque(false);
+        ind_icons.setOpaque(false);
+        ind_icons1.setOpaque(false);
+
+        pnlRight.removeAll();
+        pnlRight.add(new History()).setVisible(true);
+        pnlRight.repaint();
+        pnlRight.revalidate();
+    }//GEN-LAST:event_history_btnMousePressed
+
     // set and reset color
     void setColor(JPanel panel) {
         panel.setBackground(new Color(135, 112, 225));
@@ -838,12 +899,14 @@ public class MainMenuStaff extends javax.swing.JFrame {
     private javax.swing.JPanel btn_fonts;
     private javax.swing.JPanel btn_status;
     private javax.swing.JPanel btn_typo;
+    private javax.swing.JPanel history_btn;
     private javax.swing.JPanel ind_btns;
     private javax.swing.JPanel ind_btns1;
     private javax.swing.JPanel ind_data;
     private javax.swing.JPanel ind_fonts;
     private javax.swing.JPanel ind_icons;
     private javax.swing.JPanel ind_icons1;
+    private javax.swing.JPanel ind_icons2;
     private javax.swing.JPanel ind_typo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -854,6 +917,7 @@ public class MainMenuStaff extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel label_forStaff;

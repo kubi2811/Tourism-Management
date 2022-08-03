@@ -1,6 +1,8 @@
 use ManageTourist
 go
 
+select * from Admin
+
 Insert into Admin Values ('Admin0','pass0');
 Insert into Admin Values ('Admin1','pass1');
 Insert into Admin Values ('Admin2','pass2');
@@ -10003,4 +10005,3 @@ Insert into Admin Values ('Admin9998','pass9998');
 Insert into Admin Values ('Admin9999','pass9999');
 
 
-select * from Admin

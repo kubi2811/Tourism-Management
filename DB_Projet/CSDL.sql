@@ -11,15 +11,13 @@ go
 --go
 
 
---admin
 create table Admin(
 	IdAdmin INT IDENTITY(1,1) primary key,
 	Username varchar(50) UNIQUE,
 	Password varchar(50) NOT NULL
 )
---drop table admin
+go
 
---Staff
 create table Staff (
 	IdStaff INT IDENTITY(1,1) primary key,
 	Admin varchar(50) NOT NULL FOREIGN KEY REFERENCES Admin(Username),
@@ -30,9 +28,9 @@ create table Staff (
 	-- Status 0 is Enable, Status 1 is Disable, ...
 )
 go
---drop table Staff
 
---khách hàng
+-- drop table Staff
+
 create table Client (
 	IdClient INT IDENTITY(1,1) primary key,
 	FullName nvarchar(50),
@@ -42,8 +40,6 @@ create table Client (
 	Email varchar(50)
 )
 go
-
--- drop table Client
 
 create table UserAddress(
 	Id INT IDENTITY(1,1) primary key,
@@ -55,9 +51,7 @@ create table UserAddress(
 	provience nvarchar(50)
 )
 go
--- drop table UserAddress
 
--- Đặt tour
 create table Tour (
 	IdTour INT IDENTITY(1,1) primary key,
 	TourName nvarchar(50) UNIQUE,
@@ -68,16 +62,37 @@ create table Tour (
 )
 go
 
+create table LocationStart(
+	IdLocationStart INT IDENTITY(1,1) primary key,
+	Tour nvarchar(50) FOREIGN KEY REFERENCES Tour(TourName),
+	Province nvarchar(50) NOT NULL
+)
+go
+
+create table LocationVisit(
+	IdLocationVisit INT IDENTITY(1,1) primary key,
+	Tour nvarchar(50) FOREIGN KEY REFERENCES Tour(TourName),
+	VisitPlace nvarchar(50) NOT NULL
+)
+go
+
+create table Vehicle(
+	IdVehicle INT IDENTITY(1,1) primary key,
+	Tour nvarchar(50) FOREIGN KEY REFERENCES Tour(TourName), -- Lấy tour name từ bảng tour
+	Transport nvarchar(50) NOT NULL,
+	Capacity int NOT NULL
+)
+go
 
 create table Descriptions (
 	IdDescription INT IDENTITY(1,1) primary key,
 	Tour nvarchar(50) FOREIGN KEY REFERENCES Tour(TourName),
+	createDate datetime default getdate(),
 	Total float,
 ) 
 go
 
 create table DescriptionDetail (
-	
 	IdDescriptionDetail INT IDENTITY(1,1) primary key,
 	IdDescription int FOREIGN KEY REFERENCES Descriptions(IdDescription),
 	nameDescription nvarchar(50),
@@ -88,8 +103,6 @@ create table DescriptionDetail (
 ) 
 go
 
---drop table DescriptionDetail
-
 create table OrderTour (
 	IdOrder INT IDENTITY(1,1) primary key,
 	IdClient int,
@@ -99,7 +112,6 @@ create table OrderTour (
 )
 go
 
--- drop table OrderTour
 
 create table OrderDetail(
 		IdOrderDetail INT IDENTITY(1,1) primary key,
@@ -111,29 +123,6 @@ create table OrderDetail(
 		Childs int NOT NULL
 )
 go
---drop table OrderDetail
-create table LocationStart(
-	IdLocationStart INT IDENTITY(1,1) primary key,
-	Tour nvarchar(50) FOREIGN KEY REFERENCES Tour(TourName),
-	Province nvarchar(50) NOT NULL
-)
-go
-create table LocationVisit(
-	IdLocationVisit INT IDENTITY(1,1) primary key,
-	Tour nvarchar(50) FOREIGN KEY REFERENCES Tour(TourName),
-	VisitPlace nvarchar(50) NOT NULL
-)
-go
-
--- drop table LocationVisit
-
-create table Vehicle(
-	IdVehicle INT IDENTITY(1,1) primary key,
-	Tour nvarchar(50) FOREIGN KEY REFERENCES Tour(TourName), -- Lấy tour name từ bảng tour
-	Transport varchar(50) NOT NULL,
-	Capacity int NOT NULL
-)
-go
 
 create table OrderStatus(
 	IdOrderStatus INT IDENTITY(1,1) primary key,
@@ -143,22 +132,14 @@ create table OrderStatus(
 )
 go
 
--- drop table OrderStatus
-
-create table Trash(
-	IdTrash INT IDENTITY(1,1) primary key,
-	IdOrder int 
-)
-go
 
 create table History(
 	IdHistory INT IDENTITY(1,1) primary key,
 	IdOrder int,
-	--TimeOrder datetime FOREIGN KEY REFERENCES OrderTour(createDate)
+	paidDate datetime default getdate(),
 )
 go
-
-
+				
 
 -- ALTER TABLE
 alter table OrderTour
@@ -170,10 +151,6 @@ add foreign key(IdOrder) references OrderTour(IdOrder)
 go
 
 alter table OrderStatus
-add foreign key(IdOrder) references OrderTour(IdOrder)
-go
-
-alter table Trash
 add foreign key(IdOrder) references OrderTour(IdOrder)
 go
 
@@ -194,7 +171,7 @@ BEGIN
 END
 GO
 
-CREATE TRiGGER trg_CapNhatOrderTour ON OrderDetail After Update as 
+CREATE TRIGGER trg_CapNhatOrderTour ON OrderDetail After Update as 
 begin 
 	UPDATE OrderTour
 	SET Total = (SELECT Adluts from OrderDetail where IdOrder = OrderDetail.IdOrder) * (SELECT CostAdo from Tour where Tour = Tour.TourName)  + 
@@ -204,30 +181,13 @@ begin
 end
 go
 
-CREATE TRiGGER trg_HuyOrderTour ON OrderDetail After delete as 
+CREATE TRIGGER trg_HuyOrderTour ON OrderDetail After delete as 
 begin 
 	UPDATE OrderTour Set Total = 0 
 	from OrderTour
 	JOIN deleted ON OrderTour.IdOrder = deleted.IdOrder
 end
 go
-
-select * from OrderTour
-select * From OrderDetail
-select * from Descriptions
-select * from DescriptionDetail
-select * from Tour
-
---insert into OrderDetail(IdOrder,IdClient,Tour,Adluts,Childs) Values(6,3,N'HN-HCM',20,10)
---update OrderDetail set Adluts = 30, Childs = 20 where IdOrder = 6;
---delete from OrderDetail where IdOrder = 6;
-
-
-SELECT SUM(Total) as SUM
-FROM DescriptionDetail
-WHERE IdDescription = 3;
-
-
 
 CREATE TRIGGER trg_description ON DescriptionDetail  AFTER INSERT AS 
 BEGIN
@@ -240,29 +200,8 @@ BEGIN
 END
 GO
 
-select * from Descriptions
-select * from DescriptionDetail
-select * from Trash
-select * from OrderDetail
-select * from Tour
-select * from Client
-select * from OrderTour
-select * from dbo.OrderStatus
-select * from Client where FullName = N'Khương Hồng Anh'
-select * from Client where Username = 'Client1'
 
-select * from OrderStatus where ClientUserName = 'Client0'
-select * from OrderStatus where ClientUserName = 'Client1'
 
-insert into Tour values (N'Hà Nội - Hải Phòng', '2022-01-08', '2022-07-08', 500000, 200000)
-insert into Tour values (N'Hà Nội - Hạ Long', '2022-01-08', '2022-07-08', 500000, 200000)
-insert into Tour values (N'Hà Nội - Hồ Chí Minh', '2022-01-08', '2022-07-08', 500000, 200000)
 
-insert into OrderTour values(1, GETDATE(), 1000000, 1)
-insert into dbo.OrderTour values(2, getdate(),2000000, 1)
-insert into dbo.OrderStatus values (1, 'Client0',N'Chưa thanh toán')
 
-insert into dbo.OrderStatus values (2, 'Client1',N'Chưa thanh toán')
-
---select * from OrderTour where IdClient = 3 and IsDelete = 0
 

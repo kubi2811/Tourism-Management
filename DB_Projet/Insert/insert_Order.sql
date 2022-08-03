@@ -1,8 +1,10 @@
 ﻿use ManageTourist
 go
 
-insert into dbo.OrderTour values(1, getdate(),300000)
-insert into dbo.OrderTour values(2, getdate(),200000)
+insert into OrderTour values(1, GETDATE(), 1000000, 1)
+insert into OrderTour values(2, GETDATE(), 1000000, 1)
+insert into OrderTour values(3, GETDATE(), 3000000, 1)
+insert into OrderTour values(4, GETDATE(), 5000000, 1)
 
 select* from Client
 select* from OrderTour
