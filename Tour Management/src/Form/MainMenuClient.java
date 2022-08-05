@@ -115,6 +115,10 @@ public class MainMenuClient extends javax.swing.JFrame {
         btn_logOut = new javax.swing.JPanel();
         ind_logOut = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
+        pnlRight = new javax.swing.JPanel();
+        pnlDataCards = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        pnlTypography = new javax.swing.JPanel();
         pnlTop = new javax.swing.JPanel();
         pnlActions = new javax.swing.JPanel();
         lblMinimize = new javax.swing.JLabel();
@@ -122,10 +126,6 @@ public class MainMenuClient extends javax.swing.JFrame {
         lblClose = new javax.swing.JLabel();
         pnlTitle = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
-        pnlRight = new javax.swing.JPanel();
-        pnlDataCards = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        pnlTypography = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Title Frame Test");
@@ -345,6 +345,107 @@ public class MainMenuClient extends javax.swing.JFrame {
         jLabel11.setText("LOG OUT");
         btn_logOut.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
+        javax.swing.GroupLayout sidepaneLayout = new javax.swing.GroupLayout(sidepane);
+        sidepane.setLayout(sidepaneLayout);
+        sidepaneLayout.setHorizontalGroup(
+            sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btn_bookTrips, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_yourTrips, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_info, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_btns, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_data, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_logOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(sidepaneLayout.createSequentialGroup()
+                .addGroup(sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(sidepaneLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel1))
+                    .addGroup(sidepaneLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel8))
+                    .addGroup(sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, sidepaneLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(label_forClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, sidepaneLayout.createSequentialGroup()
+                            .addGap(43, 43, 43)
+                            .addComponent(jLabel2))))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+        sidepaneLayout.setVerticalGroup(
+            sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sidepaneLayout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(46, 46, 46)
+                .addComponent(label_forClient)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_bookTrips, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_yourTrips, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_info, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_btns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(btn_logOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
+        );
+
+        pnlParent.add(sidepane, java.awt.BorderLayout.LINE_START);
+
+        pnlRight.setLayout(new java.awt.CardLayout());
+
+        pnlDataCards.setBackground(new java.awt.Color(255, 255, 204));
+
+        jLabel3.setBackground(new java.awt.Color(255, 255, 204));
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel3.setText("WELCOME TO OUR COMPANY, LETS CHOOSE YOUR TRIPS");
+
+        javax.swing.GroupLayout pnlDataCardsLayout = new javax.swing.GroupLayout(pnlDataCards);
+        pnlDataCards.setLayout(pnlDataCardsLayout);
+        pnlDataCardsLayout.setHorizontalGroup(
+            pnlDataCardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDataCardsLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(57, Short.MAX_VALUE))
+        );
+        pnlDataCardsLayout.setVerticalGroup(
+            pnlDataCardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDataCardsLayout.createSequentialGroup()
+                .addGap(164, 164, 164)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(212, Short.MAX_VALUE))
+        );
+
+        pnlRight.add(pnlDataCards, "card1");
+
+        pnlTypography.setBackground(new java.awt.Color(255, 255, 102));
+
+        javax.swing.GroupLayout pnlTypographyLayout = new javax.swing.GroupLayout(pnlTypography);
+        pnlTypography.setLayout(pnlTypographyLayout);
+        pnlTypographyLayout.setHorizontalGroup(
+            pnlTypographyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 821, Short.MAX_VALUE)
+        );
+        pnlTypographyLayout.setVerticalGroup(
+            pnlTypographyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 601, Short.MAX_VALUE)
+        );
+
+        pnlRight.add(pnlTypography, "card2");
+
+        pnlParent.add(pnlRight, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(pnlParent, java.awt.BorderLayout.CENTER);
+
         pnlTop.setBackground(new java.awt.Color(76, 41, 211));
         pnlTop.setPreferredSize(new java.awt.Dimension(1024, 30));
         pnlTop.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -402,113 +503,7 @@ public class MainMenuClient extends javax.swing.JFrame {
 
         pnlTop.add(pnlTitle, java.awt.BorderLayout.LINE_START);
 
-        javax.swing.GroupLayout sidepaneLayout = new javax.swing.GroupLayout(sidepane);
-        sidepane.setLayout(sidepaneLayout);
-        sidepaneLayout.setHorizontalGroup(
-            sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btn_bookTrips, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btn_yourTrips, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btn_info, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btn_btns, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btn_data, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btn_logOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(sidepaneLayout.createSequentialGroup()
-                .addGroup(sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(sidepaneLayout.createSequentialGroup()
-                        .addGroup(sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(sidepaneLayout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(jLabel1))
-                            .addGroup(sidepaneLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel8))
-                            .addGroup(sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, sidepaneLayout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(label_forClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, sidepaneLayout.createSequentialGroup()
-                                    .addGap(43, 43, 43)
-                                    .addComponent(jLabel2))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sidepaneLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(pnlTop, javax.swing.GroupLayout.PREFERRED_SIZE, 1058, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        sidepaneLayout.setVerticalGroup(
-            sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sidepaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pnlTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(46, 46, 46)
-                .addComponent(label_forClient)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_bookTrips, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_yourTrips, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_info, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_btns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addComponent(btn_logOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
-        );
-
-        pnlParent.add(sidepane, java.awt.BorderLayout.LINE_START);
-
-        pnlRight.setLayout(new java.awt.CardLayout());
-
-        pnlDataCards.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel3.setText("WELCOME TO OUR COMPANY, LETS CHOOSE YOUR TRIPS");
-
-        javax.swing.GroupLayout pnlDataCardsLayout = new javax.swing.GroupLayout(pnlDataCards);
-        pnlDataCards.setLayout(pnlDataCardsLayout);
-        pnlDataCardsLayout.setHorizontalGroup(
-            pnlDataCardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDataCardsLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(820, Short.MAX_VALUE))
-        );
-        pnlDataCardsLayout.setVerticalGroup(
-            pnlDataCardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDataCardsLayout.createSequentialGroup()
-                .addGap(164, 164, 164)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(241, Short.MAX_VALUE))
-        );
-
-        pnlRight.add(pnlDataCards, "card1");
-
-        pnlTypography.setBackground(new java.awt.Color(255, 255, 102));
-
-        javax.swing.GroupLayout pnlTypographyLayout = new javax.swing.GroupLayout(pnlTypography);
-        pnlTypography.setLayout(pnlTypographyLayout);
-        pnlTypographyLayout.setHorizontalGroup(
-            pnlTypographyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1584, Short.MAX_VALUE)
-        );
-        pnlTypographyLayout.setVerticalGroup(
-            pnlTypographyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
-        );
-
-        pnlRight.add(pnlTypography, "card2");
-
-        pnlParent.add(pnlRight, java.awt.BorderLayout.CENTER);
-
-        getContentPane().add(pnlParent, java.awt.BorderLayout.CENTER);
+        getContentPane().add(pnlTop, java.awt.BorderLayout.PAGE_START);
 
         pack();
         setLocationRelativeTo(null);

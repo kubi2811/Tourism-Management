@@ -224,7 +224,7 @@ END
 Select * from Descriptions
 select * from DescriptionDetail
 select * from Tour
-insert into Descriptions(Tour) values (N'Hà Nội - Hồ Chí Minh')
+--insert into Descriptions(Tour) values (N'Hà Nội - Hồ Chí Minh')
 
 
 
