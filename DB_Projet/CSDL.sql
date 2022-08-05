@@ -69,13 +69,6 @@ create table LocationStart(
 )
 go
 
-create table LocationVisit(
-	IdLocationVisit INT IDENTITY(1,1) primary key,
-	Tour nvarchar(50) FOREIGN KEY REFERENCES Tour(TourName),
-	VisitPlace nvarchar(50) NOT NULL
-)
-go
-
 create table Vehicle(
 	IdVehicle INT IDENTITY(1,1) primary key,
 	IdLocationStart int FOREIGN KEY REFERENCES LocationStart(IdLocationStart), -- Lấy tour name từ bảng tour
