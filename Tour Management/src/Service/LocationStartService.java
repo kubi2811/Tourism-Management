@@ -34,7 +34,7 @@ public class LocationStartService {
         return listStart;
     }
     public int getIDByNameStart(String name){
-        String sql = "select * from LocationStart where Province = N'"+ name + "'";
+        String sql = "select * from LocationStart where Province = N'" + name + "'";
         int id = 0 ;
          try {
             Statement statement = connection.createStatement();
@@ -46,5 +46,20 @@ public class LocationStartService {
             e.printStackTrace();
         }
         return id;
+    }
+    
+    public String getAddressStartByName2(String nameTour) {
+        String listStart = null;
+        String sql = " Select * from LocationStart where Tour = N'" + nameTour + "'";
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                listStart = resultSet.getString("Province");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listStart;
     }
 }

@@ -114,7 +114,7 @@ public class OrderTourService {
 
     public int getIdOrderByName(String nameTour) {
         int idOrder = 0;
-        String sql = "select IdOrder from OrderDetail where Tour ='" + nameTour + "'";
+        String sql = "select IdOrder from OrderDetail where Tour =N'" + nameTour + "'";
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
