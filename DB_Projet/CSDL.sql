@@ -104,7 +104,8 @@ create table DescriptionDetail (
 go
 
 create table OrderTour (
-	IdOrder INT IDENTITY(1,1) primary key,
+	--IdOrder INT IDENTITY(1,1) primary key,
+	IdOrder INT IDENTITY(1,1) PRIMARY KEY NONCLUSTERED ON [PRIMARY],
 	IdClient int,
 	createDate datetime default getdate(),
 	Total float,
