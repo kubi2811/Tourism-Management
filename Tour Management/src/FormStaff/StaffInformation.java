@@ -54,64 +54,109 @@ public class StaffInformation extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         label_username = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         label_fullname = new javax.swing.JLabel();
         label_admin = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         Username_Input = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
         Fullname_Input = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        UpdateUsernameBtn = new javax.swing.JToggleButton();
-        UpdateFullnameBtn = new javax.swing.JToggleButton();
-        UpdatePasswordBtn = new javax.swing.JToggleButton();
         Password_Input = new javax.swing.JPasswordField();
+        activeStaffLabel = new javax.swing.JLabel();
+        activeStaffLabel1 = new javax.swing.JLabel();
+        activeStaffLabel2 = new javax.swing.JLabel();
+        activeStaffLabel3 = new javax.swing.JLabel();
+        activeStaffLabel4 = new javax.swing.JLabel();
+        activeStaffLabel5 = new javax.swing.JLabel();
+        activeStaffLabel6 = new javax.swing.JLabel();
+        activeStaffLabel7 = new javax.swing.JLabel();
+        deactivateStaffBtn = new javax.swing.JButton();
+        deactivateStaffBtn1 = new javax.swing.JButton();
+        deactivateStaffBtn2 = new javax.swing.JButton();
 
-        jLabel1.setText("Information Management");
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setText("Username: ");
-
+        label_username.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         label_username.setText("None");
 
-        jLabel4.setText("Fullname: ");
-
-        jLabel5.setText("Your Admin: ");
-
+        label_fullname.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         label_fullname.setText("None");
 
+        label_admin.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         label_admin.setText("None");
 
-        jLabel8.setText("Update Information");
+        activeStaffLabel.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        activeStaffLabel.setForeground(new java.awt.Color(153, 153, 255));
+        activeStaffLabel.setText("Profile Management");
 
-        jLabel9.setText("Username: ");
+        activeStaffLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        activeStaffLabel1.setForeground(new java.awt.Color(153, 153, 255));
+        activeStaffLabel1.setText("Username:");
 
-        jLabel10.setText("Fullname:");
+        activeStaffLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        activeStaffLabel2.setForeground(new java.awt.Color(153, 153, 255));
+        activeStaffLabel2.setText("Fullname:");
 
-        jLabel11.setText("Password");
+        activeStaffLabel3.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        activeStaffLabel3.setForeground(new java.awt.Color(153, 153, 255));
+        activeStaffLabel3.setText("Your Admin:");
 
-        UpdateUsernameBtn.setText("Update");
-        UpdateUsernameBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        activeStaffLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        activeStaffLabel4.setForeground(new java.awt.Color(153, 153, 255));
+        activeStaffLabel4.setText("Update Profile");
+
+        activeStaffLabel5.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        activeStaffLabel5.setForeground(new java.awt.Color(153, 153, 255));
+        activeStaffLabel5.setText("Username:");
+
+        activeStaffLabel6.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        activeStaffLabel6.setForeground(new java.awt.Color(153, 153, 255));
+        activeStaffLabel6.setText("Fulname:");
+
+        activeStaffLabel7.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        activeStaffLabel7.setForeground(new java.awt.Color(153, 153, 255));
+        activeStaffLabel7.setText("Password:");
+
+        deactivateStaffBtn.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        deactivateStaffBtn.setForeground(new java.awt.Color(153, 153, 255));
+        deactivateStaffBtn.setText("Update");
+        deactivateStaffBtn.setBorder(new javax.swing.border.MatteBorder(null));
+        deactivateStaffBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                UpdateUsernameBtnMouseClicked(evt);
+                deactivateStaffBtnMouseClicked(evt);
+            }
+        });
+        deactivateStaffBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deactivateStaffBtnActionPerformed(evt);
             }
         });
 
-        UpdateFullnameBtn.setText("Update");
-        UpdateFullnameBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        deactivateStaffBtn1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        deactivateStaffBtn1.setForeground(new java.awt.Color(153, 153, 255));
+        deactivateStaffBtn1.setText("Update");
+        deactivateStaffBtn1.setBorder(new javax.swing.border.MatteBorder(null));
+        deactivateStaffBtn1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                UpdateFullnameBtnMouseClicked(evt);
+                deactivateStaffBtn1MouseClicked(evt);
+            }
+        });
+        deactivateStaffBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deactivateStaffBtn1ActionPerformed(evt);
             }
         });
 
-        UpdatePasswordBtn.setText("Update");
-        UpdatePasswordBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        deactivateStaffBtn2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        deactivateStaffBtn2.setForeground(new java.awt.Color(153, 153, 255));
+        deactivateStaffBtn2.setText("Update");
+        deactivateStaffBtn2.setBorder(new javax.swing.border.MatteBorder(null));
+        deactivateStaffBtn2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                UpdatePasswordBtnMouseClicked(evt);
+                deactivateStaffBtn2MouseClicked(evt);
+            }
+        });
+        deactivateStaffBtn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deactivateStaffBtn2ActionPerformed(evt);
             }
         });
 
@@ -120,100 +165,118 @@ public class StaffInformation extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(label_username, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(label_fullname, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(label_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Fullname_Input, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(activeStaffLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(activeStaffLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(activeStaffLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(label_fullname, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(label_username, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(label_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(activeStaffLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Username_Input, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Password_Input)))
-                        .addGap(47, 47, 47)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(UpdatePasswordBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                            .addComponent(UpdateFullnameBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(UpdateUsernameBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(297, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(activeStaffLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(Password_Input, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(activeStaffLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(Username_Input, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(activeStaffLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(Fullname_Input, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(68, 68, 68)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(deactivateStaffBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(deactivateStaffBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(deactivateStaffBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(239, 239, 239)
+                        .addComponent(activeStaffLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(242, 242, 242))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_username, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label_fullname, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(activeStaffLabel)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(label_username, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(activeStaffLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(label_fullname, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(activeStaffLabel2))
+                        .addGap(39, 39, 39))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(activeStaffLabel3)
+                        .addComponent(label_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(23, 23, 23)
+                .addComponent(activeStaffLabel4)
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Username_Input, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(deactivateStaffBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(activeStaffLabel5)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Username_Input, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(UpdateUsernameBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UpdateFullnameBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Fullname_Input, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(activeStaffLabel6)
+                    .addComponent(deactivateStaffBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UpdatePasswordBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Password_Input, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(163, Short.MAX_VALUE))
+                    .addComponent(Password_Input, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(activeStaffLabel7)
+                    .addComponent(deactivateStaffBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void UpdateUsernameBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdateUsernameBtnMouseClicked
+    private void deactivateStaffBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deactivateStaffBtnMouseClicked
         // TODO add your handling code here:
         String newUsername = Username_Input.getText();
         if(staffService.updateUsernameStaff(String.valueOf(IdStaff), newUsername)){
             JOptionPane.showMessageDialog(null, "Update Success");
             ShowStaffInfo();
         }
-    }//GEN-LAST:event_UpdateUsernameBtnMouseClicked
+        Username_Input.setText("");
+    }//GEN-LAST:event_deactivateStaffBtnMouseClicked
 
-    private void UpdateFullnameBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdateFullnameBtnMouseClicked
+    private void deactivateStaffBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deactivateStaffBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deactivateStaffBtnActionPerformed
+
+    private void deactivateStaffBtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deactivateStaffBtn1MouseClicked
         // TODO add your handling code here:
         String newFullname = Fullname_Input.getText();
         if(staffService.updateFullnameStaff(String.valueOf(IdStaff), newFullname)){
             JOptionPane.showMessageDialog(null, "Update Success");
             ShowStaffInfo();
         }
-    }//GEN-LAST:event_UpdateFullnameBtnMouseClicked
+        Fullname_Input.setText("");
+    }//GEN-LAST:event_deactivateStaffBtn1MouseClicked
 
-    private void UpdatePasswordBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdatePasswordBtnMouseClicked
+    private void deactivateStaffBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deactivateStaffBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deactivateStaffBtn1ActionPerformed
+
+    private void deactivateStaffBtn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deactivateStaffBtn2MouseClicked
         // TODO add your handling code here:
         String newPass = Password_Input.getText();
         JPasswordField pf = new JPasswordField();
@@ -230,24 +293,29 @@ public class StaffInformation extends javax.swing.JPanel {
                 ShowStaffInfo();
             }
         }
-    }//GEN-LAST:event_UpdatePasswordBtnMouseClicked
+        Password_Input.setText("");
+    }//GEN-LAST:event_deactivateStaffBtn2MouseClicked
+
+    private void deactivateStaffBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deactivateStaffBtn2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deactivateStaffBtn2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Fullname_Input;
     private javax.swing.JPasswordField Password_Input;
-    private javax.swing.JToggleButton UpdateFullnameBtn;
-    private javax.swing.JToggleButton UpdatePasswordBtn;
-    private javax.swing.JToggleButton UpdateUsernameBtn;
     private javax.swing.JTextField Username_Input;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel activeStaffLabel;
+    private javax.swing.JLabel activeStaffLabel1;
+    private javax.swing.JLabel activeStaffLabel2;
+    private javax.swing.JLabel activeStaffLabel3;
+    private javax.swing.JLabel activeStaffLabel4;
+    private javax.swing.JLabel activeStaffLabel5;
+    private javax.swing.JLabel activeStaffLabel6;
+    private javax.swing.JLabel activeStaffLabel7;
+    private javax.swing.JButton deactivateStaffBtn;
+    private javax.swing.JButton deactivateStaffBtn1;
+    private javax.swing.JButton deactivateStaffBtn2;
     private javax.swing.JLabel label_admin;
     private javax.swing.JLabel label_fullname;
     private javax.swing.JLabel label_username;
