@@ -51,7 +51,7 @@ public class DescriptionService {
         }
     }
     public int getIdDescriptionByTourName(String tourName){
-        String sql = "select idDescription from Descriptions where Tour ='"+ tourName +"'";
+        String sql = "select idDescription from Descriptions where Tour =N'"+ tourName +"'";
         int id = 0 ;
         try {
             Statement statement = connection.createStatement();

@@ -8,6 +8,7 @@ import Connect.JDBCConnection;
 import Entity.Vehicle;
 import Form.Login;
 import Service.ClientService;
+import Service.DescriptionService;
 import Service.LocationStartService;
 import Service.LocationVisitService;
 import Service.OrderTourService;
@@ -38,6 +39,7 @@ public class BookTripNow extends javax.swing.JPanel {
     private TourService tourService = new TourService();
     static String nameTour;
     public static String idClient;
+    private DescriptionService descriptionService = new DescriptionService();
    
     /**
      * Creates new form ClientAllTrips
@@ -45,6 +47,7 @@ public class BookTripNow extends javax.swing.JPanel {
     public BookTripNow() {
         initComponents();
         ShowListTour();
+        showDes();
         
     }
 
@@ -65,7 +68,7 @@ public class BookTripNow extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         Childs = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        TourDescription = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
@@ -120,17 +123,19 @@ public class BookTripNow extends javax.swing.JPanel {
 
         Childs.setText("jTextField1");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
+        TourDescription.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
+        TourDescription.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TourDescriptionMouseClicked(evt);
+            }
+        });
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Detail Description"
             }
         ));
         jScrollPane2.setViewportView(jTable2);
@@ -153,7 +158,7 @@ public class BookTripNow extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(113, 113, 113)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(TourDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,7 +186,7 @@ public class BookTripNow extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TourDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -233,10 +238,17 @@ public class BookTripNow extends javax.swing.JPanel {
         int numberOfAdo = Integer.parseInt(Adults.getText());
         int numberOfChilds = Integer.parseInt(Childs.getText()); 
         orderTourService.OrderTour(Login.IdClient);
-        orderTourService.OrderStatusTour(orderTourService.getIdOrderByIdClient(Login.IdClient),clientService.getFullNameById(Login.IdClient) , "TThai 1");
-        orderTourService.OrderTourDetail(orderTourService.getIdOrderByIdClient(Login.IdClient), Login.IdClient, String.valueOf(OrderTourCbx.getSelectedItem()) ,numberOfAdo, numberOfChilds);
+        int idOrder = orderTourService.findDifferIdOrder(Login.IdClient);
+        orderTourService.OrderTourDetail(idOrder, Login.IdClient, String.valueOf(OrderTourCbx.getSelectedItem()) ,numberOfAdo, numberOfChilds);
+        orderTourService.OrderStatusTour(orderTourService.getIdOrderByIdClient(Login.IdClient),clientService.getFullNameById(Login.IdClient) , "Chua thanh toán");
+       
         JOptionPane.showMessageDialog(null, "You are registed successfully");
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void TourDescriptionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TourDescriptionMouseClicked
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_TourDescriptionMouseClicked
     public void ShowListTour() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         try {
@@ -265,13 +277,33 @@ public class BookTripNow extends javax.swing.JPanel {
             OrderTourCbx.addItem(tourName);
         }
     }
+    public void showDes(){
+        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        try {
+            String sql = "select * from DescriptionDetail where IdDescription = "+ descriptionService.getIdDescriptionByTourName(String.valueOf(TourDescription.getSelectedItem()));
+            Statement statement = connect.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {             
+                    Vector vector = new Vector();
+                    vector.add(resultSet.getString("nameDescription"));                                              
+                    model.addRow(vector);     
+                }               
+            
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        List<String> listTour = tourService.getListTourName();
+        for(String tourName : listTour){
+            TourDescription.addItem(tourName);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Adults;
     private javax.swing.JTextField Childs;
     private javax.swing.JComboBox<String> OrderTourCbx;
+    private javax.swing.JComboBox<String> TourDescription;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -6,13 +6,16 @@ package Service;
 
 import Connect.JDBCConnection;
 import Entity.Tour;
-import java.awt.List;
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -166,5 +169,44 @@ public class OrderTourService {
             e.printStackTrace();
         }
         return name;
+    }
+
+    public List<Integer> getIdOrderOnOrderTour(int idClient) {
+        List<Integer> list = new ArrayList<>();
+        String sql = "select * from OrderTour where idClient = " + idClient;
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                list.add(resultSet.getInt("IdOrder"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public List<Integer> getIdOrderOnOrderDeTail(int idClient) {
+        List<Integer> list = new ArrayList<>();
+        String sql = "select * from OrderDetail where idClient = " + idClient;
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                list.add(resultSet.getInt("IdOrder"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public int findDifferIdOrder(int clientId) {
+        List<Integer> list2 = getIdOrderOnOrderDeTail(clientId);
+        List<Integer> list1 = getIdOrderOnOrderTour(clientId);
+        List<Integer> differences = list1.stream()
+            .filter(element -> !list2.contains(element))
+            .collect(Collectors.toList());
+        return differences.get(0);
     }
 }
