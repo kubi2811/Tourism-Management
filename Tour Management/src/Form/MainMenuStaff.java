@@ -654,6 +654,8 @@ public class MainMenuStaff extends javax.swing.JFrame {
         resetColor(btn_fonts);
         resetColor(btn_typo);
         resetColor(btn_Statistical);
+        resetColor(history_btn);
+        ind_icons2.setOpaque(false);
 
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_typo.setOpaque(false);
