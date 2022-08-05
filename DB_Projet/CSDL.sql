@@ -65,24 +65,20 @@ go
 create table LocationStart(
 	IdLocationStart INT IDENTITY(1,1) primary key,
 	Tour nvarchar(50) FOREIGN KEY REFERENCES Tour(TourName),
-	Province nvarchar(50) NOT NULL
+	LocationStart nvarchar(50) NOT NULL
 )
 go
 
-create table LocationVisit(
-	IdLocationVisit INT IDENTITY(1,1) primary key,
-	Tour nvarchar(50) FOREIGN KEY REFERENCES Tour(TourName),
-	VisitPlace nvarchar(50) NOT NULL
-)
-go
+
 
 create table Vehicle(
 	IdVehicle INT IDENTITY(1,1) primary key,
-	Tour nvarchar(50) FOREIGN KEY REFERENCES Tour(TourName), -- Lấy tour name từ bảng tour
+	IdLocationStart int FOREIGN KEY REFERENCES LocationStart(IdLocationStart), -- Lấy locationStart
 	Transport nvarchar(50) NOT NULL,
 	Capacity int NOT NULL
 )
 go
+
 
 create table Descriptions (
 	IdDescription INT IDENTITY(1,1) primary key,
@@ -110,7 +106,9 @@ create table OrderTour (
 	Total float,
 	isDeleted int default 0
 )
+ON IdOrderPartitionScheme (IdOrder);
 go
+
 
 
 create table OrderDetail(
@@ -199,7 +197,6 @@ BEGIN
 	FROM Descriptions
 	JOIN inserted ON Descriptions.IdDescription = inserted.IdDescription
 END
-
 GO
 
 CREATE TRIGGER trg_descriptionupdate ON DescriptionDetail AFTER UPDATE AS 
@@ -220,13 +217,4 @@ BEGIN
 	FROM Descriptions
 	JOIN deleted ON Descriptions.IdDescription = deleted.IdDescription
 END
-
-Select * from Descriptions
-select * from DescriptionDetail
-select * from Tour
---insert into Descriptions(Tour) values (N'Hà Nội - Hồ Chí Minh')
-
-
-
-
 

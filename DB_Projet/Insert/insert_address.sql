@@ -9,6 +9,4 @@ insert into UserAddress values ('Client0', 2, N'Lê Lợi', 'Phường 1', 'Qu�
 insert into UserAddress values ('Client1', 2, N'Lê Duẩn', 'Phường 2', 'Quận 2', 'HCMC')
 insert into UserAddress values ('Client2', 2, 'Hai Bà Trưng', 'Phuon', 'Quan 1', 'HCMC')
 
-insert into UserAddress values ('Client0', 2, 'Le Loi', 'Phuong 1', 'Quan 1', 'HCMC')
-insert into UserAddress values ('Client0', 2, 'Le Duan', 'Phuong 1', 'Quan 1', 'HCMC')
 
