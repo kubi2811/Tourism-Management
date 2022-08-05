@@ -20,14 +20,14 @@ import java.util.List;
  */
 public class ClientService {
     private Connection connection = JDBCConnection.getConnection();
-    public String getFullNameById(String idClient){
+    public String getFullNameById(int idClient){
         String fullname = null;
-        String sql = "select Fullname from Client where IdClient =N'"+ idClient+"'";
+        String sql = "select * from Client where IdClient = "+ idClient;
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while(resultSet.next()){
-                fullname = resultSet.getString("FullName");
+                fullname = resultSet.getString("Username");
             }
                     
         } catch (Exception e) {

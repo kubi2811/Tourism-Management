@@ -23,13 +23,13 @@ public class TrashClientService {
     private OrderTourService orderTourService = new OrderTourService();
     private TourService tourService = new TourService();
     public boolean checkTourDelete(int idOrder){
-        String sql = "select IsDelete from OrderTour where idOrder ='" + idOrder +"'";
+        String sql = "select * from OrderTour where idOrder ='" + idOrder +"'";
         int check = 0;
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while(resultSet.next()){
-                if(resultSet.getInt("IsDelete") == 0 ){
+                if(resultSet.getInt("isDeleted") == 0 ){
                     check = 1;
                 }
             }      
@@ -40,7 +40,7 @@ public class TrashClientService {
         return true;   
     }
     public void safeDelete(int idOrder){
-        String sql= "update OrderTour set IsDelete = ? where IdOrder ='"+idOrder+"'";
+        String sql= "update OrderTour set IsDeleted = ? where IdOrder ='"+idOrder+"'";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, 1);
@@ -50,7 +50,7 @@ public class TrashClientService {
         }
     }
     public void reStoreTour(int idOrder){
-         String sql= "update OrderTour set IsDelete = ? where IdOrder ='"+idOrder+"'";
+         String sql= "update OrderTour set IsDeleted = ? where IdOrder ='"+idOrder+"'";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, 0);
@@ -81,7 +81,7 @@ public class TrashClientService {
     public List<Integer> getListIdOrderDelete(int delete){
         List<Integer> listIdOrder = new ArrayList<>();
         try {
-               String sql = "select * from OrderTour where IsDelete = '"+delete+"' and IdClient ='" +Login.IdClient+"'";
+               String sql = "select * from OrderTour where IsDeleted = '"+delete+"' and IdClient ='" +Login.IdClient+"'";
                Statement statement = connection.createStatement();
                ResultSet resultSet = statement.executeQuery(sql);
                while(resultSet.next()){

@@ -7,6 +7,7 @@ package FormClient;
 import Connect.JDBCConnection;
 import Entity.Vehicle;
 import Form.Login;
+import Service.ClientService;
 import Service.LocationStartService;
 import Service.LocationVisitService;
 import Service.OrderTourService;
@@ -30,6 +31,7 @@ public class BookTripNow extends javax.swing.JPanel {
 
     private Connection connect = JDBCConnection.getConnection();
     private VehicleService vehicleService = new VehicleService();
+    private ClientService clientService = new ClientService();
     private LocationVisitService locationVisitService = new LocationVisitService();
     private LocationStartService locationStartService = new LocationStartService();
     private OrderTourService orderTourService = new OrderTourService();
@@ -231,7 +233,7 @@ public class BookTripNow extends javax.swing.JPanel {
         int numberOfAdo = Integer.parseInt(Adults.getText());
         int numberOfChilds = Integer.parseInt(Childs.getText()); 
         orderTourService.OrderTour(Login.IdClient);
-        orderTourService.OrderStatusTour(orderTourService.getIdOrderByIdClient(Login.IdClient), "TThai 1");
+        orderTourService.OrderStatusTour(orderTourService.getIdOrderByIdClient(Login.IdClient),clientService.getFullNameById(Login.IdClient) , "TThai 1");
         orderTourService.OrderTourDetail(orderTourService.getIdOrderByIdClient(Login.IdClient), Login.IdClient, String.valueOf(OrderTourCbx.getSelectedItem()) ,numberOfAdo, numberOfChilds);
         JOptionPane.showMessageDialog(null, "You are registed successfully");
     }//GEN-LAST:event_jButton1MouseClicked
@@ -249,7 +251,7 @@ public class BookTripNow extends javax.swing.JPanel {
                     vector.add(resultSet.getString("DayStart"));
                     vector.add(resultSet.getString("DayEnd"));
                     vector.add(s);
-                    vector.add(vehicleService.getTransportById(locationStartService.getIDByNameStart(nameTour)));
+                    vector.add(vehicleService.getTransportById(locationStartService.getIDByNameStart(s)));                
                     model.addRow(vector);     
                 }
                      
