@@ -241,12 +241,12 @@ public class BookTripNow extends javax.swing.JPanel {
         int idOrder = orderTourService.findDifferIdOrder(Login.IdClient);
         orderTourService.OrderTourDetail(idOrder, Login.IdClient, String.valueOf(OrderTourCbx.getSelectedItem()) ,numberOfAdo, numberOfChilds);
         orderTourService.OrderStatusTour(orderTourService.getIdOrderByIdClient(Login.IdClient),clientService.getFullNameById(Login.IdClient) , "Chua thanh toán");
-       
         JOptionPane.showMessageDialog(null, "You are registed successfully");
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void TourDescriptionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TourDescriptionMouseClicked
         // TODO add your handling code here:
+   
        
     }//GEN-LAST:event_TourDescriptionMouseClicked
     public void ShowListTour() {
@@ -265,6 +265,7 @@ public class BookTripNow extends javax.swing.JPanel {
                     vector.add(s);
                     vector.add(vehicleService.getTransportById(locationStartService.getIDByNameStart(s)));                
                     model.addRow(vector);     
+                    System.out.println(vehicleService.getTransportById(locationStartService.getIDByNameStart(s)));
                 }
                      
                 

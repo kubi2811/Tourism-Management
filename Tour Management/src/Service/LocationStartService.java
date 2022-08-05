@@ -34,7 +34,7 @@ public class LocationStartService {
         return listStart;
     }
     public int getIDByNameStart(String name){
-        String sql = "select * from LocationStart where Province = N'"+ name + "'";
+        String sql = "select * from LocationStart where Province = N'" + name + "'";
         int id = 0 ;
          try {
             Statement statement = connection.createStatement();
