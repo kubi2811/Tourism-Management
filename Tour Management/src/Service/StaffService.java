@@ -79,7 +79,7 @@ public class StaffService {
     
     public int getIdDescription(String nameTour) {
         int IdDescription = 0;
-        String sql = "Select * from Description where IdDescription = '" + nameTour + "'";
+        String sql = "Select * from Descriptions where Tour = N'" + nameTour + "'";
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
