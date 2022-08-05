@@ -535,7 +535,7 @@ public class ManageTrips extends javax.swing.JPanel {
     }//GEN-LAST:event_descriptionDetailTableMouseClicked
 
     private void updateBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateBtnMouseClicked
-        // TODO add your handling code here:
+                                             // TODO add your handling code here:
         int Myindex = descriptionDetailTable.getSelectedRow();
         int id = Integer.valueOf(descriptionDetailTable.getValueAt(Myindex, 0).toString());
         String name = descriptionVar.getText();
@@ -548,6 +548,7 @@ public class ManageTrips extends javax.swing.JPanel {
         System.out.println(name);
         des.updateDescriptionDetail(id, name, adults, childs, incurred);
         showDescriptionDetail();
+    
     }//GEN-LAST:event_updateBtnMouseClicked
     public void showInfoManageTrips() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
