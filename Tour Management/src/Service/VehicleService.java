@@ -32,4 +32,19 @@ public class VehicleService {
         }
         return vehicle;
     }
+    
+    public int getIdLocationStartByProviceAndTour(String tour, String province){
+        int idLocation = 0;
+        String sql = "Select * from LocationStart where Tour = N'" + tour + "' AND Province = N'" + province + "'";
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                idLocation = Integer.valueOf(resultSet.getString("IdLocationStart"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return idLocation;
+    }
 }

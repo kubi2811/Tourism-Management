@@ -12,8 +12,10 @@ import Service.DescriptionService;
 import Service.LocationStartService;
 import Service.LocationVisitService;
 import Service.OrderTourService;
+import Service.StaffService;
 import Service.TourService;
 import Service.VehicleService;
+import static java.lang.String.valueOf;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -40,15 +42,20 @@ public class BookTripNow extends javax.swing.JPanel {
     static String nameTour;
     public static String idClient;
     private DescriptionService descriptionService = new DescriptionService();
-   
+    public String listTourNameVar;
+
     /**
      * Creates new form ClientAllTrips
      */
     public BookTripNow() {
         initComponents();
+        List<String> listTour = tourService.getListTourName();
+        for (String tourName : listTour) {
+            TourDescription.addItem(tourName);
+        }
         ShowListTour();
         showDes();
-        
+
     }
 
     /**
@@ -129,6 +136,11 @@ public class BookTripNow extends javax.swing.JPanel {
                 TourDescriptionMouseClicked(evt);
             }
         });
+        TourDescription.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TourDescriptionActionPerformed(evt);
+            }
+        });
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -149,20 +161,18 @@ public class BookTripNow extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(208, 208, 208)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(208, 208, 208)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addGap(113, 113, 113)
-                                .addComponent(TourDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(31, 31, 31)
+                                .addComponent(TourDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(Childs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -174,9 +184,14 @@ public class BookTripNow extends javax.swing.JPanel {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(OrderTourCbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                                            .addComponent(OrderTourCbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 658, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,11 +233,10 @@ public class BookTripNow extends javax.swing.JPanel {
         int index = jTable1.getSelectedRow();
         String temp = jTable1.getValueAt(index, 0).toString();
         TourService tourService = new TourService();
-      
-        nameTour = tourService.getNameTourByIdTour(temp) ;
-      
-       
-        
+
+        nameTour = tourService.getNameTourByIdTour(temp);
+
+
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void AdultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdultsActionPerformed
@@ -236,66 +250,83 @@ public class BookTripNow extends javax.swing.JPanel {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         int numberOfAdo = Integer.parseInt(Adults.getText());
-        int numberOfChilds = Integer.parseInt(Childs.getText()); 
+        int numberOfChilds = Integer.parseInt(Childs.getText());
         orderTourService.OrderTour(Login.IdClient);
         int idOrder = orderTourService.findDifferIdOrder(Login.IdClient);
-        orderTourService.OrderTourDetail(idOrder, Login.IdClient, String.valueOf(OrderTourCbx.getSelectedItem()) ,numberOfAdo, numberOfChilds);
-        orderTourService.OrderStatusTour(orderTourService.getIdOrderByIdClient(Login.IdClient),clientService.getFullNameById(Login.IdClient) , "Chua thanh toán");
-       
+        orderTourService.OrderTourDetail(idOrder, Login.IdClient, String.valueOf(OrderTourCbx.getSelectedItem()), numberOfAdo, numberOfChilds);
+        orderTourService.OrderStatusTour(orderTourService.getIdOrderByIdClient(Login.IdClient), clientService.getFullNameById(Login.IdClient), "Chua thanh toán");
+
         JOptionPane.showMessageDialog(null, "You are registed successfully");
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void TourDescriptionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TourDescriptionMouseClicked
         // TODO add your handling code here:
-       
+        
     }//GEN-LAST:event_TourDescriptionMouseClicked
+
+    private void TourDescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TourDescriptionActionPerformed
+        // TODO add your handling code here:
+        listTourNameVar = (String) TourDescription.getSelectedItem();
+        showDes();
+    }//GEN-LAST:event_TourDescriptionActionPerformed
     public void ShowListTour() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        VehicleService vehicle = new VehicleService();
         try {
             String sql = "select * from Tour";
             Statement statement = connect.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
-                for(String s : locationStartService.getAddressStartByName(resultSet.getString("TourName"))){
+                for (String s : locationStartService.getAddressStartByName(resultSet.getString("TourName"))) {
                     Vector vector = new Vector();
                     vector.add(resultSet.getString("IdTour"));
                     vector.add(resultSet.getString("TourName"));
                     vector.add(resultSet.getString("DayStart"));
                     vector.add(resultSet.getString("DayEnd"));
                     vector.add(s);
-                    vector.add(vehicleService.getTransportById(locationStartService.getIDByNameStart(s)));                
-                    model.addRow(vector);     
+//                    vector.add(vehicleService.getTransportById(locationStartService.getIDByNameStart(s)));
+                        System.out.println(vehicle.getIdLocationStartByProviceAndTour(resultSet.getString("TourName"), locationStartService.getAddressStartByName2(resultSet.getString("TourName"))));
+//                    System.out.println(String.valueOf(vehicle.getTransportById(vehicle.getIdLocationStartByProviceAndTour(resultSet.getString("TourName"), s))));
+                    vector.add(String.valueOf(vehicle.getTransportById(vehicle.getIdLocationStartByProviceAndTour(resultSet.getString("TourName"), s))));
+                    model.addRow(vector);
                 }
-                     
-                
+
             }
         } catch (Exception e) {
             e.getMessage();
         }
         List<String> listTour = tourService.getListTourName();
-        for(String tourName : listTour){
+        for (String tourName : listTour) {
             OrderTourCbx.addItem(tourName);
         }
     }
-    public void showDes(){
+
+    public void showDes() {
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        model.setRowCount(0);
+
+        int numberIdDescription;
+        StaffService temp = new StaffService();
+        numberIdDescription = temp.getIdDescription(listTourNameVar);
+
         try {
-            String sql = "select * from DescriptionDetail where IdDescription = "+ descriptionService.getIdDescriptionByTourName(String.valueOf(TourDescription.getSelectedItem()));
+            String sql = "select * from DescriptionDetail where idDescription ='" + numberIdDescription + "'";
             Statement statement = connect.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
-            while (resultSet.next()) {             
-                    Vector vector = new Vector();
-                    vector.add(resultSet.getString("nameDescription"));                                              
-                    model.addRow(vector);     
-                }               
-            
+            while (resultSet.next()) {
+
+                Vector vector = new Vector();
+                vector.add(resultSet.getString("nameDescription"));
+                System.out.println(resultSet.getString("nameDescription"));
+                model.addRow(vector);
+            }
         } catch (Exception e) {
             e.getMessage();
         }
-        List<String> listTour = tourService.getListTourName();
-        for(String tourName : listTour){
-            TourDescription.addItem(tourName);
-        }
+//        List<String> listTour = tourService.getListTourName();
+//        for (String tourName : listTour) {
+//            TourDescription.addItem(tourName);
+//        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
