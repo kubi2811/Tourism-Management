@@ -3,11 +3,14 @@ go
 
 
 -- Tạo index
-
+Select * from dbo.Staff where FullName = 'Chu Thùy Vân'
+select * from Staff  where Admin = 'Admin667'
+Select * from dbo.Client where Email = 'client34698@gmail.com';
+SELECT * FROM Tour WHERE DayStart = '2022-08-20'
 -- Index cho nhân viên
 CREATE NONCLUSTERED INDEX TimKiemNhanVien ON Staff(
 	Admin ASC,
-	Fullname ASC)
+	Fullname ASC)	
 
 --DROP INDEX TimKiemNhanVien ON Staff
 
@@ -16,7 +19,9 @@ CREATE NONCLUSTERED INDEX TimKiemKhachHang ON Client
 (	Fullname ASC,
 	Email ASC)
 
-CREATE NONCLUSTERED INDEX TimKiemKhachHang ON UserAddress 
+--DROP INDEX TimKiemKhachHang ON Client
+
+CREATE NONCLUSTERED INDEX TimKiemDiaChiKH ON UserAddress 
 (	Username ASC,
 	number,
 	street,  

@@ -211,6 +211,7 @@ BEGIN
 	FROM Descriptions
 	JOIN deleted ON Descriptions.IdDescription = deleted.IdDescription
 END
+go
 
 
 CREATE TRIGGER trg_descriptiondelete ON DescriptionDetail AFTER DELETE AS 
@@ -227,6 +228,7 @@ END
 Select * from Descriptions
 select * from DescriptionDetail
 select * from Tour
+
 select * from Staff
 select * from LocationStart
 insert into Descriptions(Tour) values (N'Hà Nội - Hồ Chí Minh')
