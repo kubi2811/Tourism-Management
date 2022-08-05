@@ -4,6 +4,7 @@
  */
 package FormAdmin;
 
+import Service.StaticService;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import org.jfree.chart.ChartFactory;
@@ -47,6 +48,11 @@ public class Statistical extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                formFocusGained(evt);
+            }
+        });
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
@@ -58,15 +64,15 @@ public class Statistical extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(199, 199, 199))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,16 +87,30 @@ public class Statistical extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
+        // TODO add your handling code here:
+        showBarChart();
+        showPieChart();
+        showLineChart();
+    }//GEN-LAST:event_formFocusGained
+
     public void showBarChart(){
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        dataset.setValue(200, "Amount", "january");
-        dataset.setValue(150, "Amount", "february");
-        dataset.setValue(18, "Amount", "march");
-        dataset.setValue(100, "Amount", "april");
-        dataset.setValue(80, "Amount", "may");
-        dataset.setValue(250, "Amount", "june");
+        StaticService num = new StaticService();
+        dataset.setValue(num.getTotalREvenuebyMonth(1), "Amount", "Jan");
+        dataset.setValue(num.getTotalREvenuebyMonth(2), "Amount", "Feb");
+        dataset.setValue(num.getTotalREvenuebyMonth(3), "Amount", "Mar");
+        dataset.setValue(num.getTotalREvenuebyMonth(4), "Amount", "Apr");
+        dataset.setValue(num.getTotalREvenuebyMonth(5), "Amount", "May");
+        dataset.setValue(num.getTotalREvenuebyMonth(6), "Amount", "June");
+        dataset.setValue(num.getTotalREvenuebyMonth(7), "Amount", "July");
+        dataset.setValue(num.getTotalREvenuebyMonth(8), "Amount", "Aug");
+        dataset.setValue(num.getTotalREvenuebyMonth(9), "Amount", "Sept");
+        dataset.setValue(num.getTotalREvenuebyMonth(10), "Amount", "Oct");
+        dataset.setValue(num.getTotalREvenuebyMonth(11), "Amount", "Nov");
+        dataset.setValue(num.getTotalREvenuebyMonth(12), "Amount", "Dec");
         
-        JFreeChart chart = ChartFactory.createBarChart("contribution","monthly","amount", 
+        JFreeChart chart = ChartFactory.createBarChart("Income statements","Monthly","amount", 
                 dataset, PlotOrientation.VERTICAL, false,true,false);
         
         CategoryPlot categoryPlot = chart.getCategoryPlot();
@@ -112,21 +132,18 @@ public class Statistical extends javax.swing.JPanel {
         
         //create dataset
       DefaultPieDataset barDataset = new DefaultPieDataset( );
-      barDataset.setValue( "IPhone 5s" , new Double( 20 ) );  
-      barDataset.setValue( "SamSung Grand" , new Double( 20 ) );   
-      barDataset.setValue( "MotoG" , new Double( 40 ) );    
-      barDataset.setValue( "Nokia Lumia" , new Double( 10 ) );  
+      StaticService num = new StaticService();
+      barDataset.setValue( "Total Income" , num.getTotalREvenue());  
+      barDataset.setValue( "Total Outcome" , num.getTotalDes());
       
       //create chart
-       JFreeChart piechart = ChartFactory.createPieChart("mobile sales",barDataset, false,true,false);//explain
+       JFreeChart piechart = ChartFactory.createPieChart("Profit",barDataset, true,true,false);//explain
       
         PiePlot piePlot =(PiePlot) piechart.getPlot();
       
        //changing pie chart blocks colors
-       piePlot.setSectionPaint("IPhone 5s", new Color(255,255,102));
-        piePlot.setSectionPaint("SamSung Grand", new Color(102,255,102));
-        piePlot.setSectionPaint("MotoG", new Color(255,102,153));
-        piePlot.setSectionPaint("Nokia Lumia", new Color(0,204,204));
+        piePlot.setSectionPaint("Total Outcome", new Color(102,255,102));
+        piePlot.setSectionPaint("Total Income", new Color(255,102,153));
       
        
         piePlot.setBackgroundPaint(Color.white);
@@ -141,15 +158,22 @@ public class Statistical extends javax.swing.JPanel {
     public void showLineChart(){
         //create dataset for the graph
          DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        dataset.setValue(200, "Amount", "january");
-        dataset.setValue(150, "Amount", "february");
-        dataset.setValue(18, "Amount", "march");
-        dataset.setValue(100, "Amount", "april");
-        dataset.setValue(80, "Amount", "may");
-        dataset.setValue(250, "Amount", "june");
+        StaticService num = new StaticService();
+        dataset.setValue(num.getTotalChiByMonth(1), "Amount", "Jan");
+        dataset.setValue(num.getTotalChiByMonth(2), "Amount", "Feb");
+        dataset.setValue(num.getTotalChiByMonth(3), "Amount", "Mar");
+        dataset.setValue(num.getTotalChiByMonth(4), "Amount", "Apr");
+        dataset.setValue(num.getTotalChiByMonth(5), "Amount", "May");
+        dataset.setValue(num.getTotalChiByMonth(6), "Amount", "June");
+        dataset.setValue(num.getTotalChiByMonth(7), "Amount", "July");
+        dataset.setValue(num.getTotalChiByMonth(8), "Amount", "Aug");
+        dataset.setValue(num.getTotalChiByMonth(9), "Amount", "Sept");
+        dataset.setValue(num.getTotalChiByMonth(10), "Amount", "Oct");
+        dataset.setValue(num.getTotalChiByMonth(11), "Amount", "Nov");
+        dataset.setValue(num.getTotalChiByMonth(12), "Amount", "Dec");
         
         //create chart
-        JFreeChart linechart = ChartFactory.createLineChart("contribution","monthly","amount", 
+        JFreeChart linechart = ChartFactory.createLineChart("Outcome statements","Monthly","amount", 
                 dataset, PlotOrientation.VERTICAL, false,true,false);
         
         //create plot object
