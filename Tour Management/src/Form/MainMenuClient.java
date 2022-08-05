@@ -105,13 +105,6 @@ public class MainMenuClient extends javax.swing.JFrame {
         ind_icons = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         label_forClient = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        btn_btns = new javax.swing.JPanel();
-        ind_btns = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        btn_data = new javax.swing.JPanel();
-        ind_data = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
         btn_logOut = new javax.swing.JPanel();
         ind_logOut = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -254,68 +247,6 @@ public class MainMenuClient extends javax.swing.JFrame {
         label_forClient.setForeground(new java.awt.Color(255, 255, 255));
         label_forClient.setText("FOR CLIENT");
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("PROFILE");
-
-        btn_btns.setBackground(new java.awt.Color(76, 41, 211));
-        btn_btns.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_btnsMousePressed(evt);
-            }
-        });
-        btn_btns.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        ind_btns.setOpaque(false);
-        ind_btns.setPreferredSize(new java.awt.Dimension(4, 40));
-
-        javax.swing.GroupLayout ind_btnsLayout = new javax.swing.GroupLayout(ind_btns);
-        ind_btns.setLayout(ind_btnsLayout);
-        ind_btnsLayout.setHorizontalGroup(
-            ind_btnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 4, Short.MAX_VALUE)
-        );
-        ind_btnsLayout.setVerticalGroup(
-            ind_btnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
-
-        btn_btns.add(ind_btns, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 40));
-
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Buttons");
-        btn_btns.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
-
-        btn_data.setBackground(new java.awt.Color(76, 41, 211));
-        btn_data.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_dataMousePressed(evt);
-            }
-        });
-        btn_data.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        ind_data.setOpaque(false);
-        ind_data.setPreferredSize(new java.awt.Dimension(4, 40));
-
-        javax.swing.GroupLayout ind_dataLayout = new javax.swing.GroupLayout(ind_data);
-        ind_data.setLayout(ind_dataLayout);
-        ind_dataLayout.setHorizontalGroup(
-            ind_dataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 4, Short.MAX_VALUE)
-        );
-        ind_dataLayout.setVerticalGroup(
-            ind_dataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
-
-        btn_data.add(ind_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 40));
-
-        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Datacards");
-        btn_data.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
-
         btn_logOut.setBackground(new java.awt.Color(76, 41, 211));
         btn_logOut.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -352,17 +283,12 @@ public class MainMenuClient extends javax.swing.JFrame {
             .addComponent(btn_bookTrips, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_yourTrips, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_info, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btn_btns, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btn_data, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_logOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(sidepaneLayout.createSequentialGroup()
                 .addGroup(sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(sidepaneLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jLabel1))
-                    .addGroup(sidepaneLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel8))
                     .addGroup(sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, sidepaneLayout.createSequentialGroup()
                             .addContainerGap()
@@ -381,19 +307,13 @@ public class MainMenuClient extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(46, 46, 46)
                 .addComponent(label_forClient)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(26, 26, 26)
                 .addComponent(btn_bookTrips, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btn_yourTrips, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btn_info, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_btns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                 .addComponent(btn_logOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -406,23 +326,23 @@ public class MainMenuClient extends javax.swing.JFrame {
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 204));
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel3.setText("WELCOME TO OUR COMPANY, LETS CHOOSE YOUR TRIPS");
+        jLabel3.setText("WELCOME, LETS CHOOSE YOUR TRIPS");
 
         javax.swing.GroupLayout pnlDataCardsLayout = new javax.swing.GroupLayout(pnlDataCards);
         pnlDataCards.setLayout(pnlDataCardsLayout);
         pnlDataCardsLayout.setHorizontalGroup(
             pnlDataCardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDataCardsLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDataCardsLayout.createSequentialGroup()
+                .addContainerGap(158, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(126, 126, 126))
         );
         pnlDataCardsLayout.setVerticalGroup(
             pnlDataCardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDataCardsLayout.createSequentialGroup()
-                .addGap(164, 164, 164)
+                .addGap(163, 163, 163)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
 
         pnlRight.add(pnlDataCards, "card1");
@@ -523,16 +443,12 @@ public class MainMenuClient extends javax.swing.JFrame {
         // TODO add your handling code here:
         //Màu sắc
         setColor(btn_bookTrips);
-        resetColor(btn_data);
-        resetColor(btn_btns);
         resetColor(btn_yourTrips);
         resetColor(btn_info);
         resetColor(btn_logOut);
 
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_bookTrips.setOpaque(true);
-        ind_btns.setOpaque(false);
-        ind_data.setOpaque(false);
         ind_yourTrips.setOpaque(false);
         ind_icons.setOpaque(false);
         ind_logOut.setOpaque(false);
@@ -548,16 +464,12 @@ public class MainMenuClient extends javax.swing.JFrame {
     private void btn_yourTripsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_yourTripsMousePressed
         // TODO add your handling code here:
         setColor(btn_yourTrips);
-        resetColor(btn_data);
-        resetColor(btn_btns);
         resetColor(btn_bookTrips);
         resetColor(btn_info);
         resetColor(btn_logOut);
 
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_bookTrips.setOpaque(false);
-        ind_btns.setOpaque(false);
-        ind_data.setOpaque(false);
         ind_yourTrips.setOpaque(true);
         ind_icons.setOpaque(false);
         ind_logOut.setOpaque(false);
@@ -573,16 +485,12 @@ public class MainMenuClient extends javax.swing.JFrame {
     private void btn_infoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_infoMousePressed
         // TODO add your handling code here:
         setColor(btn_info);
-        resetColor(btn_data);
-        resetColor(btn_btns);
         resetColor(btn_yourTrips);
         resetColor(btn_bookTrips);
         resetColor(btn_logOut);
 
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_bookTrips.setOpaque(false);
-        ind_btns.setOpaque(false);
-        ind_data.setOpaque(false);
         ind_yourTrips.setOpaque(false);
         ind_icons.setOpaque(true);
         ind_logOut.setOpaque(false);
@@ -594,43 +502,6 @@ public class MainMenuClient extends javax.swing.JFrame {
         
 
     }//GEN-LAST:event_btn_infoMousePressed
-
-    private void btn_btnsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_btnsMousePressed
-        // TODO add your handling code here:
-        setColor(btn_btns);
-        resetColor(btn_data);
-        resetColor(btn_bookTrips);
-        resetColor(btn_yourTrips);
-        resetColor(btn_info);
-        resetColor(btn_logOut);
-
-        //Gạch nhỏ đầu màu trắng khi bấm vào
-        ind_bookTrips.setOpaque(false);
-        ind_btns.setOpaque(true);
-        ind_data.setOpaque(false);
-        ind_yourTrips.setOpaque(false);
-        ind_icons.setOpaque(false);
-        ind_logOut.setOpaque(false);
-    }//GEN-LAST:event_btn_btnsMousePressed
-
-    private void btn_dataMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_dataMousePressed
-        // TODO add your handling code here:
-        setColor(btn_data);
-        resetColor(btn_bookTrips);
-        resetColor(btn_btns);
-        resetColor(btn_yourTrips);
-        resetColor(btn_info);
-        resetColor(btn_logOut);
-
-        //Gạch nhỏ đầu màu trắng khi bấm vào
-        ind_bookTrips.setOpaque(false);
-        ind_btns.setOpaque(false);
-        ind_data.setOpaque(true);
-        ind_yourTrips.setOpaque(false);
-        ind_icons.setOpaque(false);
-        ind_logOut.setOpaque(false);
-
-    }//GEN-LAST:event_btn_dataMousePressed
 
 
     private void lblMaximizeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMaximizeMousePressed
@@ -678,13 +549,9 @@ public class MainMenuClient extends javax.swing.JFrame {
         resetColor(btn_yourTrips);
         resetColor(btn_info);
 
-        resetColor(btn_btns);
-        resetColor(btn_data);
 
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_bookTrips.setOpaque(false);
-        ind_btns.setOpaque(false);
-        ind_data.setOpaque(false);
         ind_yourTrips.setOpaque(false);
         ind_icons.setOpaque(false);
         ind_logOut.setOpaque(true);
@@ -743,27 +610,20 @@ public class MainMenuClient extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btn_bookTrips;
-    private javax.swing.JPanel btn_btns;
-    private javax.swing.JPanel btn_data;
     private javax.swing.JPanel btn_info;
     private javax.swing.JPanel btn_logOut;
     private javax.swing.JPanel btn_yourTrips;
     private javax.swing.JPanel ind_bookTrips;
-    private javax.swing.JPanel ind_btns;
-    private javax.swing.JPanel ind_data;
     private javax.swing.JPanel ind_icons;
     private javax.swing.JPanel ind_logOut;
     private javax.swing.JPanel ind_yourTrips;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel label_forClient;
     private javax.swing.JLabel lblClose;
     private javax.swing.JLabel lblMaximize;

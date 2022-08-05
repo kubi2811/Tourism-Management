@@ -58,15 +58,15 @@ public class StatusTour extends javax.swing.JPanel {
 
         jTextField1 = new javax.swing.JTextField();
         temp = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         SearchTextField = new javax.swing.JTextField();
-        Search_btn = new javax.swing.JToggleButton();
-        jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         activeTable = new javax.swing.JTable();
-        Update2Btn = new javax.swing.JToggleButton();
-        Update1Btn = new javax.swing.JToggleButton();
+        StaffLabel = new javax.swing.JLabel();
+        StaffLabel1 = new javax.swing.JLabel();
+        activeStaffBtn = new javax.swing.JButton();
+        activeStaffBtn1 = new javax.swing.JButton();
+        activeStaffBtn2 = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
@@ -78,22 +78,11 @@ public class StatusTour extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setText("Status Tour Management");
-
         SearchTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SearchTextFieldActionPerformed(evt);
             }
         });
-
-        Search_btn.setText("Search");
-        Search_btn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Search_btnMouseClicked(evt);
-            }
-        });
-
-        jLabel3.setText("Attention: For change status tour, you must find by customer name !!!");
 
         activeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,17 +107,56 @@ public class StatusTour extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(activeTable);
 
-        Update2Btn.setText("Đã thanh toán");
-        Update2Btn.addMouseListener(new java.awt.event.MouseAdapter() {
+        StaffLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        StaffLabel.setForeground(new java.awt.Color(153, 153, 255));
+        StaffLabel.setText("Status Tour Management");
+
+        StaffLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        StaffLabel1.setForeground(new java.awt.Color(153, 153, 255));
+        StaffLabel1.setText("Attention: For change status tour, you must find by customer name !!!");
+
+        activeStaffBtn.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        activeStaffBtn.setForeground(new java.awt.Color(153, 153, 255));
+        activeStaffBtn.setText("Search");
+        activeStaffBtn.setBorder(new javax.swing.border.MatteBorder(null));
+        activeStaffBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Update2BtnMouseClicked(evt);
+                activeStaffBtnMouseClicked(evt);
+            }
+        });
+        activeStaffBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                activeStaffBtnActionPerformed(evt);
             }
         });
 
-        Update1Btn.setText("Chờ thanh toán");
-        Update1Btn.addMouseListener(new java.awt.event.MouseAdapter() {
+        activeStaffBtn1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        activeStaffBtn1.setForeground(new java.awt.Color(153, 153, 255));
+        activeStaffBtn1.setText("Wait for payment");
+        activeStaffBtn1.setBorder(new javax.swing.border.MatteBorder(null));
+        activeStaffBtn1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Update1BtnMouseClicked(evt);
+                activeStaffBtn1MouseClicked(evt);
+            }
+        });
+        activeStaffBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                activeStaffBtn1ActionPerformed(evt);
+            }
+        });
+
+        activeStaffBtn2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        activeStaffBtn2.setForeground(new java.awt.Color(153, 153, 255));
+        activeStaffBtn2.setText("Already Paid");
+        activeStaffBtn2.setBorder(new javax.swing.border.MatteBorder(null));
+        activeStaffBtn2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                activeStaffBtn2MouseClicked(evt);
+            }
+        });
+        activeStaffBtn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                activeStaffBtn2ActionPerformed(evt);
             }
         });
 
@@ -137,48 +165,43 @@ public class StatusTour extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 883, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(SearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(90, 90, 90)
-                                        .addComponent(Search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 768, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Update1Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(Update2Btn)))
-                .addContainerGap())
+                        .addComponent(activeStaffBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(activeStaffBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2)
+                        .addComponent(StaffLabel)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(SearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(35, 35, 35)
+                            .addComponent(activeStaffBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(StaffLabel1)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(7, 7, 7)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(StaffLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(activeStaffBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addGap(37, 37, 37)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(StaffLabel1)
+                .addGap(54, 54, 54)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Update2Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Update1Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(210, 210, 210))
+                    .addComponent(activeStaffBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(activeStaffBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(174, 174, 174))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -189,7 +212,15 @@ public class StatusTour extends javax.swing.JPanel {
         temp.setText(model.getValueAt(Myindex, 2).toString());
     }//GEN-LAST:event_activeTableMouseClicked
 
-    private void Search_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search_btnMouseClicked
+    private void SearchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchTextFieldActionPerformed
+
+    private void tempActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tempActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tempActionPerformed
+
+    private void activeStaffBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_activeStaffBtnMouseClicked
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) activeTable.getModel();
         model.setRowCount(0);
@@ -227,10 +258,15 @@ public class StatusTour extends javax.swing.JPanel {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error!");
         }
-    }//GEN-LAST:event_Search_btnMouseClicked
+    }//GEN-LAST:event_activeStaffBtnMouseClicked
 
-    private void Update1BtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Update1BtnMouseClicked
+    private void activeStaffBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activeStaffBtnActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_activeStaffBtnActionPerformed
+
+    private void activeStaffBtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_activeStaffBtn1MouseClicked
+        // TODO add your handling code here:
+          // TODO add your handling code here:
         if(temp.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "You need to choose one Order Tour !!!");
         } else {
@@ -253,9 +289,14 @@ public class StatusTour extends javax.swing.JPanel {
             }
             showStatusTour();
         }
-    }//GEN-LAST:event_Update1BtnMouseClicked
+    }//GEN-LAST:event_activeStaffBtn1MouseClicked
 
-    private void Update2BtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Update2BtnMouseClicked
+    private void activeStaffBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activeStaffBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_activeStaffBtn1ActionPerformed
+
+    private void activeStaffBtn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_activeStaffBtn2MouseClicked
+        // TODO add your handling code here:
         // TODO add your handling code here:
         if(temp.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "You need to choose one Order Tour !!!");
@@ -287,26 +328,22 @@ public class StatusTour extends javax.swing.JPanel {
             }
         }
         showStatusTour();
-    }//GEN-LAST:event_Update2BtnMouseClicked
+    }//GEN-LAST:event_activeStaffBtn2MouseClicked
 
-    private void SearchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchTextFieldActionPerformed
+    private void activeStaffBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activeStaffBtn2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SearchTextFieldActionPerformed
-
-    private void tempActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tempActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tempActionPerformed
+    }//GEN-LAST:event_activeStaffBtn2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField SearchTextField;
-    private javax.swing.JToggleButton Search_btn;
-    private javax.swing.JToggleButton Update1Btn;
-    private javax.swing.JToggleButton Update2Btn;
+    private javax.swing.JLabel StaffLabel;
+    private javax.swing.JLabel StaffLabel1;
+    private javax.swing.JButton activeStaffBtn;
+    private javax.swing.JButton activeStaffBtn1;
+    private javax.swing.JButton activeStaffBtn2;
     private javax.swing.JTable activeTable;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField temp;
