@@ -15,7 +15,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import FormStaff.ClientInformation;
-import FormStaff.CreateDescriptionForm;
 import FormStaff.History;
 import FormStaff.ManageTrips;
 import FormStaff.StaffInformation;
@@ -688,7 +687,6 @@ public class MainMenuStaff extends javax.swing.JFrame {
         ind_icons1.setOpaque(false);
         
         pnlRight.removeAll();
-        pnlRight.add(new CreateDescriptionForm()).setVisible(true);
         pnlRight.repaint();
         pnlRight.revalidate();
     }//GEN-LAST:event_btn_btnsMousePressed
@@ -850,9 +848,7 @@ public class MainMenuStaff extends javax.swing.JFrame {
         
         pnlRight.removeAll();
         pnlRight.repaint();
-        pnlRight.revalidate();
-        pnlRight.add(new CreateDescriptionForm()).setVisible(true);
-        
+        pnlRight.revalidate();        
         
         System.out.println("helo2");
     }

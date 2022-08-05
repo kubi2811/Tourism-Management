@@ -14,20 +14,22 @@ import java.sql.Statement;
  * @author hieut
  */
 public class LocationVisitService {
-            private Connection connection = JDBCConnection.getConnection();
-            public String getVisitPlaceById(String id){
-            String sql = " Select * from LocationVisit where Tour='" + id +"'";
-            String addressVisit = null;
-            try {
-                Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(sql);
-                while(resultSet.next()){
-                    addressVisit = resultSet.getString("VisitPlace");
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+
+    private Connection connection = JDBCConnection.getConnection();
+
+    public String getVisitPlaceById(String id) {
+        String sql = " Select * from LocationVisit where Tour='" + id + "'";
+        String addressVisit = null;
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                addressVisit = resultSet.getString("VisitPlace");
             }
-            return addressVisit;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-      
+        return addressVisit;
+    }
+
 }

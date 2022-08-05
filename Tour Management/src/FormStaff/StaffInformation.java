@@ -31,7 +31,7 @@ public class StaffInformation extends javax.swing.JPanel {
     
     public void ShowStaffInfo(){
         try {
-            String sql = "select * from Staff where IdStaff = '" + IdStaff + "'";
+            String sql = "select * from Staff where IdStaff = N'"+ IdStaff + "'";
             Statement statement = connect.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {

@@ -19,28 +19,27 @@ public class DescriptionDetail {
     private int adults;
     private int childs;
     private double inccurred;
-    private double total;
+    private long total;
     private TourService tourService = new TourService();
     private DescriptionService descriptionService = new DescriptionService();
 
-    public DescriptionDetail(int idDescription, String nameDescription, int adults, int childs, double inccurred) {
+    public DescriptionDetail(int idDescription, String nameDescription, int adults, int childs, double inccurred , long total) {
         this.idDescription = idDescription;
         this.nameDescription = nameDescription;
         this.adults = adults;
         this.childs = childs;
         this.inccurred = inccurred;
-        this.total = tourService.getCostAdoByName(descriptionService.getNameTourByIdDes(idDescription)) * 0.5 + tourService.getCostChildByName(descriptionService.getNameTourByIdDes(idDescription)) + inccurred;
+        this.total = total;
     }
 
-    public DescriptionDetail(int idDescriptionDetail, int idDescription, String nameDescription, int adults, int childs, double inccurred) {
+    public DescriptionDetail(int idDescriptionDetail, int idDescription, String nameDescription, int adults, int childs, double inccurred , long total) {
         this.idDescriptionDetail = idDescriptionDetail;
         this.idDescription = idDescription;
         this.nameDescription = nameDescription;
         this.adults = adults;
         this.childs = childs;
         this.inccurred = inccurred;
-        this.total = tourService.getCostAdoByName(descriptionService.getNameTourByIdDes(idDescription)) * 0.5 + tourService.getCostChildByName(descriptionService.getNameTourByIdDes(idDescription)) + inccurred;
-
+        this.total = total;
     }
 
     public int getIdDescriptionDetail() {
@@ -91,11 +90,11 @@ public class DescriptionDetail {
         this.inccurred = inccurred;
     }
 
-    public double getTotal() {
+    public long getTotal() {
         return total;
     }
 
-    public void setTotal(double total) {
+    public void setTotal(long total) {
         this.total = total;
     }
     

@@ -36,6 +36,7 @@ public class BookTripNow extends javax.swing.JPanel {
     private TourService tourService = new TourService();
     static String nameTour;
     public static String idClient;
+   
     /**
      * Creates new form ClientAllTrips
      */
@@ -75,7 +76,7 @@ public class BookTripNow extends javax.swing.JPanel {
 
             },
             new String [] {
-                "IdTour", "Tour Name", "DayStart", "DayEnd", "Address Start", "Address Visit", "Vehicle"
+                "IdTour", "Tour Name", "DayStart", "DayEnd", "Address Start", "Vehicle"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -241,16 +242,17 @@ public class BookTripNow extends javax.swing.JPanel {
             Statement statement = connect.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
-               
+                for(String s : locationStartService.getAddressStartByName(resultSet.getString("TourName"))){
                     Vector vector = new Vector();
                     vector.add(resultSet.getString("IdTour"));
                     vector.add(resultSet.getString("TourName"));
                     vector.add(resultSet.getString("DayStart"));
                     vector.add(resultSet.getString("DayEnd"));
-                    vector.add(locationStartService.getAddressStartById(String.valueOf(resultSet.getString("TourName"))));
-                    vector.add(locationVisitService.getVisitPlaceById(String.valueOf(resultSet.getString("TourName"))));
-                    vector.add(vehicleService.getTransportById(resultSet.getString("TourName")));
-                    model.addRow(vector);      
+                    vector.add(s);
+                    vector.add(vehicleService.getTransportById(locationStartService.getIDByNameStart(nameTour)));
+                    model.addRow(vector);     
+                }
+                     
                 
             }
         } catch (Exception e) {

@@ -26,7 +26,7 @@ public class TourService {
         String description = null;
         try {
             Statement statement = connection.createStatement();
-            String sql = " Select Description from Tour where idTour = '" + id + "'";
+            String sql = " Select Description from Tour where idTour = '"+ id + "'";
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
                 description = resultSet.getString("Description");
@@ -40,7 +40,7 @@ public class TourService {
         String nameTour = null;
         try {
             Statement statement = connection.createStatement();
-            String sql = " Select TourName from Tour where idTour = '" + id + "'";
+            String sql = " Select TourName from Tour where idTour'"+ id + "'";
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
                 nameTour = resultSet.getString("TourName");
@@ -80,8 +80,8 @@ public class TourService {
         return listTour;
     }
     public double getCostAdoByName(String nameTour){
-        String sql = " select CostAdo from Tour where TourName ='"+nameTour+"'";
-        double cost = 0;
+        String sql = " select * from Tour where TourName =N'"+nameTour+"'";
+        double cost = 0.0;
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
@@ -95,8 +95,8 @@ public class TourService {
         return cost;
     }
      public double getCostChildByName(String nameTour){
-        String sql = " select CostChild from Tour where TourName ='"+nameTour+"'";
-        double cost = 0;
+        String sql = " select * from Tour where TourName = N'"+nameTour+"'";
+        double cost = 0.0;
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);

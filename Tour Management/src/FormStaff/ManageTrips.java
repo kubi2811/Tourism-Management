@@ -430,11 +430,14 @@ public class ManageTrips extends javax.swing.JPanel {
 //        descriptionService.createDescription(description);
 
         int numberIdDescription;
-        StaffService temp = new StaffService();
-        numberIdDescription = temp.getIdDescription(listTourNameVar);
-
-        DescriptionDetail descriptionDetail = new DescriptionDetail(numberIdDescription, descriptionVar.getText(), Integer.parseInt(adultVar.getText()), Integer.parseInt(childVar.getText()), Double.parseDouble(incurredVar.getText()));
+       
+        numberIdDescription = staffService.getIdDescription(listTourNameVar);
+        int numAdults  = Integer.parseInt(adultVar.getText());
+        int numChilds = Integer.parseInt(childVar.getText());
+        long total = (long) (numAdults * ( (long) tourService.getCostAdoByName(listTourNameVar)) * 0.5) + (long)( numChilds * ( (long) tourService.getCostChildByName(listTourNameVar)) * 0.5 ) + (long) Double.parseDouble(incurredVar.getText());
+        DescriptionDetail descriptionDetail = new DescriptionDetail(numberIdDescription, descriptionVar.getText(), numAdults, numChilds, Double.parseDouble(incurredVar.getText()),  total);
         descriptionService.createDescriptionDetail(descriptionDetail);
+//        System.out.println(descriptionDetail.getTotal());
         showDescriptionDetail();
 
     }//GEN-LAST:event_addDescriptionMouseClicked
@@ -494,7 +497,7 @@ public class ManageTrips extends javax.swing.JPanel {
                 vector.add(resultSet.getString("Adults"));
                 vector.add(resultSet.getString("Childs"));
                 vector.add(resultSet.getString("Incurred"));
-                vector.add(resultSet.getString("Total"));
+                vector.add(resultSet.getLong("Total"));
                 model.addRow(vector);
             }
         } catch (Exception e) {

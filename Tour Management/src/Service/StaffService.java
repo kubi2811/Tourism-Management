@@ -54,7 +54,7 @@ public class StaffService {
     }
 
     public boolean updateFullnameStaff(String idStaff, String Fullname) {
-        String sql = "update Staff set FullName = '" + Fullname + "' where idStaff = " + idStaff;
+        String sql = "update Staff set FullName = N'" + Fullname + "' where idStaff = " + idStaff;
         try {
             Statement statement = connection.createStatement();
             statement.executeUpdate(sql);
@@ -85,7 +85,7 @@ public class StaffService {
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
-                IdDescription = Integer. valueOf(resultSet.getString("IdDescription"));
+                IdDescription = Integer.valueOf(resultSet.getString("IdDescription"));
             }} catch (Exception e) {
             e.printStackTrace();
         }

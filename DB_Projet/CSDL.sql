@@ -212,18 +212,25 @@ BEGIN
 	JOIN deleted ON Descriptions.IdDescription = deleted.IdDescription
 END
 
+
 CREATE TRIGGER trg_descriptiondelete ON DescriptionDetail AFTER DELETE AS 
 BEGIN
 	UPDATE Descriptions
-	SET Total = 0
+	SET Total = (SELECT SUM(Total) as SUM
+	FROM DescriptionDetail
+	WHERE IdDescription = Descriptions.IdDescription )
 	FROM Descriptions
 	JOIN deleted ON Descriptions.IdDescription = deleted.IdDescription
 END
 
+
 Select * from Descriptions
 select * from DescriptionDetail
 select * from Tour
+select * from Staff
+select * from LocationStart
 insert into Descriptions(Tour) values (N'Hà Nội - Hồ Chí Minh')
+select CostAdo from Tour where TourName = N'Hà Nội - Hồ Chí Minh'
 
 
 
