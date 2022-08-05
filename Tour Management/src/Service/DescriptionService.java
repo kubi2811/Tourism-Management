@@ -43,7 +43,6 @@ public class DescriptionService {
             preparedStatement.setInt(4, descriptionDetail.getChilds());
             preparedStatement.setDouble(5, descriptionDetail.getInccurred());
             preparedStatement.setDouble(6, descriptionDetail.getTotal());
-            
             System.out.println("id ngta: " + descriptionDetail.getIdDescription());
             System.out.println("ten: " + descriptionDetail.getNameDescription());
             preparedStatement.execute();
@@ -79,4 +78,5 @@ public class DescriptionService {
         }
         return name;
     }
+    
 }

@@ -15,19 +15,21 @@ import java.sql.Statement;
  * @author hieut
  */
 public class VehicleService {
-        private Connection connection = JDBCConnection.getConnection();
-        public  String getTransportById(String idTour){
+
+    private Connection connection = JDBCConnection.getConnection();
+
+    public String getTransportById(int idLocation) {
         String vehicle = null;
-            String sql = "Select * from Vehicle where Tour = '"+idTour+"'";
-            try {
-                Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(sql);
-                while(resultSet.next()){
-                    vehicle = resultSet.getString("Transport");
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+        String sql = "Select * from Vehicle where IdLocationStart= " + idLocation;
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                vehicle = resultSet.getString("Transport");
             }
-            return vehicle;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return vehicle;
+    }
 }

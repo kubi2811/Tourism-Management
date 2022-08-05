@@ -85,7 +85,7 @@ public class StaffService {
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
-                IdDescription = Integer. valueOf(resultSet.getString("IdDescription"));
+                IdDescription = Integer.valueOf(resultSet.getString("IdDescription"));
             }} catch (Exception e) {
             e.printStackTrace();
         }

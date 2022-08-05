@@ -229,10 +229,11 @@ public class ManageTrips extends javax.swing.JPanel {
                             .addComponent(activeStaffLabel2)
                             .addComponent(activeStaffLabel4))
                         .addGap(18, 18, 18)
-                        .addGroup(ManageTripsCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CostChild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(ManageTripsCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(activeStaffLabel1)
-                            .addComponent(activeStaffLabel3)))
+                            .addGroup(ManageTripsCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(CostChild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(activeStaffLabel3))))
                     .addGroup(ManageTripsCardLayout.createSequentialGroup()
                         .addComponent(DayStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -411,6 +412,25 @@ public class ManageTrips extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_adultVarActionPerformed
 
+
+    private void addDescriptionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addDescriptionMouseClicked
+        // TODO add your handling code here:
+//        Descriptions description = new Descriptions(listTourNameVar,0);
+//        descriptionService.createDescription(description);
+
+        int numberIdDescription;
+
+        numberIdDescription = staffService.getIdDescription(listTourNameVar);
+        int numAdults = Integer.parseInt(adultVar.getText());
+        int numChilds = Integer.parseInt(childVar.getText());
+        long total = (long) (numAdults * ((long) tourService.getCostAdoByName(listTourNameVar)) * 0.5) + (long) (numChilds * ((long) tourService.getCostChildByName(listTourNameVar)) * 0.5) + (long) Double.parseDouble(incurredVar.getText());
+        DescriptionDetail descriptionDetail = new DescriptionDetail(numberIdDescription, descriptionVar.getText(), numAdults, numChilds, Double.parseDouble(incurredVar.getText()), total);
+        descriptionService.createDescriptionDetail(descriptionDetail);
+//        System.out.println(descriptionDetail.getTotal());
+        showDescriptionDetail();
+
+    }//GEN-LAST:event_addDescriptionMouseClicked
+
     private void descriptionVarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descriptionVarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_descriptionVarActionPerformed
@@ -516,7 +536,7 @@ public class ManageTrips extends javax.swing.JPanel {
                 vector.add(resultSet.getString("Adults"));
                 vector.add(resultSet.getString("Childs"));
                 vector.add(resultSet.getString("Incurred"));
-                vector.add(resultSet.getString("Total"));
+                vector.add(resultSet.getLong("Total"));
                 model.addRow(vector);
             }
         } catch (Exception e) {

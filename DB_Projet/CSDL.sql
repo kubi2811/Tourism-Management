@@ -73,7 +73,8 @@ go
 
 create table Vehicle(
 	IdVehicle INT IDENTITY(1,1) primary key,
-	IdLocationStart int FOREIGN KEY REFERENCES LocationStart(IdLocationStart), -- Lấy locationStart
+	IdLocationStart int FOREIGN KEY REFERENCES LocationStart(IdLocationStart), -- Lấy tour name từ bảng tour
+
 	Transport nvarchar(50) NOT NULL,
 	Capacity int NOT NULL
 )
@@ -208,13 +209,31 @@ BEGIN
 	FROM Descriptions
 	JOIN deleted ON Descriptions.IdDescription = deleted.IdDescription
 END
-go
+
 
 CREATE TRIGGER trg_descriptiondelete ON DescriptionDetail AFTER DELETE AS 
 BEGIN
 	UPDATE Descriptions
-	SET Total = 0
+	SET Total = (SELECT SUM(Total) as SUM
+	FROM DescriptionDetail
+	WHERE IdDescription = Descriptions.IdDescription )
 	FROM Descriptions
 	JOIN deleted ON Descriptions.IdDescription = deleted.IdDescription
 END
+
+
+
+Select * from Descriptions
+select * from DescriptionDetail
+select * from Tour
+select * from Staff
+select * from LocationStart
+select * from Vehicle
+select * from OrderTour
+select * from OrderDetail
+select * from OrderStatus
+
+
+
+
 

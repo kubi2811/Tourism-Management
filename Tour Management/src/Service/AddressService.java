@@ -25,7 +25,7 @@ public class AddressService {
         String getCity = null;
         String getprovince = null;
         String Address = null;
-        String sql = "Select * from UserAddress where Username = '" + Username + "'";
+        String sql = "Select * from UserAddress where Username = N'" + Username + "'";
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
@@ -55,12 +55,12 @@ public class AddressService {
         String updateProvince = result[4];
 
         String sql = "update UserAddress"
-                + " set number = '" + updateNumber + "', "
-                + "street = '" + updateStreet + "', "
-                + "ward = '" + updateWard + "', "
-                + "city = '" + updateCity + "', "
-                + "provience = '" + updateProvince + "'"
-                + "where Username = '" + userName + "'";
+                + " set number = N'" + updateNumber + "', "
+                + "street = N'" + updateStreet + "', "
+                + "ward = N'" + updateWard + "', "
+                + "city = N'" + updateCity + "', "
+                + "provience = N'" + updateProvince + "'"
+                + "where Username = N'" + userName + "'";
         try {
             Statement statement = connection.createStatement();
             statement.executeUpdate(sql);

@@ -7,6 +7,7 @@ package FormClient;
 import Connect.JDBCConnection;
 import Entity.Vehicle;
 import Form.Login;
+import Service.ClientService;
 import Service.LocationStartService;
 import Service.LocationVisitService;
 import Service.OrderTourService;
@@ -30,12 +31,14 @@ public class BookTripNow extends javax.swing.JPanel {
 
     private Connection connect = JDBCConnection.getConnection();
     private VehicleService vehicleService = new VehicleService();
+    private ClientService clientService = new ClientService();
     private LocationVisitService locationVisitService = new LocationVisitService();
     private LocationStartService locationStartService = new LocationStartService();
     private OrderTourService orderTourService = new OrderTourService();
     private TourService tourService = new TourService();
     static String nameTour;
     public static String idClient;
+   
     /**
      * Creates new form ClientAllTrips
      */
@@ -75,7 +78,7 @@ public class BookTripNow extends javax.swing.JPanel {
 
             },
             new String [] {
-                "IdTour", "Tour Name", "DayStart", "DayEnd", "Address Start", "Address Visit", "Vehicle"
+                "IdTour", "Tour Name", "DayStart", "DayEnd", "Address Start", "Vehicle"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -230,7 +233,7 @@ public class BookTripNow extends javax.swing.JPanel {
         int numberOfAdo = Integer.parseInt(Adults.getText());
         int numberOfChilds = Integer.parseInt(Childs.getText()); 
         orderTourService.OrderTour(Login.IdClient);
-        orderTourService.OrderStatusTour(orderTourService.getIdOrderByIdClient(Login.IdClient), "TThai 1");
+        orderTourService.OrderStatusTour(orderTourService.getIdOrderByIdClient(Login.IdClient),clientService.getFullNameById(Login.IdClient) , "TThai 1");
         orderTourService.OrderTourDetail(orderTourService.getIdOrderByIdClient(Login.IdClient), Login.IdClient, String.valueOf(OrderTourCbx.getSelectedItem()) ,numberOfAdo, numberOfChilds);
         JOptionPane.showMessageDialog(null, "You are registed successfully");
     }//GEN-LAST:event_jButton1MouseClicked
@@ -241,16 +244,17 @@ public class BookTripNow extends javax.swing.JPanel {
             Statement statement = connect.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
-               
+                for(String s : locationStartService.getAddressStartByName(resultSet.getString("TourName"))){
                     Vector vector = new Vector();
                     vector.add(resultSet.getString("IdTour"));
                     vector.add(resultSet.getString("TourName"));
                     vector.add(resultSet.getString("DayStart"));
                     vector.add(resultSet.getString("DayEnd"));
-                    vector.add(locationStartService.getAddressStartById(String.valueOf(resultSet.getString("TourName"))));
-                    vector.add(locationVisitService.getVisitPlaceById(String.valueOf(resultSet.getString("TourName"))));
-                    vector.add(vehicleService.getTransportById(resultSet.getString("TourName")));
-                    model.addRow(vector);      
+                    vector.add(s);
+                    vector.add(vehicleService.getTransportById(locationStartService.getIDByNameStart(s)));                
+                    model.addRow(vector);     
+                }
+                     
                 
             }
         } catch (Exception e) {

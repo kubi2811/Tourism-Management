@@ -20,14 +20,14 @@ import java.util.List;
  */
 public class ClientService {
     private Connection connection = JDBCConnection.getConnection();
-    public String getFullNameById(String idClient){
+    public String getFullNameById(int idClient){
         String fullname = null;
-        String sql = "select Fullname from Client where IdClient ='"+ idClient+"'";
+        String sql = "select * from Client where IdClient = "+ idClient;
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while(resultSet.next()){
-                fullname = resultSet.getString("FullName");
+                fullname = resultSet.getString("Username");
             }
                     
         } catch (Exception e) {
@@ -38,7 +38,7 @@ public class ClientService {
     
               
     public boolean updateClientInformation(String idClient, String name, String phone, String gmail) {
-        String sql = "update Client set Fullname = '" + name +"',Phone ='" + phone +"', Email = '" + gmail + "' where idClient = " + idClient;
+        String sql = "update Client set Fullname = '" + name +"',Phone ='" + phone +"', Email = N'" + gmail + "' where idClient = " + idClient;
         try{
 //            PreparedStatement preparedStatement = connection.prepareStatement(sql); 
             Statement statement = connection.createStatement();

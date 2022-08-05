@@ -16,15 +16,15 @@ import java.sql.Statement;
 public class StaticService {
     private Connection connection = JDBCConnection.getConnection();
     
-    public double getTotalREvenuebyMonth(int month){
+    public long getTotalREvenuebyMonth(int month){
         String sql = "select * from OrderTour";
-        double total = 0;
+        long total = 0L;
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while(resultSet.next()){
                 if(resultSet.getDate("createDate").getMonth()+ 1 == month){
-                    total += resultSet.getDouble("Total");
+                    total += (long)resultSet.getDouble("Total");
                 }
             }         
         } catch (Exception e) {
@@ -32,15 +32,15 @@ public class StaticService {
         }
         return total;
     }
-    public double getTotalChiByMonth(int month){
+    public long getTotalChiByMonth(int month){
         String sql = "select * from Descriptions";
-        double total = 0 ;
+        long total = 0 ;
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while(resultSet.next()){
                 if(month == resultSet.getDate("CreateDate").getMonth() + 1){
-                    total += resultSet.getDouble("Total");
+                    total += (long)resultSet.getDouble("Total");
                 }
             }
         } catch (Exception e) {
@@ -48,14 +48,14 @@ public class StaticService {
         }
         return total;
     }
-    public double getTotalREvenue(){
+    public long getTotalREvenue(){
         String sql  = " select SUM(TotalEvenue) as Total from OrderTour";
-        double total = 0 ;
+        long total = 0L ;
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while(resultSet.next()){
-                total = resultSet.getDouble("TotalEvenue");
+                total = (long)resultSet.getDouble("TotalEvenue");
             }
         
         
@@ -65,14 +65,14 @@ public class StaticService {
         }
         return total;
     }
-    public double getTotalDes(){
+    public long getTotalDes(){
         String sql = "select SUM(Total) as TotalPrice from Descriptions";
-        double total = 0 ;
+        long total = 0 ;
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while(resultSet.next()){
-                total = resultSet.getDouble("TotalPrice");
+                total = (long)resultSet.getDouble("TotalPrice");
             }
         } catch (Exception e) {
             e.printStackTrace();

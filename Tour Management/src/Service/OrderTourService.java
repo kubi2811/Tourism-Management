@@ -42,109 +42,129 @@ public class OrderTourService {
 
     public void OrderTour(int idClient) {
         try {
-            String sql = "INSERT INTO OrderTour (idClient,Isdelete) values (?,?)";
+            String sql = "INSERT INTO OrderTour (idClient) values (?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1,idClient);
-            preparedStatement.setInt(2,0);
+            preparedStatement.setInt(1, idClient);
             preparedStatement.execute();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    public void OrderTourDetail(int idOrder, int idClient , String nameTour , int audlts , int childs){
+
+    public void OrderTourDetail(int idOrder, int idClient, String nameTour, int audlts, int childs) {
         try {
             String sql = "Insert into OrderDetail(IdOrder,IdClient,Tour,Adluts,Childs) values (?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, idOrder);
-            preparedStatement.setInt(2,idClient);
+            preparedStatement.setInt(2, idClient);
             preparedStatement.setString(3, nameTour);
-            preparedStatement.setInt(4,audlts);
-            preparedStatement.setInt(5,childs);
+            preparedStatement.setInt(4, audlts);
+            preparedStatement.setInt(5, childs);
             preparedStatement.execute();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    public void OrderStatusTour(int idOrder , String status){
+
+    public void OrderStatusTour(int idOrder, String userClient, String status) {
         try {
-            String sql = "insert into OrderStatus(IdOrder,Status) values (?,?)";
+            String sql = "insert into OrderStatus(IdOrder,ClientUserName,Status) values (?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1,idOrder);
-            preparedStatement.setString(2,status);
+            preparedStatement.setInt(1, idOrder);
+            preparedStatement.setString(2, userClient);
+            preparedStatement.setString(3, status);
             preparedStatement.execute();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
-    public int getIdOrderByIdClient ( int idClient){ 
-        int idTour  = 0;
+
+    public int getIdOrderByIdClient(int idClient) {
+        int idTour = 0;
         try {
-            String sql = "select IdOrder from OrderTour where idClient ='" + idClient +"'";
+            String sql = "select IdOrder from OrderTour where idClient ='" + idClient + "'";
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
-            while(resultSet.next()){                
+            while (resultSet.next()) {
                 idTour = resultSet.getInt("IdOrder");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-          return idTour;
+        return idTour;
     }
-    public int getTotalbyIdOrder(int idOrder){
+
+    public int getTotalbyIdOrder(int idOrder) {
         int total = 0;
         try {
-            String sql = "select Total from OrderTour where idOrder ='"+idOrder+"'";
+            String sql = "select Total from OrderTour where idOrder ='" + idOrder + "'";
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
-            while(resultSet.next()){
-                total = (int)(resultSet.getFloat("Total")) ;
+            while (resultSet.next()) {
+                total = (int) (resultSet.getFloat("Total"));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return total;
     }
+
     public int getIdOrderByName(String nameTour) {
-        int idOrder = 0 ;
-        String sql = "select IdOrder from OrderDetail where Tour ='"+nameTour+"'";
+        int idOrder = 0;
+        String sql = "select IdOrder from OrderDetail where Tour ='" + nameTour + "'";
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 idOrder = resultSet.getInt("IdOrder");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return idOrder;        
+        return idOrder;
     }
-    public String getNameTourByIdOrder(int idOrder){
-        String sql = "select Tour from OrderDetail where idOrder = '"+idOrder+"'";
+
+    public String getNameTourByIdOrder(int idOrder) {
+        String sql = "select Tour from OrderDetail where idOrder = '" + idOrder + "'";
         String name = null;
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 name = resultSet.getString("Tour");
             }
-                    
+
         } catch (Exception e) {
             e.printStackTrace();
         }
         return name;
     }
 
-    public void updateOrderClient(int idOrder ,int numsAdults , int numChilds){
+    public void updateOrderClient(int idOrder, int numsAdults, int numChilds) {
         String sql = "update OrderDetail set Adluts = ? , Childs = ? where IdOrder = ? ";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1,numsAdults);
-            preparedStatement.setInt(2,numChilds);
-            preparedStatement.setInt(3,idOrder);
+            preparedStatement.setInt(1, numsAdults);
+            preparedStatement.setInt(2, numChilds);
+            preparedStatement.setInt(3, idOrder);
             preparedStatement.execute();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public String getNameByIdClient(int id) {
+        String sql = "Select * from Client where id = '" + id + "'";
+        String name = null;
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                name = resultSet.getString("FullName");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return name;
     }
 }

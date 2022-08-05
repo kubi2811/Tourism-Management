@@ -232,7 +232,7 @@ public class Login extends javax.swing.JFrame {
             Statement statement = connection.createStatement();
             Role roles[] = Role.values();
             for (Role role : roles) {
-                String sql = " select * from " + role + " where Username = '" + username + "'";
+                String sql = " select * from " + role + " where Username = N'" + username + "'";
                 ResultSet resultSet = statement.executeQuery(sql);
                 while (resultSet.next()) {
                     if (password.equals(resultSet.getString("Password"))) {

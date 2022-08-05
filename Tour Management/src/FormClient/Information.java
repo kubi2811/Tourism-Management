@@ -262,7 +262,7 @@ public class Information extends javax.swing.JPanel {
     public void ShowClientInfo() {
         DefaultTableModel model = (DefaultTableModel) ClientInforTable.getModel();
         try {
-            String sql = "select * from Client where IdClient = '" + IdClient + "'";
+            String sql = "select * from Client where IdClient = N'" + IdClient + "'";
             Statement statement = connect.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
