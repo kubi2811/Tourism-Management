@@ -244,7 +244,8 @@ select * from Tour
 
 select Username from Client where IdClient = 3
 
-
+update OrderDetail set Adluts = 20 , Childs = 30 where IdOrder = 9
+delete OrderDetail where IdOrder = 9
 
 
 
