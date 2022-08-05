@@ -4,6 +4,15 @@
  */
 package FormStaff;
 
+import Connect.JDBCConnection;
+import Service.AddressService;
+import Service.ClientService;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ranco
@@ -13,8 +22,12 @@ public class ClientInformation extends javax.swing.JPanel {
     /**
      * Creates new form ClientInformation
      */
+    private Connection connection = JDBCConnection.getConnection();
+    private ClientService clientService = new ClientService();
+
     public ClientInformation() {
         initComponents();
+        show_list_client();
     }
 
     /**
@@ -26,21 +39,390 @@ public class ClientInformation extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        fullNameClient = new javax.swing.JTextField();
+        updateBtn = new javax.swing.JButton();
+        addBtn = new javax.swing.JButton();
+        deleteBtn = new javax.swing.JButton();
+        clearBtn = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        clientList = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
+        emailClient = new javax.swing.JTextField();
+        passClient = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        phoneClient = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        userNameClient = new javax.swing.JTextField();
+
         setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1005, 667));
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 153, 255));
+        jLabel3.setText("Admin Manage");
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(153, 153, 255));
+        jLabel4.setText("FullName");
+
+        fullNameClient.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        fullNameClient.setForeground(new java.awt.Color(153, 153, 255));
+        fullNameClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fullNameClientActionPerformed(evt);
+            }
+        });
+
+        updateBtn.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        updateBtn.setForeground(new java.awt.Color(153, 153, 255));
+        updateBtn.setText("Update");
+        updateBtn.setBorder(new javax.swing.border.MatteBorder(null));
+        updateBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateBtnMouseClicked(evt);
+            }
+        });
+
+        addBtn.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        addBtn.setForeground(new java.awt.Color(153, 153, 255));
+        addBtn.setText("Insert");
+        addBtn.setBorder(new javax.swing.border.MatteBorder(null));
+        addBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addBtnMouseClicked(evt);
+            }
+        });
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBtnActionPerformed(evt);
+            }
+        });
+
+        deleteBtn.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        deleteBtn.setForeground(new java.awt.Color(153, 153, 255));
+        deleteBtn.setText("Delete");
+        deleteBtn.setBorder(new javax.swing.border.MatteBorder(null));
+        deleteBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteBtnMouseClicked(evt);
+            }
+        });
+
+        clearBtn.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        clearBtn.setForeground(new java.awt.Color(153, 153, 255));
+        clearBtn.setText("Clear");
+        clearBtn.setBorder(new javax.swing.border.MatteBorder(null));
+        clearBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clearBtnMouseClicked(evt);
+            }
+        });
+
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(153, 153, 255));
+        jLabel11.setText("Client List");
+
+        clientList.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        clientList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Fullname", "Phone", "Username", "Password", "Email"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        clientList.setGridColor(new java.awt.Color(51, 51, 255));
+        clientList.setRowHeight(25);
+        clientList.setSelectionBackground(new java.awt.Color(153, 153, 255));
+        clientList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clientListMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(clientList);
+        if (clientList.getColumnModel().getColumnCount() > 0) {
+            clientList.getColumnModel().getColumn(0).setResizable(false);
+            clientList.getColumnModel().getColumn(5).setResizable(false);
+        }
+
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(153, 153, 255));
+        jLabel5.setText("UserName");
+
+        emailClient.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        emailClient.setForeground(new java.awt.Color(153, 153, 255));
+
+        passClient.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        passClient.setForeground(new java.awt.Color(153, 153, 255));
+        passClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passClientActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(153, 153, 255));
+        jLabel10.setText("Phone");
+
+        jLabel13.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(153, 153, 255));
+        jLabel13.setText("Password");
+
+        phoneClient.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        phoneClient.setForeground(new java.awt.Color(153, 153, 255));
+
+        jLabel14.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(153, 153, 255));
+        jLabel14.setText("Email");
+
+        userNameClient.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        userNameClient.setForeground(new java.awt.Color(153, 153, 255));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(369, 369, 369))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(74, 74, 74)
+                        .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                        .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(120, 120, 120)
+                        .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(jLabel14)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(emailClient))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 24, Short.MAX_VALUE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(fullNameClient, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                                    .addComponent(userNameClient, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addGap(48, 48, 48)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(jLabel10)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(phoneClient)
+                            .addComponent(passClient, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(271, 271, 271))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(fullNameClient, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(phoneClient, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addComponent(jLabel5))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(jLabel13))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(passClient, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(userNameClient, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(emailClient, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel11)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(68, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 1025, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 694, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void fullNameClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullNameClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fullNameClientActionPerformed
 
+    private void updateBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateBtnMouseClicked
+        // TODO add your handling code here:
+
+        String name = fullNameClient.getText();
+        String phone = phoneClient.getText();
+        String userName = userNameClient.getText();
+        String pass = passClient.getText();
+        String email = emailClient.getText();
+        int Myindex = clientList.getSelectedRow();
+        int Id = Integer.valueOf(clientList.getValueAt(Myindex, 0).toString());
+        System.out.println(">>>>>> id: " + Id);
+        clientService.updateClient(Id, name, phone, userName, pass, email);
+        show_list_client();
+    }//GEN-LAST:event_updateBtnMouseClicked
+
+    private void addBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addBtnMouseClicked
+        // TODO add your handling code here:
+        String name = fullNameClient.getText();
+        String phone = phoneClient.getText();
+        String userName = userNameClient.getText();
+        String pass = passClient.getText();
+        String email = emailClient.getText();
+        clientService.insertClient(name, phone, userName, pass, email);
+        show_list_client();
+    }//GEN-LAST:event_addBtnMouseClicked
+
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addBtnActionPerformed
+
+    private void deleteBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteBtnMouseClicked
+        // TODO add your handling code here:
+        int Myindex = clientList.getSelectedRow();
+        int Id = Integer.valueOf(clientList.getValueAt(Myindex, 0).toString());
+        clientService.deleteRowClient(Id);
+        show_list_client();
+        fullNameClient.setText("");
+        phoneClient.setText("");
+        userNameClient.setText("");
+        passClient.setText("");
+        emailClient.setText("");
+    }//GEN-LAST:event_deleteBtnMouseClicked
+
+    private void clearBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearBtnMouseClicked
+        // TODO add your handling code here:
+        fullNameClient.setText("");
+        phoneClient.setText("");
+        userNameClient.setText("");
+        passClient.setText("");
+        emailClient.setText("");
+
+    }//GEN-LAST:event_clearBtnMouseClicked
+
+    private void clientListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clientListMouseClicked
+        // TODO add your handling code here:
+        int Myindex = clientList.getSelectedRow();
+//        nameVar.setText(ProductTable.getValueAt(Myindex, 5).toString());
+        fullNameClient.setText(clientList.getValueAt(Myindex, 1).toString());
+        phoneClient.setText(clientList.getValueAt(Myindex, 2).toString());
+        userNameClient.setText(clientList.getValueAt(Myindex, 3).toString());
+        passClient.setText(clientList.getValueAt(Myindex, 4).toString());
+        emailClient.setText(clientList.getValueAt(Myindex, 5).toString());
+    }//GEN-LAST:event_clientListMouseClicked
+
+    private void passClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passClientActionPerformed
+
+    private void show_list_client() {
+
+        DefaultTableModel model = (DefaultTableModel) clientList.getModel();
+        model.setRowCount(0);
+        try {
+            String sql = "select * from Client";
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                Vector vector = new Vector();
+                vector.add(resultSet.getString("IdClient"));
+                vector.add(resultSet.getString("FullName"));
+                vector.add(resultSet.getString("Phone"));
+                vector.add(resultSet.getString("Username"));
+                vector.add(resultSet.getString("Password"));
+                vector.add(resultSet.getString("Email"));
+                model.addRow(vector);
+            }
+        } catch (Exception e) {
+            e.getMessage();
+        }
+
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addBtn;
+    private javax.swing.JButton clearBtn;
+    private javax.swing.JTable clientList;
+    private javax.swing.JButton deleteBtn;
+    private javax.swing.JTextField emailClient;
+    private javax.swing.JTextField fullNameClient;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField passClient;
+    private javax.swing.JTextField phoneClient;
+    private javax.swing.JButton updateBtn;
+    private javax.swing.JTextField userNameClient;
     // End of variables declaration//GEN-END:variables
 }
