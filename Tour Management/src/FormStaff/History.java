@@ -85,7 +85,7 @@ public class History extends javax.swing.JPanel {
 
         activeStaffLabel.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         activeStaffLabel.setForeground(new java.awt.Color(153, 153, 255));
-        activeStaffLabel.setText("Lịch sử thanh toán");
+        activeStaffLabel.setText("History Payment");
 
         deactivateStaffBtn.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         deactivateStaffBtn.setForeground(new java.awt.Color(153, 153, 255));

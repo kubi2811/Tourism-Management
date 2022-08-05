@@ -23,9 +23,10 @@ public class StaticService {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while(resultSet.next()){
+                if(resultSet.getInt("IsDeleted") == 0 ){
                 if(resultSet.getDate("createDate").getMonth()+ 1 == month){
                     total += (long)resultSet.getDouble("Total");
-                }
+                }}
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -49,19 +50,20 @@ public class StaticService {
         return total;
     }
     public long getTotalREvenue(){
-        String sql  = " select SUM(Total) as Total from OrderTour";
+        String sql  = " select * from OrderTour";
         long total = 0L ;
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while(resultSet.next()){
-                total = (long)resultSet.getDouble("Total");
+                if(resultSet.getInt("IsDeleted") == 0 ){
+                    total +=  resultSet.getLong("Total");
+                } 
+       
             }
-        
-        
+ 
         } catch (Exception e) {
-            e.printStackTrace();
-                  
+            e.printStackTrace();                 
         }
         return total;
     }

@@ -460,7 +460,7 @@ public class ManageTrips extends javax.swing.JPanel {
         long total = (long) (numAdults * ((long) tourService.getCostAdoByName(listTourNameVar)) * 0.5) + (long) (numChilds * ((long) tourService.getCostChildByName(listTourNameVar)) * 0.5) + (long) Double.parseDouble(incurredVar.getText());
         DescriptionDetail descriptionDetail = new DescriptionDetail(numberIdDescription, descriptionVar.getText(), numAdults, numChilds, Double.parseDouble(incurredVar.getText()), total);
         descriptionService.createDescriptionDetail(descriptionDetail);
-//        System.out.println(descriptionDetail.getTotal());
+        System.out.println(total);
         showDescriptionDetail();
 
     }//GEN-LAST:event_addDescriptionMouseClicked
@@ -544,6 +544,7 @@ public class ManageTrips extends javax.swing.JPanel {
         float incurred = Float.parseFloat(descriptionDetailTable.getValueAt(Myindex, 4).toString());
         System.out.println("Id: " + id);
         System.out.println("incrred: " + incurred);
+        System.out.println(name);
         des.updateDescriptionDetail(id, name, adults, childs, incurred);
         showInfoManageTrips();
     }//GEN-LAST:event_updateBtnMouseClicked

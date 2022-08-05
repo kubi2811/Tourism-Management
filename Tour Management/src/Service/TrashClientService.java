@@ -40,7 +40,7 @@ public class TrashClientService {
         return true;   
     }
     public void safeDelete(int idOrder){
-        String sql= "update OrderTour set IsDeleted = ? where IdOrder ='"+idOrder+"'";
+        String sql= "update OrderTour set IsDeleted = ? where IdOrder ="+idOrder;
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, 1);
