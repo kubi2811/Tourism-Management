@@ -30,7 +30,6 @@ public class MainMenuStaff extends javax.swing.JFrame {
     private CardLayout cardLayout;
     static int idStaff;
     static String nameStaff;
-
     /**
      * Creates new form Home20
      */
@@ -39,14 +38,14 @@ public class MainMenuStaff extends javax.swing.JFrame {
         MainMenuStaff.this.getRootPane().setBorder(new LineBorder(new Color(102, 102, 255)));
 //        lblTitle.setText(this.getTitle());
         cardLayout = (CardLayout) pnlRight.getLayout();
-
+        
         if (OSUtils.getOSType() == OSUtils.OSType.MacOS) {
             pnlTop.remove(pnlTitle);
             pnlTop.remove(pnlRight);
-
+            
             pnlTop.add(pnlTitle, BorderLayout.EAST);
             pnlTop.add(pnlActions, BorderLayout.WEST);
-
+            
             pnlActions.remove(lblClose);
             pnlActions.remove(lblMaximize);
             pnlActions.remove(lblMinimize);
@@ -54,19 +53,19 @@ public class MainMenuStaff extends javax.swing.JFrame {
             pnlActions.add(lblClose);
             pnlActions.add(lblMaximize);
             pnlActions.add(lblMinimize);
-
+            
             pnlTitle.remove(lblTitle);
             pnlTitle.setLayout(new FlowLayout(FlowLayout.RIGHT, 10, 8));
-            pnlTitle.add(lblTitle);
-
-        }
-        if (OSUtils.getOSType() == OSUtils.OSType.Windows) {
+            pnlTitle.add(lblTitle);      
+            
+        }        
+           if (OSUtils.getOSType() == OSUtils.OSType.Windows) {
             pnlTop.remove(pnlTitle);
             pnlTop.remove(pnlRight);
-
+            
             pnlTop.add(pnlTitle, BorderLayout.WEST);
             pnlTop.add(pnlActions, BorderLayout.EAST);
-
+            
             pnlActions.remove(lblClose);
             pnlActions.remove(lblMaximize);
             pnlActions.remove(lblMinimize);
@@ -74,11 +73,11 @@ public class MainMenuStaff extends javax.swing.JFrame {
             pnlActions.add(lblMinimize);
             pnlActions.add(lblMaximize);
             pnlActions.add(lblClose);
-
+            
             pnlTitle.remove(lblTitle);
             pnlTitle.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 8));
-            pnlTitle.add(lblTitle);
-
+            pnlTitle.add(lblTitle);      
+            
         }
     }
 
@@ -597,8 +596,6 @@ public class MainMenuStaff extends javax.swing.JFrame {
         resetColor(btn_fonts);
         resetColor(btn_status);
         resetColor(btn_Statistical);
-        resetColor(history_btn);
-        ind_icons2.setOpaque(false);
         
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_typo.setOpaque(true);
@@ -626,9 +623,7 @@ public class MainMenuStaff extends javax.swing.JFrame {
         resetColor(btn_typo);
         resetColor(btn_status);
         resetColor(btn_Statistical);
-        resetColor(history_btn);
-        ind_icons2.setOpaque(false);
-        
+
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_typo.setOpaque(false);
         ind_btns.setOpaque(false);
@@ -637,13 +632,13 @@ public class MainMenuStaff extends javax.swing.JFrame {
         ind_fonts.setOpaque(true);
         ind_icons.setOpaque(false);
         ind_icons1.setOpaque(false);
-
+        
         pnlRight.removeAll();
         pnlRight.add(new ClientInformation()).setVisible(true);
         pnlRight.repaint();
         pnlRight.revalidate();
-
-
+        
+        
     }//GEN-LAST:event_btn_fontsMousePressed
 
     private void btn_statusMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_statusMousePressed
@@ -655,9 +650,7 @@ public class MainMenuStaff extends javax.swing.JFrame {
         resetColor(btn_fonts);
         resetColor(btn_typo);
         resetColor(btn_Statistical);
-        resetColor(history_btn);
-        ind_icons2.setOpaque(false);
-        
+
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_typo.setOpaque(false);
         ind_btns.setOpaque(false);
@@ -666,7 +659,7 @@ public class MainMenuStaff extends javax.swing.JFrame {
         ind_fonts.setOpaque(false);
         ind_icons.setOpaque(true);
         ind_icons1.setOpaque(false);
-
+        
         pnlRight.removeAll();
         pnlRight.add(new StatusTour()).setVisible(true);
         pnlRight.repaint();
@@ -683,8 +676,6 @@ public class MainMenuStaff extends javax.swing.JFrame {
         resetColor(btn_fonts);
         resetColor(btn_status);
         resetColor(btn_Statistical);
-        resetColor(history_btn);
-        ind_icons2.setOpaque(false);
 
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_typo.setOpaque(false);
@@ -694,7 +685,7 @@ public class MainMenuStaff extends javax.swing.JFrame {
         ind_fonts.setOpaque(false);
         ind_icons.setOpaque(false);
         ind_icons1.setOpaque(false);
-
+        
         pnlRight.removeAll();
         pnlRight.repaint();
         pnlRight.revalidate();
@@ -709,9 +700,7 @@ public class MainMenuStaff extends javax.swing.JFrame {
         resetColor(btn_fonts);
         resetColor(btn_status);
         resetColor(btn_Statistical);
-        resetColor(history_btn);
-        ind_icons2.setOpaque(false);
-        
+
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_typo.setOpaque(false);
         ind_btns.setOpaque(false);
@@ -783,7 +772,7 @@ public class MainMenuStaff extends javax.swing.JFrame {
         ind_icons.setOpaque(false);
         ind_icons1.setOpaque(false);
         ind_btns1.setOpaque(true);
-
+        
         Login login = new Login();
         login.setVisible(true);
         this.dispose();
@@ -798,8 +787,6 @@ public class MainMenuStaff extends javax.swing.JFrame {
         resetColor(btn_fonts);
         resetColor(btn_status);
         resetColor(btn_btns1);
-        resetColor(history_btn);
-        ind_icons2.setOpaque(false);
 
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_typo.setOpaque(false);
@@ -809,12 +796,12 @@ public class MainMenuStaff extends javax.swing.JFrame {
         ind_icons.setOpaque(false);
         ind_icons1.setOpaque(true);
         ind_btns1.setOpaque(false);
-
+        
         pnlRight.removeAll();
         pnlRight.add(new Statistical()).setVisible(true);
         pnlRight.repaint();
         pnlRight.revalidate();
-
+        
     }//GEN-LAST:event_btn_StatisticalMousePressed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -824,21 +811,19 @@ public class MainMenuStaff extends javax.swing.JFrame {
 
     private void history_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_history_btnMousePressed
         // TODO add your handling code here:
-        setColor(history_btn);
+                setColor(btn_data);
         resetColor(btn_typo);
         resetColor(btn_btns);
         resetColor(btn_btns1);
         resetColor(btn_fonts);
         resetColor(btn_status);
         resetColor(btn_Statistical);
-//        resetColor(history_btn);
-//        ind_icons2.setOpaque(false);
+
         //Gạch nhỏ đầu màu trắng khi bấm vào
-        ind_icons2.setOpaque(true);
         ind_typo.setOpaque(false);
         ind_btns.setOpaque(false);
         ind_btns1.setOpaque(false);
-        ind_data.setOpaque(false);
+        ind_data.setOpaque(true);
         ind_fonts.setOpaque(false);
         ind_icons.setOpaque(false);
         ind_icons1.setOpaque(false);
@@ -857,17 +842,14 @@ public class MainMenuStaff extends javax.swing.JFrame {
     void resetColor(JPanel panel) {
         panel.setBackground(new Color(76, 41, 211));
     }
-
-    public void openCreateDescriptionForm() {
+    
+    public void openCreateDescriptionForm(){
         System.out.println("helo");
-
+        
         pnlRight.removeAll();
         pnlRight.repaint();
-
-        pnlRight.revalidate();
-//        pnlRight.add(new CreateDescriptionForm()).setVisible(true);
-
-
+        pnlRight.revalidate();        
+        
         System.out.println("helo2");
     }
 
