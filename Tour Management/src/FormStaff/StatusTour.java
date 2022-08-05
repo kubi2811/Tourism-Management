@@ -241,7 +241,7 @@ public class StatusTour extends javax.swing.JPanel {
                 if (Username.isEmpty()){
                     JOptionPane.showMessageDialog(null, "Không tìm thấy khách hàng, vui lòng nhập lại!");
                 }
-                String sql2 = "select * from OrderStatus where ClientUserName = N'"+ Username + "'";
+                String sql2 = "select * from OrderStatus where ClientUserName = '" + Username + "'";
                 System.out.println(sql2);
                 ResultSet resultSet2 = statement.executeQuery(sql2);
                 model.setRowCount(0);
