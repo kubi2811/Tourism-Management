@@ -521,7 +521,7 @@ public class ManageTrips extends javax.swing.JPanel {
         
         int id = Integer.valueOf(descriptionDetailTable.getValueAt(Myindex, 0).toString());
         des.deleteDescriptionDetail(id);
-        showInfoManageTrips();
+        showDescriptionDetail();
     }//GEN-LAST:event_deleteBtnMouseClicked
 
     
@@ -538,15 +538,16 @@ public class ManageTrips extends javax.swing.JPanel {
         // TODO add your handling code here:
         int Myindex = descriptionDetailTable.getSelectedRow();
         int id = Integer.valueOf(descriptionDetailTable.getValueAt(Myindex, 0).toString());
-        String name = descriptionDetailTable.getValueAt(Myindex, 1).toString();
-        int adults = Integer.valueOf(descriptionDetailTable.getValueAt(Myindex, 2).toString());
-        int childs = Integer.valueOf(descriptionDetailTable.getValueAt(Myindex, 3).toString());
-        float incurred = Float.parseFloat(descriptionDetailTable.getValueAt(Myindex, 4).toString());
+        String name = descriptionVar.getText();
+        int adults = Integer.valueOf(adultVar.getText());
+        int childs = Integer.valueOf(childVar.getText());
+        float incurred = Float.parseFloat(incurredVar.getText());
+        
         System.out.println("Id: " + id);
         System.out.println("incrred: " + incurred);
         System.out.println(name);
         des.updateDescriptionDetail(id, name, adults, childs, incurred);
-        showInfoManageTrips();
+        showDescriptionDetail();
     }//GEN-LAST:event_updateBtnMouseClicked
     public void showInfoManageTrips() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
