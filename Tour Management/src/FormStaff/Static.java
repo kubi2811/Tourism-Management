@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package FormAdmin;
+package FormStaff;
 
 import Service.StaticService;
 import java.awt.BorderLayout;
@@ -22,12 +22,12 @@ import org.jfree.data.general.DefaultPieDataset;
  *
  * @author ranco
  */
-public class Statistical extends javax.swing.JPanel {
+public class Static extends javax.swing.JPanel {
 
     /**
-     * Creates new form Statistical
+     * Creates new form Static
      */
-    public Statistical() {
+    public Static() {
         initComponents();
         showBarChart();
         showPieChart();
@@ -48,11 +48,6 @@ public class Statistical extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                formFocusGained(evt);
-            }
-        });
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
@@ -64,18 +59,15 @@ public class Statistical extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(179, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 956, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(199, 199, 199))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,18 +78,10 @@ public class Statistical extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
-        // TODO add your handling code here:
-        showBarChart();
-        showPieChart();
-        showLineChart();
-    }//GEN-LAST:event_formFocusGained
-
-    public void showBarChart(){
+public void showBarChart(){
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         StaticService num = new StaticService();
         dataset.setValue(num.getTotalREvenuebyMonth(1), "Amount", "Jan");
@@ -167,10 +151,10 @@ public class Statistical extends javax.swing.JPanel {
         dataset.setValue(num.getTotalChiByMonth(3), "Amount", "Mar");
         dataset.setValue(num.getTotalChiByMonth(4), "Amount", "Apr");
         dataset.setValue(num.getTotalChiByMonth(5), "Amount", "May");
-        dataset.setValue(num.getTotalChiByMonth(6), "Amount", "June");
-        dataset.setValue(num.getTotalChiByMonth(7), "Amount", "July");
+        dataset.setValue(num.getTotalChiByMonth(6), "Amount", "Jun");
+        dataset.setValue(num.getTotalChiByMonth(7), "Amount", "Jul");
         dataset.setValue(num.getTotalChiByMonth(8), "Amount", "Aug");
-        dataset.setValue(num.getTotalChiByMonth(9), "Amount", "Sept");
+        dataset.setValue(num.getTotalChiByMonth(9), "Amount", "Sep");
         dataset.setValue(num.getTotalChiByMonth(10), "Amount", "Oct");
         dataset.setValue(num.getTotalChiByMonth(11), "Amount", "Nov");
         dataset.setValue(num.getTotalChiByMonth(12), "Amount", "Dec");
@@ -195,6 +179,7 @@ public class Statistical extends javax.swing.JPanel {
         jPanel3.add(lineChartPanel, BorderLayout.CENTER);
         jPanel3.validate();
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

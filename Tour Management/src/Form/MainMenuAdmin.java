@@ -433,16 +433,16 @@ public class MainMenuAdmin extends javax.swing.JFrame {
         pnlDataCardsLayout.setHorizontalGroup(
             pnlDataCardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDataCardsLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(142, 142, 142)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
         pnlDataCardsLayout.setVerticalGroup(
             pnlDataCardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDataCardsLayout.createSequentialGroup()
-                .addGap(164, 164, 164)
+                .addGap(163, 163, 163)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(211, Short.MAX_VALUE))
+                .addContainerGap(212, Short.MAX_VALUE))
         );
 
         pnlRight.add(pnlDataCards, "card1");
@@ -453,7 +453,7 @@ public class MainMenuAdmin extends javax.swing.JFrame {
         pnlTypography.setLayout(pnlTypographyLayout);
         pnlTypographyLayout.setHorizontalGroup(
             pnlTypographyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 808, Short.MAX_VALUE)
+            .addGap(0, 1006, Short.MAX_VALUE)
         );
         pnlTypographyLayout.setVerticalGroup(
             pnlTypographyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

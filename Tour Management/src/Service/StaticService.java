@@ -26,7 +26,7 @@ public class StaticService {
                 if(resultSet.getDate("createDate").getMonth()+ 1 == month){
                     total += (long)resultSet.getDouble("Total");
                 }
-            }         
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -49,13 +49,13 @@ public class StaticService {
         return total;
     }
     public long getTotalREvenue(){
-        String sql  = " select SUM(TotalEvenue) as Total from OrderTour";
+        String sql  = " select SUM(Total) as Total from OrderTour";
         long total = 0L ;
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while(resultSet.next()){
-                total = (long)resultSet.getDouble("TotalEvenue");
+                total = (long)resultSet.getDouble("Total");
             }
         
         

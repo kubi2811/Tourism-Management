@@ -19,6 +19,7 @@ import FormStaff.History;
 import FormStaff.ManageTrips;
 import FormStaff.StaffInformation;
 import FormStaff.StatusTour;
+import FormStaff.Static;
 
 /**
  *
@@ -654,6 +655,8 @@ public class MainMenuStaff extends javax.swing.JFrame {
         resetColor(btn_fonts);
         resetColor(btn_typo);
         resetColor(btn_Statistical);
+        resetColor(history_btn);
+        ind_icons2.setOpaque(false);
 
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_typo.setOpaque(false);
@@ -809,7 +812,7 @@ public class MainMenuStaff extends javax.swing.JFrame {
         ind_btns1.setOpaque(false);
 
         pnlRight.removeAll();
-//        pnlRight.add(new Statistical()).setVisible(true);
+        pnlRight.add(new Static()).setVisible(true);
         pnlRight.repaint();
         pnlRight.revalidate();
 

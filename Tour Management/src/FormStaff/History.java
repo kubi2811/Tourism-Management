@@ -57,20 +57,17 @@ public class History extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         HistoryTable = new javax.swing.JTable();
         search_inputField = new javax.swing.JTextField();
-        Search_btn = new javax.swing.JToggleButton();
+        activeStaffLabel = new javax.swing.JLabel();
+        deactivateStaffBtn = new javax.swing.JButton();
 
-        jLabel1.setText("Lịch sử thanh toán");
+        setBackground(new java.awt.Color(255, 255, 255));
 
         HistoryTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Customer Fullname", "Customer Username", "Order ID", "Payment day"
@@ -86,10 +83,22 @@ public class History extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(HistoryTable);
 
-        Search_btn.setText("Search");
-        Search_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+        activeStaffLabel.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        activeStaffLabel.setForeground(new java.awt.Color(153, 153, 255));
+        activeStaffLabel.setText("Lịch sử thanh toán");
+
+        deactivateStaffBtn.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        deactivateStaffBtn.setForeground(new java.awt.Color(153, 153, 255));
+        deactivateStaffBtn.setText("Search");
+        deactivateStaffBtn.setBorder(new javax.swing.border.MatteBorder(null));
+        deactivateStaffBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Search_btnMouseClicked(evt);
+                deactivateStaffBtnMouseClicked(evt);
+            }
+        });
+        deactivateStaffBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deactivateStaffBtnActionPerformed(evt);
             }
         });
 
@@ -99,35 +108,36 @@ public class History extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 777, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(search_inputField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 777, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(282, 282, 282)
+                .addComponent(activeStaffLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(search_inputField, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(deactivateStaffBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(109, 109, 109))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Search_btn, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                    .addComponent(search_inputField))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
-                .addGap(38, 38, 38))
+                .addGap(22, 22, 22)
+                .addComponent(activeStaffLabel)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(search_inputField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deactivateStaffBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                .addGap(168, 168, 168))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Search_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search_btnMouseClicked
-        // TODO add your handling code here:
+    private void deactivateStaffBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deactivateStaffBtnMouseClicked
+         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) HistoryTable.getModel();
         model.setRowCount(0);
         try {
@@ -157,13 +167,17 @@ public class History extends javax.swing.JPanel {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error!");
         }
-    }//GEN-LAST:event_Search_btnMouseClicked
+    }//GEN-LAST:event_deactivateStaffBtnMouseClicked
+
+    private void deactivateStaffBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deactivateStaffBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deactivateStaffBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable HistoryTable;
-    private javax.swing.JToggleButton Search_btn;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel activeStaffLabel;
+    private javax.swing.JButton deactivateStaffBtn;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField search_inputField;
     // End of variables declaration//GEN-END:variables
