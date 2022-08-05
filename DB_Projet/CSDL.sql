@@ -87,7 +87,7 @@ go
 create table Descriptions (
 	IdDescription INT IDENTITY(1,1) primary key,
 	Tour nvarchar(50) FOREIGN KEY REFERENCES Tour(TourName),
-	createDate datetime default getdate(),
+	CreateDate datetime default getdate(),
 	Total float,
 ) 
 go
@@ -189,6 +189,7 @@ begin
 end
 go
 
+--Trigger Descriptions
 CREATE TRIGGER trg_description ON DescriptionDetail  AFTER INSERT AS 
 BEGIN
 	UPDATE Descriptions
@@ -198,8 +199,31 @@ BEGIN
 	FROM Descriptions
 	JOIN inserted ON Descriptions.IdDescription = inserted.IdDescription
 END
+
 GO
 
+CREATE TRIGGER trg_descriptionupdate ON DescriptionDetail AFTER UPDATE AS 
+BEGIN
+	UPDATE Descriptions
+	SET Total = (SELECT SUM(Total) as SUM
+	FROM DescriptionDetail
+	WHERE IdDescription = Descriptions.IdDescription )
+	FROM Descriptions
+	JOIN deleted ON Descriptions.IdDescription = deleted.IdDescription
+END
+
+CREATE TRIGGER trg_descriptiondelete ON DescriptionDetail AFTER DELETE AS 
+BEGIN
+	UPDATE Descriptions
+	SET Total = 0
+	FROM Descriptions
+	JOIN deleted ON Descriptions.IdDescription = deleted.IdDescription
+END
+
+Select * from Descriptions
+select * from DescriptionDetail
+select * from Tour
+insert into Descriptions(Tour) values (N'Hà Nội - Hồ Chí Minh')
 
 
 
