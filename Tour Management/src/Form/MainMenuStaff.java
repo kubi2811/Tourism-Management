@@ -663,7 +663,7 @@ public class MainMenuStaff extends javax.swing.JFrame {
         pnlRight.removeAll();
         pnlRight.add(new StatusTour()).setVisible(true);
         pnlRight.repaint();
-        pnlRight.revalidate();
+        pnlRight.revalidate();    
 
     }//GEN-LAST:event_btn_statusMousePressed
 
