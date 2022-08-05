@@ -175,7 +175,7 @@ public class ClientInformation extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         try {
             
-            String sql = "select * from Client ";
+            String sql = "select TOP (500) * from Client ";
             Statement statement = connect.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
