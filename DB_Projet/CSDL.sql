@@ -69,13 +69,6 @@ create table LocationStart(
 )
 go
 
-create table LocationVisit(
-	IdLocationVisit INT IDENTITY(1,1) primary key,
-	Tour nvarchar(50) FOREIGN KEY REFERENCES Tour(TourName),
-	VisitPlace nvarchar(50) NOT NULL
-)
-go
-
 create table Vehicle(
 	IdVehicle INT IDENTITY(1,1) primary key,
 	IdLocationStart int FOREIGN KEY REFERENCES LocationStart(IdLocationStart), -- Lấy tour name từ bảng tour
@@ -104,7 +97,8 @@ create table DescriptionDetail (
 go
 
 create table OrderTour (
-	IdOrder INT IDENTITY(1,1) primary key,
+	--IdOrder INT IDENTITY(1,1) primary key,
+	IdOrder INT IDENTITY(1,1) PRIMARY KEY NONCLUSTERED ON [PRIMARY],
 	IdClient int,
 	createDate datetime default getdate(),
 	Total float,
@@ -160,6 +154,8 @@ go
 
 
 -- Trigger order
+
+drop TRIGGER tr_OrderTour
 
 CREATE TRIGGER trg_OrderTour ON OrderDetail  AFTER INSERT AS 
 BEGIN
@@ -224,17 +220,7 @@ BEGIN
 END
 
 
-Select * from Descriptions
-select * from DescriptionDetail
-select * from Tour
-select * from Staff
-select * from LocationStart
-select * from Vehicle
-select * from OrderTour
-select * from OrderDetail
-select * from OrderStatus
 
-select Username from Client where IdClient = 3
 
 
 

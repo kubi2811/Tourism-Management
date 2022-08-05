@@ -253,15 +253,21 @@ public class BookTripNow extends javax.swing.JPanel {
         int numberOfChilds = Integer.parseInt(Childs.getText());
         orderTourService.OrderTour(Login.IdClient);
         int idOrder = orderTourService.findDifferIdOrder(Login.IdClient);
+
         orderTourService.OrderTourDetail(idOrder, Login.IdClient, String.valueOf(OrderTourCbx.getSelectedItem()), numberOfAdo, numberOfChilds);
         orderTourService.OrderStatusTour(orderTourService.getIdOrderByIdClient(Login.IdClient), clientService.getFullNameById(Login.IdClient), "Chua thanh toán");
+
 
         JOptionPane.showMessageDialog(null, "You are registed successfully");
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void TourDescriptionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TourDescriptionMouseClicked
         // TODO add your handling code here:
-        
+
+   
+       
+
+
     }//GEN-LAST:event_TourDescriptionMouseClicked
 
     private void TourDescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TourDescriptionActionPerformed
@@ -284,11 +290,15 @@ public class BookTripNow extends javax.swing.JPanel {
                     vector.add(resultSet.getString("DayStart"));
                     vector.add(resultSet.getString("DayEnd"));
                     vector.add(s);
+                    vector.add(vehicleService.getTransportById(locationStartService.getIDByNameStart(s)));                
+                    model.addRow(vector);     
+                    System.out.println(vehicleService.getTransportById(locationStartService.getIDByNameStart(s)));
 //                    vector.add(vehicleService.getTransportById(locationStartService.getIDByNameStart(s)));
                         System.out.println(vehicle.getIdLocationStartByProviceAndTour(resultSet.getString("TourName"), locationStartService.getAddressStartByName2(resultSet.getString("TourName"))));
 //                    System.out.println(String.valueOf(vehicle.getTransportById(vehicle.getIdLocationStartByProviceAndTour(resultSet.getString("TourName"), s))));
                     vector.add(String.valueOf(vehicle.getTransportById(vehicle.getIdLocationStartByProviceAndTour(resultSet.getString("TourName"), s))));
                     model.addRow(vector);
+
                 }
 
             }

@@ -33,11 +33,17 @@ public class YourTrip extends javax.swing.JPanel {
      */
     public YourTrip() {
         initComponents();
+        
         showYourTrip();
+        List<String> listTour = trashClientService.getListNameTourTrash(0);
+        for(String tourName : listTour){
+            jComboBox1.addItem(tourName);
+        }
     }
 
     public void showYourTrip() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
         String sql = "select * from OrderDetail where idClient ='" + Login.IdClient +"'";
         try {
             Statement statement = connect.createStatement();
@@ -55,10 +61,7 @@ public class YourTrip extends javax.swing.JPanel {
         } catch (Exception e) {
             e.printStackTrace();
         }
-          List<String> listTour = trashClientService.getListNameTourTrash(0);
-        for(String tourName : listTour){
-            jComboBox1.addItem(tourName);
-        }
+        
     }
 
     /**
@@ -137,7 +140,7 @@ public class YourTrip extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(UpdateOrder))))
                     .addComponent(jLabel2))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,6 +167,8 @@ public class YourTrip extends javax.swing.JPanel {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         trashClientService.safeDelete(orderTourService.getIdOrderByName(String.valueOf(jComboBox1.getSelectedItem())));
+        showYourTrip();
+
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void UpdateOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdateOrderMouseClicked
@@ -171,6 +176,8 @@ public class YourTrip extends javax.swing.JPanel {
         int numsChilds = Integer.parseInt(ChildsUpdate.getText());
         int numsAdults = Integer.parseInt(AdultsUpdate.getText());
         orderTourService.updateOrderClient(orderTourService.getIdOrderByName(String.valueOf(jComboBox1.getSelectedItem())), numsAdults, numsChilds);
+        System.out.println(orderTourService.getIdOrderByName(String.valueOf(jComboBox1.getSelectedItem())));
+        showYourTrip();
     }//GEN-LAST:event_UpdateOrderMouseClicked
 
 
