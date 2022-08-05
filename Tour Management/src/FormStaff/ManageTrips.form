@@ -306,50 +306,46 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="activeStaffLabel5" min="-2" max="-2" attributes="0"/>
+                      <Component id="activeStaffLabel6" min="-2" max="-2" attributes="0"/>
+                      <Component id="activeStaffLabel7" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="activeStaffLabel5" min="-2" max="-2" attributes="0"/>
-                              <Component id="activeStaffLabel6" min="-2" max="-2" attributes="0"/>
-                              <Component id="activeStaffLabel7" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="descriptionVar" min="-2" pref="189" max="-2" attributes="0"/>
-                                      <Component id="tourNameVar" min="-2" pref="189" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="activeStaffLabel9" min="-2" max="-2" attributes="0"/>
-                                      <Component id="activeStaffLabel8" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="adultVar" pref="131" max="32767" attributes="0"/>
-                                      <Component id="childVar" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="incurredVar" min="-2" pref="190" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="descriptionVar" min="-2" pref="189" max="-2" attributes="0"/>
+                              <Component id="tourNameVar" min="-2" pref="189" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="activeStaffLabel9" min="-2" max="-2" attributes="0"/>
+                              <Component id="activeStaffLabel8" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="adultVar" pref="131" max="32767" attributes="0"/>
+                              <Component id="childVar" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Component id="jScrollPane2" min="-2" pref="711" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="52" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="incurredVar" min="-2" pref="190" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="295" max="-2" attributes="0"/>
-                  <Component id="addDescription" min="-2" pref="211" max="-2" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="103" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" min="-2" pref="711" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="341" max="-2" attributes="0"/>
+                  <Component id="searchAcBtn" min="-2" pref="173" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -390,11 +386,11 @@
                           <Component id="childVar" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                  <Component id="addDescription" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="searchAcBtn" min="-2" pref="38" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                   <Component id="jScrollPane2" min="-2" pref="191" max="-2" attributes="0"/>
-                  <EmptySpace pref="179" max="32767" attributes="0"/>
+                  <EmptySpace pref="146" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -442,14 +438,6 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="addDescription">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Add"/>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="addDescriptionMouseClicked"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JTextField" name="tourNameVar">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tourNameVarActionPerformed"/>
@@ -509,6 +497,25 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Childs Number"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="searchAcBtn">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Add"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder/>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchAcBtnActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

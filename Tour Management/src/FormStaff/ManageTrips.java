@@ -81,13 +81,13 @@ public class ManageTrips extends javax.swing.JPanel {
         incurredVar = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        addDescription = new javax.swing.JButton();
         tourNameVar = new javax.swing.JTextField();
         activeStaffLabel5 = new javax.swing.JLabel();
         activeStaffLabel6 = new javax.swing.JLabel();
         activeStaffLabel7 = new javax.swing.JLabel();
         activeStaffLabel8 = new javax.swing.JLabel();
         activeStaffLabel9 = new javax.swing.JLabel();
+        searchAcBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.CardLayout());
@@ -278,13 +278,6 @@ public class ManageTrips extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(jTable2);
 
-        addDescription.setText("Add");
-        addDescription.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addDescriptionMouseClicked(evt);
-            }
-        });
-
         tourNameVar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tourNameVarActionPerformed(evt);
@@ -311,43 +304,51 @@ public class ManageTrips extends javax.swing.JPanel {
         activeStaffLabel9.setForeground(new java.awt.Color(153, 153, 255));
         activeStaffLabel9.setText("Childs Number");
 
+        searchAcBtn.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        searchAcBtn.setForeground(new java.awt.Color(153, 153, 255));
+        searchAcBtn.setText("Add");
+        searchAcBtn.setBorder(new javax.swing.border.MatteBorder(null));
+        searchAcBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchAcBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout CreateDescriptionCardLayout = new javax.swing.GroupLayout(CreateDescriptionCard);
         CreateDescriptionCard.setLayout(CreateDescriptionCardLayout);
         CreateDescriptionCardLayout.setHorizontalGroup(
             CreateDescriptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CreateDescriptionCardLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
+                .addGroup(CreateDescriptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(activeStaffLabel5)
+                    .addComponent(activeStaffLabel6)
+                    .addComponent(activeStaffLabel7))
+                .addGap(18, 18, 18)
                 .addGroup(CreateDescriptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CreateDescriptionCardLayout.createSequentialGroup()
-                        .addGroup(CreateDescriptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(activeStaffLabel5)
-                            .addComponent(activeStaffLabel6)
-                            .addComponent(activeStaffLabel7))
-                        .addGap(18, 18, 18)
                         .addGroup(CreateDescriptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(CreateDescriptionCardLayout.createSequentialGroup()
-                                .addGroup(CreateDescriptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(descriptionVar, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tourNameVar, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(73, 73, 73)
-                                .addGroup(CreateDescriptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(activeStaffLabel9)
-                                    .addComponent(activeStaffLabel8))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(CreateDescriptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(adultVar, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-                                    .addComponent(childVar))
-                                .addGap(118, 118, 118))
-                            .addGroup(CreateDescriptionCardLayout.createSequentialGroup()
-                                .addComponent(incurredVar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(descriptionVar, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tourNameVar, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(73, 73, 73)
+                        .addGroup(CreateDescriptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(activeStaffLabel9)
+                            .addComponent(activeStaffLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(CreateDescriptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(adultVar, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+                            .addComponent(childVar))
+                        .addGap(118, 118, 118))
                     .addGroup(CreateDescriptionCardLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 52, Short.MAX_VALUE))))
+                        .addComponent(incurredVar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CreateDescriptionCardLayout.createSequentialGroup()
+                .addContainerGap(103, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(106, 106, 106))
             .addGroup(CreateDescriptionCardLayout.createSequentialGroup()
-                .addGap(295, 295, 295)
-                .addComponent(addDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(341, 341, 341)
+                .addComponent(searchAcBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         CreateDescriptionCardLayout.setVerticalGroup(
@@ -377,11 +378,11 @@ public class ManageTrips extends javax.swing.JPanel {
                         .addComponent(adultVar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(childVar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(52, 52, 52)
-                .addComponent(addDescription)
-                .addGap(60, 60, 60)
+                .addGap(46, 46, 46)
+                .addComponent(searchAcBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(86, 86, 86)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
 
         add(CreateDescriptionCard, "card02");
@@ -409,21 +410,6 @@ public class ManageTrips extends javax.swing.JPanel {
     private void adultVarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adultVarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_adultVarActionPerformed
-
-    private void addDescriptionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addDescriptionMouseClicked
-        // TODO add your handling code here:
-//        Descriptions description = new Descriptions(listTourNameVar,0);
-//        descriptionService.createDescription(description);
-
-        int numberIdDescription;
-        StaffService temp = new StaffService();
-        numberIdDescription = temp.getIdDescription(listTourNameVar);
-
-        DescriptionDetail descriptionDetail = new DescriptionDetail(numberIdDescription, descriptionVar.getText(), Integer.parseInt(adultVar.getText()), Integer.parseInt(childVar.getText()), Double.parseDouble(incurredVar.getText()));
-        descriptionService.createDescriptionDetail(descriptionDetail);
-        showDescriptionDetail();
-
-    }//GEN-LAST:event_addDescriptionMouseClicked
 
     private void descriptionVarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descriptionVarActionPerformed
         // TODO add your handling code here:
@@ -474,6 +460,18 @@ public class ManageTrips extends javax.swing.JPanel {
     private void deactivateStaffBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deactivateStaffBtn1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_deactivateStaffBtn1ActionPerformed
+
+    private void searchAcBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchAcBtnActionPerformed
+        // TODO add your handling code here:
+        
+        int numberIdDescription;
+        StaffService temp = new StaffService();
+        numberIdDescription = temp.getIdDescription(listTourNameVar);
+
+        DescriptionDetail descriptionDetail = new DescriptionDetail(numberIdDescription, descriptionVar.getText(), Integer.parseInt(adultVar.getText()), Integer.parseInt(childVar.getText()), Double.parseDouble(incurredVar.getText()));
+        descriptionService.createDescriptionDetail(descriptionDetail);
+        showDescriptionDetail();
+    }//GEN-LAST:event_searchAcBtnActionPerformed
     public void showInfoManageTrips() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
@@ -546,7 +544,6 @@ public class ManageTrips extends javax.swing.JPanel {
     private javax.swing.JLabel activeStaffLabel7;
     private javax.swing.JLabel activeStaffLabel8;
     private javax.swing.JLabel activeStaffLabel9;
-    private javax.swing.JButton addDescription;
     private javax.swing.JTextField adultVar;
     private javax.swing.JTextField childVar;
     private javax.swing.JButton deactivateStaffBtn;
@@ -557,6 +554,7 @@ public class ManageTrips extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JButton searchAcBtn;
     private javax.swing.JTextField tourNameVar;
     // End of variables declaration//GEN-END:variables
 }
