@@ -211,6 +211,7 @@ BEGIN
 	FROM Descriptions
 	JOIN deleted ON Descriptions.IdDescription = deleted.IdDescription
 END
+go
 
 CREATE TRIGGER trg_descriptiondelete ON DescriptionDetail AFTER DELETE AS 
 BEGIN
