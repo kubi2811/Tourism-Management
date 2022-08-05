@@ -218,15 +218,3 @@ BEGIN
 	JOIN deleted ON Descriptions.IdDescription = deleted.IdDescription
 END
 
-select * from Tour
-<<<<<<< Updated upstream
---insert into Descriptions(Tour) values (N'Hà Nội - Hồ Chí Minh')
-
-
-
-
-=======
-select * from dbo.LocationStart
->>>>>>> Stashed changes
-
-select * from dbo.Vehicle
