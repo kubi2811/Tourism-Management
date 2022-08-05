@@ -113,9 +113,6 @@ public class MainMenuStaff extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         label_forStaff = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        btn_btns = new javax.swing.JPanel();
-        ind_btns = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
         btn_data = new javax.swing.JPanel();
         ind_data = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -283,7 +280,7 @@ public class MainMenuStaff extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Client Information");
+        jLabel5.setText("Manage Client");
         btn_fonts.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         btn_status.setBackground(new java.awt.Color(76, 41, 211));
@@ -322,35 +319,6 @@ public class MainMenuStaff extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("PROFILE");
-
-        btn_btns.setBackground(new java.awt.Color(76, 41, 211));
-        btn_btns.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_btnsMousePressed(evt);
-            }
-        });
-        btn_btns.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        ind_btns.setOpaque(false);
-        ind_btns.setPreferredSize(new java.awt.Dimension(4, 40));
-
-        javax.swing.GroupLayout ind_btnsLayout = new javax.swing.GroupLayout(ind_btns);
-        ind_btns.setLayout(ind_btnsLayout);
-        ind_btnsLayout.setHorizontalGroup(
-            ind_btnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 4, Short.MAX_VALUE)
-        );
-        ind_btnsLayout.setVerticalGroup(
-            ind_btnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
-
-        btn_btns.add(ind_btns, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 40));
-
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Buttons");
-        btn_btns.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         btn_data.setBackground(new java.awt.Color(76, 41, 211));
         btn_data.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -475,7 +443,6 @@ public class MainMenuStaff extends javax.swing.JFrame {
             .addComponent(btn_typo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_fonts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_status, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btn_btns, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_data, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(sidepaneLayout.createSequentialGroup()
                 .addGroup(sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -491,7 +458,7 @@ public class MainMenuStaff extends javax.swing.JFrame {
                     .addGroup(sidepaneLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(label_forStaff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
             .addComponent(btn_btns1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_Statistical, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(history_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -513,15 +480,13 @@ public class MainMenuStaff extends javax.swing.JFrame {
                 .addComponent(btn_status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(history_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_Statistical, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_btns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(59, 59, 59)
                 .addComponent(btn_btns1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -592,7 +557,6 @@ public class MainMenuStaff extends javax.swing.JFrame {
         //Màu sắc
         setColor(btn_typo);
         resetColor(btn_data);
-        resetColor(btn_btns);
         resetColor(btn_btns1);
         resetColor(btn_fonts);
         resetColor(btn_status);
@@ -602,7 +566,6 @@ public class MainMenuStaff extends javax.swing.JFrame {
         
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_typo.setOpaque(true);
-        ind_btns.setOpaque(false);
         ind_btns1.setOpaque(false);
         ind_data.setOpaque(false);
         ind_fonts.setOpaque(false);
@@ -621,7 +584,6 @@ public class MainMenuStaff extends javax.swing.JFrame {
         // TODO add your handling code here:
         setColor(btn_fonts);
         resetColor(btn_data);
-        resetColor(btn_btns);
         resetColor(btn_btns1);
         resetColor(btn_typo);
         resetColor(btn_status);
@@ -631,7 +593,6 @@ public class MainMenuStaff extends javax.swing.JFrame {
         
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_typo.setOpaque(false);
-        ind_btns.setOpaque(false);
         ind_btns1.setOpaque(false);
         ind_data.setOpaque(false);
         ind_fonts.setOpaque(true);
@@ -650,7 +611,6 @@ public class MainMenuStaff extends javax.swing.JFrame {
         // TODO add your handling code here:
         setColor(btn_status);
         resetColor(btn_data);
-        resetColor(btn_btns);
         resetColor(btn_btns1);
         resetColor(btn_fonts);
         resetColor(btn_typo);
@@ -660,7 +620,6 @@ public class MainMenuStaff extends javax.swing.JFrame {
 
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_typo.setOpaque(false);
-        ind_btns.setOpaque(false);
         ind_btns1.setOpaque(false);
         ind_data.setOpaque(false);
         ind_fonts.setOpaque(false);
@@ -674,38 +633,10 @@ public class MainMenuStaff extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btn_statusMousePressed
 
-    private void btn_btnsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_btnsMousePressed
-        // TODO add your handling code here:
-        setColor(btn_btns);
-        resetColor(btn_data);
-        resetColor(btn_typo);
-        resetColor(btn_btns1);
-        resetColor(btn_fonts);
-        resetColor(btn_status);
-        resetColor(btn_Statistical);
-        resetColor(history_btn);
-        ind_icons2.setOpaque(false);
-
-        //Gạch nhỏ đầu màu trắng khi bấm vào
-        ind_typo.setOpaque(false);
-        ind_btns.setOpaque(true);
-        ind_btns.setOpaque(false);
-        ind_data.setOpaque(false);
-        ind_fonts.setOpaque(false);
-        ind_icons.setOpaque(false);
-        ind_icons1.setOpaque(false);
-
-        pnlRight.removeAll();
-//        pnlRight.add(new CreateDescriptionForm()).setVisible(true);
-        pnlRight.repaint();
-        pnlRight.revalidate();
-    }//GEN-LAST:event_btn_btnsMousePressed
-
     private void btn_dataMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_dataMousePressed
         // TODO add your handling code here:
         setColor(btn_data);
         resetColor(btn_typo);
-        resetColor(btn_btns);
         resetColor(btn_btns1);
         resetColor(btn_fonts);
         resetColor(btn_status);
@@ -715,7 +646,6 @@ public class MainMenuStaff extends javax.swing.JFrame {
         
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_typo.setOpaque(false);
-        ind_btns.setOpaque(false);
         ind_btns1.setOpaque(false);
         ind_data.setOpaque(true);
         ind_fonts.setOpaque(false);
@@ -771,14 +701,12 @@ public class MainMenuStaff extends javax.swing.JFrame {
         resetColor(btn_Statistical);
         resetColor(btn_data);
         resetColor(btn_typo);
-        resetColor(btn_btns);
         resetColor(btn_fonts);
         resetColor(btn_status);
         setColor(btn_btns1);
 
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_typo.setOpaque(false);
-        ind_btns.setOpaque(false);
         ind_data.setOpaque(false);
         ind_fonts.setOpaque(false);
         ind_icons.setOpaque(false);
@@ -795,7 +723,6 @@ public class MainMenuStaff extends javax.swing.JFrame {
         setColor(btn_Statistical);
         resetColor(btn_data);
         resetColor(btn_typo);
-        resetColor(btn_btns);
         resetColor(btn_fonts);
         resetColor(btn_status);
         resetColor(btn_btns1);
@@ -804,7 +731,6 @@ public class MainMenuStaff extends javax.swing.JFrame {
 
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_typo.setOpaque(false);
-        ind_btns.setOpaque(false);
         ind_data.setOpaque(false);
         ind_fonts.setOpaque(false);
         ind_icons.setOpaque(false);
@@ -827,7 +753,6 @@ public class MainMenuStaff extends javax.swing.JFrame {
         // TODO add your handling code here:
         setColor(history_btn);
         resetColor(btn_typo);
-        resetColor(btn_btns);
         resetColor(btn_btns1);
         resetColor(btn_fonts);
         resetColor(btn_status);
@@ -837,7 +762,6 @@ public class MainMenuStaff extends javax.swing.JFrame {
         //Gạch nhỏ đầu màu trắng khi bấm vào
         ind_icons2.setOpaque(true);
         ind_typo.setOpaque(false);
-        ind_btns.setOpaque(false);
         ind_btns1.setOpaque(false);
         ind_data.setOpaque(false);
         ind_fonts.setOpaque(false);
@@ -906,14 +830,12 @@ public class MainMenuStaff extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btn_Statistical;
-    private javax.swing.JPanel btn_btns;
     private javax.swing.JPanel btn_btns1;
     private javax.swing.JPanel btn_data;
     private javax.swing.JPanel btn_fonts;
     private javax.swing.JPanel btn_status;
     private javax.swing.JPanel btn_typo;
     private javax.swing.JPanel history_btn;
-    private javax.swing.JPanel ind_btns;
     private javax.swing.JPanel ind_btns1;
     private javax.swing.JPanel ind_data;
     private javax.swing.JPanel ind_fonts;
@@ -932,7 +854,6 @@ public class MainMenuStaff extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel label_forStaff;
     private javax.swing.JLabel lblClose;
     private javax.swing.JLabel lblMaximize;

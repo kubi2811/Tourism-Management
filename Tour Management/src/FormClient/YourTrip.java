@@ -140,7 +140,7 @@ public class YourTrip extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(UpdateOrder))))
                     .addComponent(jLabel2))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,6 +167,8 @@ public class YourTrip extends javax.swing.JPanel {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         trashClientService.safeDelete(orderTourService.getIdOrderByName(String.valueOf(jComboBox1.getSelectedItem())));
+        showYourTrip();
+
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void UpdateOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdateOrderMouseClicked
