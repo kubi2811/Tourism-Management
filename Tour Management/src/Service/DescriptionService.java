@@ -79,4 +79,31 @@ public class DescriptionService {
         return name;
     }
     
+    
+    public void deleteDescriptionDetail(int id){
+        String sql = "delete from DescriptionDetail where IdDescriptionDetail = ?";
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            preparedStatement.execute();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
+    public void updateDescriptionDetail(int id, String name, int adults, int childs, float incurred){
+        String sql = "update  DescriptionDetail set nameDescription = ?, Adults = ?, Childs = ?, Incurred = ? where IdDescriptionDetail = ?";
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, name);
+            preparedStatement.setInt(2, adults);
+            preparedStatement.setInt(3, childs);
+            preparedStatement.setFloat(4, incurred);
+            preparedStatement.setInt(5, id);
+            preparedStatement.execute();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

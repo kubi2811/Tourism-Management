@@ -35,6 +35,7 @@ public class ManageTrips extends javax.swing.JPanel {
     private StaffService staffService = new StaffService();
     private DescriptionService descriptionService = new DescriptionService();
     private TourService tourService = new TourService();
+    private DescriptionService des = new DescriptionService();
     static String idTour;
     static int idDescription;
     public static String tourName;
@@ -80,7 +81,7 @@ public class ManageTrips extends javax.swing.JPanel {
         childVar = new javax.swing.JTextField();
         incurredVar = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        descriptionDetailTable = new javax.swing.JTable();
         addDescription = new javax.swing.JButton();
         tourNameVar = new javax.swing.JTextField();
         activeStaffLabel5 = new javax.swing.JLabel();
@@ -88,6 +89,8 @@ public class ManageTrips extends javax.swing.JPanel {
         activeStaffLabel7 = new javax.swing.JLabel();
         activeStaffLabel8 = new javax.swing.JLabel();
         activeStaffLabel9 = new javax.swing.JLabel();
+        deleteBtn = new javax.swing.JButton();
+        updateBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.CardLayout());
@@ -269,15 +272,28 @@ public class ManageTrips extends javax.swing.JPanel {
             }
         });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        descriptionDetailTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Name Description", "Adults", "Childs", "Incurred", "Total"
+                "Id", "Name Description", "Adults", "Childs", "Incurred", "Total"
             }
-        ));
-        jScrollPane2.setViewportView(jTable2);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        descriptionDetailTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                descriptionDetailTableMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(descriptionDetailTable);
 
         addDescription.setText("Add");
         addDescription.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -312,6 +328,20 @@ public class ManageTrips extends javax.swing.JPanel {
         activeStaffLabel9.setForeground(new java.awt.Color(153, 153, 255));
         activeStaffLabel9.setText("Childs Number");
 
+        deleteBtn.setText("Delete");
+        deleteBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteBtnMouseClicked(evt);
+            }
+        });
+
+        updateBtn.setText("Update");
+        updateBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateBtnMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout CreateDescriptionCardLayout = new javax.swing.GroupLayout(CreateDescriptionCard);
         CreateDescriptionCard.setLayout(CreateDescriptionCardLayout);
         CreateDescriptionCardLayout.setHorizontalGroup(
@@ -344,12 +374,15 @@ public class ManageTrips extends javax.swing.JPanel {
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(CreateDescriptionCardLayout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(CreateDescriptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(CreateDescriptionCardLayout.createSequentialGroup()
+                                .addComponent(addDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(63, 63, 63)
+                                .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(54, 54, 54)
+                                .addComponent(updateBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 52, Short.MAX_VALUE))))
-            .addGroup(CreateDescriptionCardLayout.createSequentialGroup()
-                .addGap(295, 295, 295)
-                .addComponent(addDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         CreateDescriptionCardLayout.setVerticalGroup(
             CreateDescriptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -378,9 +411,12 @@ public class ManageTrips extends javax.swing.JPanel {
                         .addComponent(adultVar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(childVar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(52, 52, 52)
-                .addComponent(addDescription)
-                .addGap(60, 60, 60)
+                .addGap(63, 63, 63)
+                .addGroup(CreateDescriptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addDescription)
+                    .addComponent(deleteBtn)
+                    .addComponent(updateBtn))
+                .addGap(49, 49, 49)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(179, Short.MAX_VALUE))
         );
@@ -478,6 +514,39 @@ public class ManageTrips extends javax.swing.JPanel {
     private void deactivateStaffBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deactivateStaffBtn1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_deactivateStaffBtn1ActionPerformed
+
+    private void deleteBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteBtnMouseClicked
+        // TODO add your handling code here:
+        int Myindex = descriptionDetailTable.getSelectedRow();
+        
+        int id = Integer.valueOf(descriptionDetailTable.getValueAt(Myindex, 0).toString());
+        des.deleteDescriptionDetail(id);
+        showInfoManageTrips();
+    }//GEN-LAST:event_deleteBtnMouseClicked
+
+    
+    private void descriptionDetailTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_descriptionDetailTableMouseClicked
+        // TODO add your handling code here:
+        int Myindex = descriptionDetailTable.getSelectedRow();
+        descriptionVar.setText(descriptionDetailTable.getValueAt(Myindex, 1).toString());
+        adultVar.setText(descriptionDetailTable.getValueAt(Myindex, 2).toString());
+        childVar.setText(descriptionDetailTable.getValueAt(Myindex, 3).toString());
+        incurredVar.setText(descriptionDetailTable.getValueAt(Myindex, 4).toString());
+    }//GEN-LAST:event_descriptionDetailTableMouseClicked
+
+    private void updateBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateBtnMouseClicked
+        // TODO add your handling code here:
+        int Myindex = descriptionDetailTable.getSelectedRow();
+        int id = Integer.valueOf(descriptionDetailTable.getValueAt(Myindex, 0).toString());
+        String name = descriptionDetailTable.getValueAt(Myindex, 1).toString();
+        int adults = Integer.valueOf(descriptionDetailTable.getValueAt(Myindex, 2).toString());
+        int childs = Integer.valueOf(descriptionDetailTable.getValueAt(Myindex, 3).toString());
+        float incurred = Float.parseFloat(descriptionDetailTable.getValueAt(Myindex, 4).toString());
+        System.out.println("Id: " + id);
+        System.out.println("incrred: " + incurred);
+        des.updateDescriptionDetail(id, name, adults, childs, incurred);
+        showInfoManageTrips();
+    }//GEN-LAST:event_updateBtnMouseClicked
     public void showInfoManageTrips() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
@@ -504,7 +573,7 @@ public class ManageTrips extends javax.swing.JPanel {
     }
 
     public void showDescriptionDetail() {
-        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        DefaultTableModel model = (DefaultTableModel) descriptionDetailTable.getModel();
         model.setRowCount(0);
 
         int numberIdDescription;
@@ -518,6 +587,7 @@ public class ManageTrips extends javax.swing.JPanel {
             while (resultSet.next()) {
 
                 Vector vector = new Vector();
+                vector.add(resultSet.getInt("IdDescriptionDetail"));
                 vector.add(resultSet.getString("nameDescription"));
                 vector.add(resultSet.getString("Adults"));
                 vector.add(resultSet.getString("Childs"));
@@ -555,12 +625,14 @@ public class ManageTrips extends javax.swing.JPanel {
     private javax.swing.JTextField childVar;
     private javax.swing.JButton deactivateStaffBtn;
     private javax.swing.JButton deactivateStaffBtn1;
+    private javax.swing.JButton deleteBtn;
+    private javax.swing.JTable descriptionDetailTable;
     private javax.swing.JTextField descriptionVar;
     private javax.swing.JTextField incurredVar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField tourNameVar;
+    private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables
 }
