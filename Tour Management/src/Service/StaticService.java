@@ -32,6 +32,22 @@ public class StaticService {
         }
         return total;
     }
+    public double getTotalChiByMonth(int month){
+        String sql = "select * from Descriptions";
+        double total = 0 ;
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+                if(month == resultSet.getDate("CreateDate").getMonth() + 1){
+                    total += resultSet.getDouble("Total");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return total;
+    }
     public double getTotalREvenue(){
         String sql  = " select SUM(TotalEvenue) as Total from OrderTour";
         double total = 0 ;
@@ -64,5 +80,6 @@ public class StaticService {
         }
         return total;
     }
+    
          
 }
