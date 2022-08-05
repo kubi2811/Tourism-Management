@@ -69,6 +69,13 @@ create table LocationStart(
 )
 go
 
+create table LocationVisit(
+	IdLocationVisit INT IDENTITY(1,1) primary key,
+	Tour nvarchar(50) FOREIGN KEY REFERENCES Tour(TourName),
+	VisitPlace nvarchar(50) NOT NULL
+)
+go
+
 create table Vehicle(
 	IdVehicle INT IDENTITY(1,1) primary key,
 	IdLocationStart int FOREIGN KEY REFERENCES LocationStart(IdLocationStart), -- Lấy tour name từ bảng tour
@@ -97,8 +104,7 @@ create table DescriptionDetail (
 go
 
 create table OrderTour (
-	--IdOrder INT IDENTITY(1,1) primary key,
-	IdOrder INT IDENTITY(1,1) PRIMARY KEY NONCLUSTERED ON [PRIMARY],
+	IdOrder INT IDENTITY(1,1) primary key,
 	IdClient int,
 	createDate datetime default getdate(),
 	Total float,
@@ -144,6 +150,7 @@ alter table OrderDetail
 add foreign key(IdOrder) references OrderTour(IdOrder)
 go
 
+
 alter table OrderStatus
 add foreign key(IdOrder) references OrderTour(IdOrder)
 go
@@ -152,35 +159,38 @@ alter table History
 add foreign key(IdOrder) references OrderTour(IdOrder)
 go
 
-
+select * from OrderDetail
+Select * from OrderTour
+Select * from OrderStatus
 -- Trigger order
-
-drop TRIGGER tr_OrderTour
-
+drop trigger trg_OrderTour
 CREATE TRIGGER trg_OrderTour ON OrderDetail  AFTER INSERT AS 
 BEGIN
 	UPDATE OrderTour
-	SET Total = (SELECT Adluts from OrderDetail where IdOrder = OrderDetail.IdOrder) * (SELECT CostAdo from Tour where Tour = Tour.TourName)  + 
-	(Select Childs from OrderDetail where IdOrder = OrderDetail.IdOrder) * (SELECT CostChild from Tour where Tour = Tour.TourName)
+	SET Total = (SELECT Adluts from OrderDetail where IdOrder = OrderTour.IdOrder) * (SELECT CostAdo from Tour where TourName = Tour)  + 
+	(Select Childs from OrderDetail where IdOrder = OrderTour.IdOrder) * (SELECT CostChild from Tour where TourName = Tour)
 	FROM OrderTour
 	JOIN inserted ON OrderTour.IdOrder = inserted.IdOrder
 END
 GO
 
+
 CREATE TRIGGER trg_CapNhatOrderTour ON OrderDetail After Update as 
 begin 
 	UPDATE OrderTour
-	SET Total = (SELECT Adluts from OrderDetail where IdOrder = OrderDetail.IdOrder) * (SELECT CostAdo from Tour where Tour = Tour.TourName)  + 
-	(Select Childs from OrderDetail where IdOrder = OrderDetail.IdOrder) * (SELECT CostChild from Tour where Tour = Tour.TourName)
+	SET Total = (SELECT Adluts from OrderDetail where IdOrder = OrderTour.IdOrder) * (SELECT CostAdo from Tour where TourName = Tour)  + 
+	(Select Childs from OrderDetail where IdOrder = OrderTour.IdOrder) * (SELECT CostChild from Tour where TourName = Tour)
 	FROM OrderTour
 	JOIN deleted ON OrderTour.IdOrder = deleted.IdOrder
 end
 go
 
+drop trigger trg_HuyOrderTour
 CREATE TRIGGER trg_HuyOrderTour ON OrderDetail After delete as 
 begin 
-	UPDATE OrderTour Set Total = 0 
-	from OrderTour
+	UPDATE OrderTour
+	SET Total = 0 
+	FROM OrderTour	
 	JOIN deleted ON OrderTour.IdOrder = deleted.IdOrder
 end
 go
@@ -221,8 +231,22 @@ END
 
 
 
+select * from Staff
+select * from LocationStart
+select * from Vehicle
 
+select * from OrderDetail
+Select * from OrderTour
+Select * from Tour
+Select * from Descriptions
+select * from DescriptionDetail
+select * from Tour
 
+select Username from Client where IdClient = 3
+
+update OrderDetail set Adluts = 20 , Childs = 30 where IdOrder = 9
+delete OrderDetail where IdOrder = 9
+update OrderTour set IsDeleted = 1 where IdOrder = 10
 
 
 
