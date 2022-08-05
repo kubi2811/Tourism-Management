@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 
 /**
  *
@@ -69,7 +70,7 @@ public class StaffInformation extends javax.swing.JPanel {
         UpdateUsernameBtn = new javax.swing.JToggleButton();
         UpdateFullnameBtn = new javax.swing.JToggleButton();
         UpdatePasswordBtn = new javax.swing.JToggleButton();
-        Password_Input = new javax.swing.JTextField();
+        Password_Input = new javax.swing.JPasswordField();
 
         jLabel1.setText("Information Management");
 
@@ -148,7 +149,7 @@ public class StaffInformation extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Password_Input, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(Password_Input)))
                         .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(UpdatePasswordBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
@@ -187,9 +188,9 @@ public class StaffInformation extends javax.swing.JPanel {
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Password_Input, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(UpdatePasswordBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Password_Input, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(163, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -215,9 +216,12 @@ public class StaffInformation extends javax.swing.JPanel {
     private void UpdatePasswordBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdatePasswordBtnMouseClicked
         // TODO add your handling code here:
         String newPass = Password_Input.getText();
-        String oldPass = JOptionPane.showInputDialog("Confrim your password");
-        System.out.println(oldPass);
-        if (newPass.equals(oldPass)){
+        JPasswordField pf = new JPasswordField();
+        int oldPass = JOptionPane.showConfirmDialog(null, pf, "Enter old password", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+        String oldPassStr = String.valueOf(oldPass);
+        //String oldPass = JOptionPane.showInputDialog("Confrim your password");
+        System.out.println(oldPassStr);
+        if (newPass.equals(oldPassStr)){
            JOptionPane.showMessageDialog(null, "You need change your password again !"); 
         }
         else {
@@ -231,7 +235,7 @@ public class StaffInformation extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Fullname_Input;
-    private javax.swing.JTextField Password_Input;
+    private javax.swing.JPasswordField Password_Input;
     private javax.swing.JToggleButton UpdateFullnameBtn;
     private javax.swing.JToggleButton UpdatePasswordBtn;
     private javax.swing.JToggleButton UpdateUsernameBtn;
