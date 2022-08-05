@@ -123,7 +123,8 @@ COMMIT TRANSACTION
 GO
 
 -- proc update cost
-create proc dbo.Tour @newCostAdults float, @newCostChilds float, @idTour int
+create proc sp_update_tour_cost
+@newCostAdults float, @newCostChilds float, @idTour int
 AS
 begin tran
 	BEGIN Try

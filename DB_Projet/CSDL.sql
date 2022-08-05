@@ -162,6 +162,8 @@ go
 
 -- Trigger order
 
+drop TRIGGER tr_OrderTour
+
 CREATE TRIGGER trg_OrderTour ON OrderDetail  AFTER INSERT AS 
 BEGIN
 	UPDATE OrderTour
@@ -225,17 +227,7 @@ BEGIN
 END
 
 
-Select * from Descriptions
-select * from DescriptionDetail
-select * from Tour
-select * from Staff
-select * from LocationStart
-select * from Vehicle
-select * from OrderTour
-select * from OrderDetail
-select * from OrderStatus
 
-select Username from Client where IdClient = 3
 
 
 
