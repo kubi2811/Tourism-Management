@@ -467,7 +467,7 @@ public class StaffInformation extends javax.swing.JPanel {
             Statement statement = connect.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             resultSet.next();
-            activeStaffLabel.setText("Deactivate Staff: " + String.valueOf(resultSet.getInt(1)));
+            activeStaffLabel.setText("Activate Staff: " + String.valueOf(resultSet.getInt(1)));
         } catch (Exception e) {
             e.getMessage();
         }

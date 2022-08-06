@@ -68,6 +68,7 @@ public class OrderTourService {
             e.printStackTrace();
         }
     }
+    
 
     public void OrderStatusTour(int idOrder, String userClient, String status) {
         try {
@@ -114,7 +115,7 @@ public class OrderTourService {
 
     public int getIdOrderByName(String nameTour) {
         int idOrder = 0;
-        String sql = "select IdOrder from OrderDetail where Tour =N'" + nameTour + "'";
+        String sql = "select IdOrder from OrderDetail where Tour = N'" + nameTour + "'";
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);

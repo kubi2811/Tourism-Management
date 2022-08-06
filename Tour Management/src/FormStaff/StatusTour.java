@@ -5,6 +5,8 @@
 package FormStaff;
 
 import Connect.JDBCConnection;
+import Service.OrderTourService;
+import Service.TourService;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,6 +21,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class StatusTour extends javax.swing.JPanel {
     private Connection connect = JDBCConnection.getConnection();
+    private OrderTourService orderTourService = new OrderTourService();
     /**
      * Creates new form ClientBookedTour
      */
@@ -30,14 +33,15 @@ public class StatusTour extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) activeTable.getModel();
         model.setRowCount(0);
         try {
-            String sql = "select dbo.Client.FullName, dbo.OrderStatus.ClientUserName, dbo.OrderStatus.IdOrder, dbo.OrderStatus.Status\n" +
-"FROM(dbo.Client INNER JOIN dbo.OrderStatus ON dbo.OrderStatus.ClientUserName = dbo.Client.Username) ";
+            String sql = "select dbo.OrderDetail.Tour, dbo.OrderStatus.ClientUserName, dbo.OrderStatus.Status,dbo.OrderStatus.IdOrder, dbo.Client.FullName\n" +
+"FROM(dbo.Client INNER JOIN(dbo.OrderDetail INNER JOIN dbo.OrderStatus ON OrderDetail.IdOrder = dbo.OrderStatus.IdOrder) ON dbo.Client.Username = dbo.OrderStatus.ClientUserName) ";
             Statement statement = connect.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
                 Vector vector = new Vector();
                 vector.add(resultSet.getString("FullName"));
                 vector.add(resultSet.getString("ClientUserName"));
+                vector.add(resultSet.getString("Tour"));
                 vector.add(resultSet.getString("IdOrder"));
                 vector.add(resultSet.getString("Status"));
                 model.addRow(vector);                  
@@ -89,11 +93,11 @@ public class StatusTour extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Customer Username", "Customer Fullname", "Order ID", "Status"
+                "Customer Username", "Customer Fullname", "Name Tour", "IdOrder", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -106,6 +110,9 @@ public class StatusTour extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(activeTable);
+        if (activeTable.getColumnModel().getColumnCount() > 0) {
+            activeTable.getColumnModel().getColumn(2).setResizable(false);
+        }
 
         StaffLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         StaffLabel.setForeground(new java.awt.Color(153, 153, 255));
@@ -209,7 +216,7 @@ public class StatusTour extends javax.swing.JPanel {
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) activeTable.getModel();
         int Myindex = activeTable.getSelectedRow();
-        temp.setText(model.getValueAt(Myindex, 2).toString());
+        temp.setText(model.getValueAt(Myindex, 3).toString());
     }//GEN-LAST:event_activeTableMouseClicked
 
     private void SearchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchTextFieldActionPerformed
@@ -221,7 +228,6 @@ public class StatusTour extends javax.swing.JPanel {
     }//GEN-LAST:event_tempActionPerformed
 
     private void activeStaffBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_activeStaffBtnMouseClicked
-        // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) activeTable.getModel();
         model.setRowCount(0);
         try {

@@ -295,12 +295,13 @@ public class BookTripNow extends javax.swing.JPanel {
             Statement statement = connect.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
-                for (String s : locationStartService.getAddressStartByName(resultSet.getString("TourName"))) {
+             
                     Vector vector = new Vector();
                     vector.add(resultSet.getString("IdTour"));
                     vector.add(resultSet.getString("TourName"));
                     vector.add(resultSet.getString("DayStart"));
                     vector.add(resultSet.getString("DayEnd"));
+                    String s = locationStartService.getAddressStartByName2(resultSet.getString("TourName"));
                     vector.add(s);
                     vector.add(vehicleService.getTransportById(locationStartService.getIDByNameStart(s)));                
                     model.addRow(vector);     
@@ -308,10 +309,9 @@ public class BookTripNow extends javax.swing.JPanel {
 //                    vector.add(vehicleService.getTransportById(locationStartService.getIDByNameStart(s)));
                         System.out.println(vehicle.getIdLocationStartByProviceAndTour(resultSet.getString("TourName"), locationStartService.getAddressStartByName2(resultSet.getString("TourName"))));
 //                    System.out.println(String.valueOf(vehicle.getTransportById(vehicle.getIdLocationStartByProviceAndTour(resultSet.getString("TourName"), s))));
-                    vector.add(String.valueOf(vehicle.getTransportById(vehicle.getIdLocationStartByProviceAndTour(resultSet.getString("TourName"), s))));
-                    model.addRow(vector);
+                 
 
-                }
+                
 
             }
         } catch (Exception e) {
